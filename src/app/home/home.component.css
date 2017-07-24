@@ -28,7 +28,10 @@ p {
 .parallax-container .section {
   width: 100%;
 }
-.no-pad-bot{
+.section{
+  margin-top: 2%;
+}
+.no-pad-bot {
   padding-top: 200px;
 }
 .overlay {
@@ -49,6 +52,21 @@ p {
   position: relative;
 
 }
+.parallax-container{
+  position: relative ;
+}
+.header{
+  font-size: 55px;
+}
+.icons{
+  font-size: 55px;
+}
+.parallax-container .parallax {
+  position: static !important;
+}
+/*.aaa{
+  position: relative;
+}*/
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
@@ -56,6 +74,7 @@ p {
   }
   #index-banner .section {
     top: 10%;
+
   }
   .container {
     width: 100%;
@@ -70,6 +89,9 @@ p {
   @media only screen and (max-width : 600px) {
     #index-banner .section {
       top: 0;
+    }
+    .header{
+      font-size: 40px;
     }
   }
 
