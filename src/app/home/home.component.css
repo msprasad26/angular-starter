@@ -28,7 +28,7 @@ p {
 .parallax-container .section {
   width: 100%;
 }
-.section{
+.section {
   margin-top: 2%;
 }
 .no-pad-bot {
@@ -40,33 +40,33 @@ p {
   height: 100%;
   z-index: 1;
   background-color: #080d15;
-  opacity: .5;
+  opacity:.5;
 }
 .container .row {
   margin-left: 0;
   margin-right: 0;
 }
 .teal-text.text-lighten-2 {
-  color: #fff !important;
+  color: #e1e0e0 !important;
   z-index: 100;
   position: relative;
 
 }
-.parallax-container{
-  position: relative ;
+.parallax-container {
+  position: relative;
 }
-.header{
+.header {
   font-size: 55px;
 }
-.icons{
+.icons {
   font-size: 55px;
 }
 .parallax-container .parallax {
   position: static !important;
 }
-/*.aaa{
-  position: relative;
-}*/
+.parallax-container .parallax img{
+  display: block;
+}
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
@@ -90,7 +90,7 @@ p {
     #index-banner .section {
       top: 0;
     }
-    .header{
+    .header {
       font-size: 40px;
     }
   }
