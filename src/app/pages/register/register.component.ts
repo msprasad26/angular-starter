@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
-
+import { UserService } from '../../shared/sevices/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'register',
   templateUrl: './register.html',
@@ -10,37 +11,42 @@ import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
 export class Register {
 
   public form:FormGroup;
-  public name:AbstractControl;
-  public email:AbstractControl;
+  public firstName:AbstractControl;
+  public username:AbstractControl;
   public password:AbstractControl;
-  public repeatPassword:AbstractControl;
+  /*public repeatPassword:AbstractControl;
   public passwords:FormGroup;
-
+*/
   public submitted:boolean = false;
 
-  constructor(fb:FormBuilder) {
+  constructor(fb:FormBuilder , private userService: UserService, private route: ActivatedRoute,
+              private router: Router) {
 
     this.form = fb.group({
-      'name': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-      'email': ['', Validators.compose([Validators.required, EmailValidator.validate])],
-      'passwords': fb.group({
+      'firstName': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+      'username': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+      /*'passwords': fb.group({
         'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
         'repeatPassword': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
-      }, {validator: EqualPasswordsValidator.validate('password', 'repeatPassword')})
+      }, {validator: EqualPasswordsValidator.validate('password', 'repeatPassword')})*/
     });
 
-    this.name = this.form.controls['name'];
-    this.email = this.form.controls['email'];
-    this.passwords = <FormGroup> this.form.controls['passwords'];
-    this.password = this.passwords.controls['password'];
-    this.repeatPassword = this.passwords.controls['repeatPassword'];
+    this.firstName = this.form.controls['firstName'];
+    this.username = this.form.controls['username'];
+   /* this.passwords = <FormGroup> this.form.controls['passwords'];*/
+    this.password = this.form.controls['password'];
+    /*this.repeatPassword = this.passwords.controls['repeatPassword'];*/
   }
 
   public onSubmit(values:Object):void {
     this.submitted = true;
     if (this.form.valid) {
-      // your code goes here
-      // console.log(values);
+       console.log(values);
+
+      this.userService.signup(values).subscribe(
+        data => this.router.navigateByUrl('login'),
+      );
     }
   }
 }

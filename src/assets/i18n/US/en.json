@@ -2,7 +2,7 @@
   "login": {
     "title": "Sign in",
     "signup_link": "New to user? Sign up!",
-    "email": "Email",
+    "username": "username",
     "password": "Password",
     "sign_in": "Sign in",
     "forgot_password": "Forgot password?",

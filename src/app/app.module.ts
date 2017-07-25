@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
+import { ApiService } from './shared/sevices/api.service';
+import { JwtService } from './shared/sevices/jwt.service';
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -51,7 +53,7 @@ export type StoreType = {
     HomeModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    APP_PROVIDERS
+    APP_PROVIDERS, ApiService, JwtService,
   ]
 })
 

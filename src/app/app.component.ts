@@ -1,11 +1,12 @@
-import { Component, ViewContainerRef } from '@angular/core';
+import { Component, ViewContainerRef, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 
 import { GlobalState } from './global.state';
 import { BaImageLoaderService, BaThemePreloader, BaThemeSpinner } from './theme/services';
 import { BaThemeConfig } from './theme/theme.config';
 import { layoutPaths } from './theme/theme.constants';
-
+import { UserService } from './shared/sevices/user.service';
+import { JwtService } from './shared/sevices/jwt.service';
 /*
  * App Component
  * Top Level Component
@@ -19,9 +20,10 @@ import { layoutPaths } from './theme/theme.constants';
       <div class="additional-bg"></div>
       <router-outlet></router-outlet>
     </main> 
-  `
+  `,
+  providers: [ UserService, JwtService]
 })
-export class App {
+export class App implements OnInit {
 
   isMenuCollapsed: boolean = false;
   isLanding: boolean = false;
@@ -30,7 +32,10 @@ export class App {
               private _imageLoader: BaImageLoaderService,
               private _spinner: BaThemeSpinner,
               private viewContainerRef: ViewContainerRef,
-              private themeConfig: BaThemeConfig) {
+              private themeConfig: BaThemeConfig,
+              private userservice: UserService,
+              private jwtservice: JwtService
+              ) {
 
     themeConfig.config();
 
@@ -56,4 +61,20 @@ export class App {
     BaThemePreloader.registerLoader(this._imageLoader.load('assets/img/sky-bg.jpg'));
   }
 
+  ngOnInit() {
+    if (!this.jwtservice.getClientToken() ) {
+      this.userservice.token();
+      //this.userservice.signup();
+    } else {
+      console.log(this.jwtservice.getClientToken());
+    }
+   /* if (!this.jwtservice.getUserToken()) {
+      this.userservice.login();
+    }else {
+      const user = this.jwtservice.getUser();
+      // update()
+      this.userservice.update(user);
+    }*/
+
+  }
 }
