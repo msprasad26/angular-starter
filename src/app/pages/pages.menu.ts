@@ -1,9 +1,9 @@
 export const PAGES_MENU = [
   {
-    path: '',
+    path: 'pages',
     children: [
       {
-        path: 'pages',
+        path: '',
         data: {
           menu: {
             title: 'general.menu.dashboard',
@@ -15,7 +15,19 @@ export const PAGES_MENU = [
         }
       },
       {
-        path: 'pages',
+        path: 'usersManagement',
+        data: {
+          menu: {
+            title: 'User Management',
+            icon: 'ion-person-stalker',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
+      {
+        path: '',
         data: {
           menu: {
             title: 'UI controls',
@@ -356,7 +368,7 @@ export const PAGES_MENU = [
         path: '',
         data: {
           menu: {
-            title: 'Wavelabs Documentation',
+            title: 'Wavelabs',
             url: 'http://wavelabs.in',
             icon: 'ion-android-exit',
             order: 800,

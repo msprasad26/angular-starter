@@ -9,14 +9,15 @@ import { DataTablesService } from './dataTables.service';
 export class DataTables {
 
     data;
-    filterQuery = "";
+    filterQuery = '';
     rowsOnPage = 10;
-    sortBy = "email";
-    sortOrder = "asc";
+    sortBy = 'email';
+    sortOrder = 'asc';
 
     constructor(private service: DataTablesService) {
     this.service.getData().then((data) => {
       this.data = data;
+      console.log(data);
     });
   }
 
@@ -27,5 +28,5 @@ export class DataTables {
     sortByWordLength = (a: any) => {
         return a.city.length;
     }
-  
+
 }

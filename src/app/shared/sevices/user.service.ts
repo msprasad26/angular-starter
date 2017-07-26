@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -28,7 +29,7 @@ export class UserService {
         this.jwtService.saveClientToken(data.access_token);
       });
   }
-   login(params) {
+    login(params) {
      /*const params = {'username' : 'inayath', 'password' : 'inayath'};*/
      console.log(params);
 
@@ -39,24 +40,38 @@ export class UserService {
          return data;
        }
      );
-   }
-  logout() {
-    this.jwtService.destroyUserToken();
-  }
+    }
 
-   update(user){
-     const params = {'description': 'test user1', 'firstName': 'L B user32', 'lastName': 'Share', 'phone': 234234234 } ;
-     this.apiService.put('/api/identity/v0/users/' + user.member.id, JSON.stringify(params), 'raw')
+    logout() {
+      this.jwtService.destroyUserToken();
+    }
+
+    update(user) {
+      const params = {'description': 'test user1', 'firstName': 'L B user32', 'lastName': 'Share', 'phone': 234234234 };
+      this.apiService.put('/api/identity/v0/users/' + user.member.id, JSON.stringify(params), 'raw')
        .subscribe(data => {
          console.log(data);
        });
-     }
-     signup(params) {
-       /*const params = {'username': 'inayath', 'password': 'inayath',  'firstName': 'inayt' };*/
+    }
 
-      return this.apiService.post('/api/identity/v0/users/signup', JSON.stringify(params), 'raw')
-         .map(data => {
-           console.log(data);
-     });
-}
+    signup(params) {
+         /*const params = {'username': 'inayath', 'password': 'inayath',  'firstName': 'inayt' };*/
+
+        return this.apiService.post('/api/identity/v0/users/signup', JSON.stringify(params), 'raw')
+           .map(data => {
+             console.log(data);
+       });
+    }
+
+    getAllUsers() {
+      const params: URLSearchParams = new URLSearchParams();
+      return  this.apiService.get('/api/identity/v0/tenants/TNT:STA-quvnya91/members', params, '')
+        .map(data => {
+          return data;
+
+        });
+    }
+
+  /*http://{{URL}}/api/identity/v0/tenants/TNT:STA-quvnya91/members
+*/
 }
