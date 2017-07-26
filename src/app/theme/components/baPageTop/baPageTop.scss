@@ -38,7 +38,9 @@
       color: $primary;
     }
   }
-
+  .clearfix {
+  clear: none;
+  }
   a.al-logo:hover {
     color: $primary;
   }
