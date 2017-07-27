@@ -10,6 +10,7 @@ import { environment } from '../../../environments/environment';
 
 import { ApiService } from './api.service';
 import { JwtService } from './jwt.service';
+import { URLSearchParams } from '@angular/http';
 
 @Injectable()
 
@@ -37,8 +38,8 @@ export class UserService {
          this.jwtService.saveUserToken(data.token.access_token);
          this.jwtService.saveUser( data);
          return data;
-       }
-     );
+       });
+
    }
   logout() {
     this.jwtService.destroyUserToken();
@@ -58,5 +59,14 @@ export class UserService {
          .map(data => {
            console.log(data);
      });
-}
+    }
+    // users(){
+    //
+    //   return this.apiService.get('/api/identity/v0/tenants/${environment.tnt_id}member').map(
+    //    data => {
+    //      return data;
+    //    }
+    //   );
+    // }
+
 }
