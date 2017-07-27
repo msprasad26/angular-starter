@@ -31,6 +31,8 @@ import {
   BaFileUploader
 } from './components';
 
+/*import { UserSidebar } from './components/UserSidebar/userSidebar.component';*/
+
 import { BaCardBlur } from './components/baCard/baCardBlur.directive';
 
 import {
@@ -72,7 +74,8 @@ const NGA_COMPONENTS = [
   BaPageTop,
   BaPictureUploader,
   BaSidebar,
-  BaFileUploader
+  BaFileUploader,
+ /* UserSidebar*/
 ];
 
 const NGA_DIRECTIVES = [

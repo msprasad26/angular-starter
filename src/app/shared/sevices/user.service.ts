@@ -31,15 +31,32 @@ export class UserService {
   }
     login(params) {
      /*const params = {'username' : 'inayath', 'password' : 'inayath'};*/
-     console.log(params);
+      return  this.apiService.post('/api/identity/v0/auth/login', JSON.stringify(params), 'raw').map(
+        response => {
+         this.jwtService.saveUserToken(response.token.access_token);
+         this.jwtService.saveUser( response);
+         // console.log( response);
+         return response;
 
-     return this.apiService.post('/api/identity/v0/auth/login', JSON.stringify(params), 'raw').map(
-       data => {
-         this.jwtService.saveUserToken(data.token.access_token);
-         this.jwtService.saveUser( data);
-         return data;
+         /*const pObj: URLSearchParams = new URLSearchParams();
+         return this.apiService.get('/api/identity/v0/tenants/' + `${environment.tenant_id}` + '/members/'+ response.member.id + '/roles', pObj, '')
+           .subscribe(data => {
+             console.log(data);
+             return data;
+           });
+*/
+
        }
      );
+    }
+
+    getUserRole(user) {
+      const pObj: URLSearchParams = new URLSearchParams();
+      return this.apiService.get('/api/identity/v0/tenants/' + `${environment.tenant_id}` + '/members/'+ user.member.id + '/roles', pObj, '')
+        .map(data => {
+          console.log(data);
+          return data;
+        });
     }
 
     logout() {

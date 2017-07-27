@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import { UserService } from '../../shared/sevices/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as _ from 'lodash';
 @Component({
   selector: 'login',
   templateUrl: './login.html',
@@ -9,12 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class Login {
 
-  public form:FormGroup;
-  public username:AbstractControl;
-  public password:AbstractControl;
-  public submitted:boolean = false;
+  public form: FormGroup;
+  public username: AbstractControl;
+  public password: AbstractControl;
+  public submitted: boolean = false;
 
-  constructor(fb:FormBuilder , private userService: UserService, private route: ActivatedRoute,
+  constructor(fb: FormBuilder , private userService: UserService, private route: ActivatedRoute,
               private router: Router) {
     this.form = fb.group({
       'username': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
@@ -29,8 +30,23 @@ export class Login {
     this.submitted = true;
     if (this.form.valid) {
       this.userService.login(values).subscribe(
-        data => this.router.navigateByUrl('pages'),
-      );
+        response => {
+          this.userService.getUserRole(response).subscribe(
+            data => {
+              console.log(data);
+              let userRole = 'guest';
+            if (data.length > 0 ) {
+
+              const roles = _.map(data, 'uRoleName');
+              if ( _.map(roles, 'role:app.tenant.admin') ) {
+                userRole = 'admin';
+                this.router.navigateByUrl('pages');
+              }
+            }else {
+              alert(userRole);
+            }
+            });
+        });
     }
   }
 }

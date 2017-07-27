@@ -1,3 +1,18 @@
+export const USER_PAGES_MENU = [
+{
+  path: ['/userDashboard'],
+    data: {
+  menu: {
+    title: 'User Dashboard',
+      icon: 'ion-android-home',
+      selected: false,
+      expanded: false,
+      order: 0
+  }
+}
+}];
+
+
 export const PAGES_MENU = [
   {
     path: 'pages',
@@ -26,6 +41,19 @@ export const PAGES_MENU = [
           }
         }
       },
+      {
+        path: ['/userDashboard'],
+        data: {
+          menu: {
+            title: 'User Dashboard',
+            icon: 'ion-android-home',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
+
       {
         path: '',
         data: {

@@ -1,4 +1,4 @@
-import { Routes, RouterModule }  from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { Pages } from './pages.component';
 import { ModuleWithProviders } from '@angular/core';
 // noinspection TypeScriptValidateTypes
@@ -15,6 +15,10 @@ export const routes: Routes = [
     loadChildren: 'app/pages/register/register.module#RegisterModule'
   },
   {
+    path: 'userDashboard',
+    loadChildren: 'app/pages/userDashboard/userDashboard.module#UserDashboardModule'
+  },
+  {
     path: 'pages',
     component: Pages,
     children: [
@@ -27,7 +31,9 @@ export const routes: Routes = [
       { path: 'forms', loadChildren: './forms/forms.module#FormsModule' },
       { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
       { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
-      { path: 'usersManagement', loadChildren: './userManagement/users.module#UsersModule' }
+      { path: 'usersManagement', loadChildren: './userManagement/users.module#UsersModule' },
+      /*{ path: 'userDashboard', loadChildren: './userDashboard/userDashboard.module#UserDashboardModule' }*/
+
     ]
   }
 ];

@@ -20,6 +20,7 @@ import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
 import { HomeModule } from './home/home.module';
 import { UsersModule } from './pages/userManagement/users.module';
+import { UserDashboardModule } from './pages/userDashboard/userDashboard.module';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -52,7 +53,8 @@ export type StoreType = {
     PagesModule,
     routing,
     HomeModule,
-    UsersModule
+    UsersModule,
+    UserDashboardModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS, ApiService, JwtService,

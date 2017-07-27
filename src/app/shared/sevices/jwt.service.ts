@@ -34,4 +34,5 @@ export class JwtService {
   getUser(): any {
    return  JSON.parse(window.localStorage['user']);
   }
+
 }
