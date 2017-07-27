@@ -47,9 +47,9 @@ export class UserService {
       this.jwtService.destroyUser();
     }
 
-    update(user) {
-      const params = {'description': 'test user1', 'firstName': 'L B user32', 'lastName': 'Share', 'phone': 234234234 };
-      this.apiService.put('/api/identity/v0/users/' + user.member.id, JSON.stringify(params), 'raw')
+    update(params) {
+      // const params = {'description': 'test user1', 'firstName': 'L B user32', 'lastName': 'Share', 'phone': 234234234 };
+      this.apiService.put('/api/identity/v0/users/' + 123, JSON.stringify(params), 'raw')
        .subscribe(data => {
          console.log(data);
        });
