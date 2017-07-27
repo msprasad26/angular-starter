@@ -66,7 +66,7 @@ export class UserService {
 
     getAllUsers() {
       const params: URLSearchParams = new URLSearchParams();
-      return  this.apiService.get('/api/identity/v0/tenants/TNT:STA-quvnya91/members', params, '')
+      return  this.apiService.get('/api/identity/v0/tenants/' + `${environment.tenant_id}` + '/members', params, '')
         .map(data => {
           return data;
 

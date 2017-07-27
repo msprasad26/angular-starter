@@ -13,7 +13,7 @@ export class ApiService {
     private jwtService: JwtService
   ) {}
 
-  private setHeaders(contentType): Headers {
+  private setHeaders(contentType, useClientToken = false): Headers {
     let headersConfig;
     switch (contentType) {
         case 'xform':
@@ -28,7 +28,7 @@ export class ApiService {
               };
               break;
     }
-    if (this.jwtService.getUserToken() ) {
+    if (this.jwtService.getUserToken() && !useClientToken ) {
       headersConfig['Authorization'] = `Bearer ${this.jwtService.getUserToken()}`;
     } else if (this.jwtService.getClientToken()) {
       headersConfig['Authorization'] = `Bearer ${this.jwtService.getClientToken()}`;
@@ -55,7 +55,7 @@ export class ApiService {
       .map((res: Response) => res.json());
   }
 
-  post(path: string, body: Object = {}, type: string): Observable<any> {
+  post(path: string, body: Object = {}, type: string, useToken: Boolean = false): Observable<any> {
     return this.http.post(
       `${environment.api_url}${path}`, body,
       { headers: this.setHeaders(type) }
