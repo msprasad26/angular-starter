@@ -25,6 +25,9 @@ export class JwtService {
   destroyClientToken() {
     window.localStorage.removeItem('clientToken');
   }
+  destroyUser() {
+    window.localStorage.removeItem('user');
+  }
   saveUser(user: any) {
     window.localStorage['user'] = JSON.stringify(user);
   }

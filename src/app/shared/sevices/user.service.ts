@@ -44,6 +44,7 @@ export class UserService {
 
     logout() {
       this.jwtService.destroyUserToken();
+      this.jwtService.destroyUser();
     }
 
     update(user) {
