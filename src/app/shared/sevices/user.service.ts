@@ -48,10 +48,15 @@ export class UserService {
     }
 
     update(params) {
+
+      console.log(params);
       // const params = {'description': 'test user1', 'firstName': 'L B user32', 'lastName': 'Share', 'phone': 234234234 };
-      this.apiService.put('/api/identity/v0/users/' + 123, JSON.stringify(params), 'raw')
-       .subscribe(data => {
+      return  this.apiService.put('/api/identity/v0/users/' +params.uid, JSON.stringify(params), 'raw')
+       .map(data => {
          console.log(data);
+         let user = this.jwtService.getUser();
+         user.member = data;
+         this.jwtService.saveUser(user);
        });
     }
 
@@ -72,6 +77,23 @@ export class UserService {
 
         });
     }
+
+    getDetails(params) {
+      console.log(params);
+      // const params = {'description': 'test user1', 'firstName': 'L B user32', 'lastName': 'Share', 'phone': 234234234 };
+      return  this.apiService.put('/api/identity/v0/users/' +params.uid, JSON.stringify(params), 'raw')
+        .map(data => {
+          console.log(data);
+          let user = this.jwtService.getUser();
+          user.member = data;
+          this.jwtService.saveUser(user);
+
+        });
+
+    }
+
+
+
 
   /*http://{{URL}}/api/identity/v0/tenants/TNT:STA-quvnya91/members
 */
