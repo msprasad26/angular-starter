@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../shared/sevices/user.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { JwtService } from './../../shared/sevices/jwt.service';
 import * as _ from 'lodash';
 @Component({
@@ -9,14 +9,14 @@ import * as _ from 'lodash';
   templateUrl: './login.html',
   styleUrls: ['./login.scss']
 })
-export class Login implements OnInit {
+export class Login {
 
   public form: FormGroup;
   public username: AbstractControl;
   public password: AbstractControl;
   public submitted: boolean = false;
 
-  constructor(fb: FormBuilder , private userService: UserService, private route: ActivatedRoute,
+  constructor(fb: FormBuilder , private userService: UserService,
               private router: Router, private jwtservice: JwtService) {
     this.form = fb.group({
       'username': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
