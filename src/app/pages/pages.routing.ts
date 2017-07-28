@@ -19,10 +19,12 @@ export const routes: Routes = [
     loadChildren: 'app/pages/userDashboard/userDashboard.module#UserDashboardModule'
   },
   {
+    path: '', redirectTo: 'home', pathMatch: 'full'
+  },
+  {
     path: 'pages',
     component: Pages,
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
       { path: 'editors', loadChildren: './editors/editors.module#EditorsModule' },
       { path: 'components', loadChildren: './components/components.module#ComponentsModule' },
@@ -32,6 +34,7 @@ export const routes: Routes = [
       { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
       { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
       { path: 'usersManagement', loadChildren: './userManagement/users.module#UsersModule' },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       /*{ path: 'userDashboard', loadChildren: './userDashboard/userDashboard.module#UserDashboardModule' }*/
 
     ]
