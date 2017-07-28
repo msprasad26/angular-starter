@@ -1,6 +1,6 @@
 import { Component, ViewContainerRef, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-
+import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalState } from './global.state';
 import { BaImageLoaderService, BaThemePreloader, BaThemeSpinner } from './theme/services';
 import { BaThemeConfig } from './theme/theme.config';
@@ -34,7 +34,9 @@ export class App implements OnInit {
               private viewContainerRef: ViewContainerRef,
               private themeConfig: BaThemeConfig,
               private userservice: UserService,
-              private jwtservice: JwtService
+              private jwtservice: JwtService,
+              private route: ActivatedRoute,
+              private router: Router
               ) {
 
     themeConfig.config();
@@ -68,13 +70,7 @@ export class App implements OnInit {
     } else {
       console.log(this.jwtservice.getClientToken());
     }
-   /* if (!this.jwtservice.getUserToken()) {
-      this.userservice.login();
-    }else {
-      const user = this.jwtservice.getUser();
-      // update()
-      this.userservice.update(user);
-    }*/
+
 
   }
 }

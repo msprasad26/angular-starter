@@ -62,6 +62,7 @@ export class UserService {
     logout() {
       this.jwtService.destroyUserToken();
       this.jwtService.destroyUser();
+      this.jwtService.destroyRole();
     }
 
     update(user) {
@@ -88,6 +89,9 @@ export class UserService {
           return data;
 
         });
+    }
+    setRole(role){
+    this.jwtService.setMemberRole(role);
     }
 
   /*http://{{URL}}/api/identity/v0/tenants/TNT:STA-quvnya91/members
