@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import { UserService } from '../../shared/sevices/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 @Component({
   selector: 'login',
   templateUrl: './login.html',
