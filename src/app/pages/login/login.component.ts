@@ -56,17 +56,12 @@ export class Login {
 
   ngOnInit() {
     if (this.jwtservice.getUserToken()) {
-      /*this.userservice.login();*/
-
       if (this.jwtservice.getMemberRole() === 'admin') {
         this.router.navigateByUrl('pages');
       }else {
         this.router.navigateByUrl('userDashboard');
       }
     }else {
-      /*const user = this.jwtservice.getUser();*/
-      // update()
-      /*  this.userservice.update(user);*/
       this.router.navigateByUrl('login');
     }
   }

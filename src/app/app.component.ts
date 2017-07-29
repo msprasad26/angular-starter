@@ -66,7 +66,7 @@ export class App implements OnInit {
   ngOnInit() {
     if (!this.jwtservice.getClientToken() ) {
       this.userservice.token();
-      //this.userservice.signup();
+      // this.userservice.signup();
     } else {
       console.log(this.jwtservice.getClientToken());
     }

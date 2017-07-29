@@ -1,20 +1,25 @@
-import {Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { JwtService } from './../../shared/sevices/jwt.service';
 import { UserService } from '../../shared/sevices/user.service';
-
+import { BaMenuService } from '../../theme';
+import { PAGES_MENU } from '../pages.menu';
+import { Routes } from '@angular/router';
 @Component({
   selector: 'dashboard',
   styleUrls: ['./dashboard.scss'],
   templateUrl: './dashboard.html'
 })
-export class Dashboard {
+export class Dashboard implements OnInit {
 
   constructor(private userService: UserService,
-              private router: Router, private jwtservice: JwtService) {
+              private router: Router, private jwtservice: JwtService, private _menuService: BaMenuService) {
   }
   ngOnInit() {
+
+    this._menuService.updateMenuByRoutes(<Routes>PAGES_MENU);
+
     if (this.jwtservice.getUserToken()) {
       if (this.jwtservice.getMemberRole() !== 'admin') {
         this.router.navigateByUrl('userDashboard');

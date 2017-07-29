@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../shared/sevices/user.service';
 import { UsersModule } from './users.module';
 import { GlobalState } from '../../global.state';
+
 @Component({
   selector: 'usersManagement',
   templateUrl: './users.component.html',
@@ -16,7 +17,7 @@ export class UsersComponent {
     sortBy = 'email';
     sortOrder = 'asc';
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService,) {
     this.userService.getAllUsers().subscribe((data) => {
       this.data = data;
       console.log(data);

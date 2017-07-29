@@ -1,15 +1,31 @@
 export const USER_PAGES_MENU = [
 {
-  path: ['/userDashboard'],
-    data: {
-  menu: {
-    title: 'User Dashboard',
-      icon: 'ion-android-home',
-      selected: false,
-      expanded: false,
-      order: 0
-  }
-}
+  path: '',
+  children: [
+    {
+      path: 'userDashboard',
+      data: {
+        menu: {
+          title: 'User Dashboard',
+          icon: 'ion-android-home',
+          selected: false,
+          expanded: false,
+          order: 0
+        }
+      }
+    },
+    {
+      path: '#',
+      data: {
+        menu: {
+          title: 'Profile',
+          icon: 'ion-person',
+          selected: false,
+          expanded: false,
+          order: 0
+        }
+      }
+    }]
 }];
 
 
