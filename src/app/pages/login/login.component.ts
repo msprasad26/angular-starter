@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../shared/sevices/user.service';
-import { Router } from '@angular/router';
-import { JwtService } from './../../shared/sevices/jwt.service';
+import { JwtService } from '../../shared/sevices/jwt.service';
 import * as _ from 'lodash';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @Component({
   selector: 'login',
   templateUrl: './login.html',
   styleUrls: ['./login.scss']
 })
-export class Login {
+export class Login implements OnInit{
 
   public form: FormGroup;
   public username: AbstractControl;

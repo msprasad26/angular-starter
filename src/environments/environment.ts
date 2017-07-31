@@ -11,7 +11,8 @@ export const environment = {
   client_id: '13261c94-c778-4976-95f3-774b81591352',
   client_secret: 'web-app-secret',
   grant_type: 'client_credentials',
-  tenant_id: 'TNT:STA-quvnya91'
+  tenant_id: 'TNT:STA-quvnya91',
+  theme:'ng2',
 };
 
 

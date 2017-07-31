@@ -34,8 +34,10 @@ export const routes: Routes = [
       { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
       { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
       { path: 'usersManagement', loadChildren: './userManagement/users.module#UsersModule' },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
-      /*{ path: 'userDashboard', loadChildren: './userDashboard/userDashboard.module#UserDashboardModule' }*/
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'profile', loadChildren: './profilepage/profile.module#ProfileModule' },
+      { path: 'profiledetails', loadChildren: './profile/profiledetails.module#ProfiledetailsModule' },
+      { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' }
 
     ]
   }

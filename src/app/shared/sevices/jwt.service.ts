@@ -34,6 +34,7 @@ export class JwtService {
   getUser(): any {
    return  JSON.parse(window.localStorage['user']);
   }
+
   setMemberRole(role){
     window.localStorage['userRole'] = role;
   }
@@ -43,4 +44,5 @@ export class JwtService {
   destroyRole() {
     window.localStorage.removeItem('userRole');
   }
+
 }

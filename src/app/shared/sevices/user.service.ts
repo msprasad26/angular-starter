@@ -65,11 +65,16 @@ export class UserService {
       this.jwtService.destroyRole();
     }
 
-    update(user) {
-      const params = {'description': 'test user1', 'firstName': 'L B user32', 'lastName': 'Share', 'phone': 234234234 };
-      this.apiService.put('/api/identity/v0/users/' + user.member.id, JSON.stringify(params), 'raw')
-       .subscribe(data => {
+    update(params) {
+
+      console.log(params);
+      // const params = {'description': 'test user1', 'firstName': 'L B user32', 'lastName': 'Share', 'phone': 234234234 };
+      return  this.apiService.put('/api/identity/v0/users/' +params.uid, JSON.stringify(params), 'raw')
+       .map(data => {
          console.log(data);
+         let user = this.jwtService.getUser();
+         user.member = data;
+         this.jwtService.saveUser(user);
        });
     }
 
@@ -93,6 +98,19 @@ export class UserService {
     setRole(role){
     this.jwtService.setMemberRole(role);
     }
+
+
+      resetpassword(){
+         const params= {}
+        return this.apiService.post('api/identity/v0/auth/changePassword/', JSON.stringify(params), 'raw').map(
+          data => {
+            this.jwtService.saveUserToken(data.token.access_token);
+            this.jwtService.saveUser( data);
+            return data;
+          }
+        );
+      }
+
 
   /*http://{{URL}}/api/identity/v0/tenants/TNT:STA-quvnya91/members
 */

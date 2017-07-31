@@ -2,8 +2,11 @@ import { Component , OnInit } from '@angular/core';
 import { HomeModule } from './home.module';
 import { GlobalState } from '../global.state';
 import * as $ from 'jquery';
-import { JwtService } from './../shared/sevices/jwt.service';
-import { Router } from '@angular/router';
+import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../shared/sevices/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'home',
@@ -11,22 +14,40 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  constructor( private _state: GlobalState , private jwtservice: JwtService , private router: Router) {
 
+  public form: FormGroup;
+  public username: AbstractControl;
+  public password: AbstractControl;
+  public submitted: boolean = false;
+
+  constructor(private _state: GlobalState,
+              fb: FormBuilder,
+              private userService: UserService,
+              private route: ActivatedRoute,
+              private router: Router) {
     this._state.notifyDataChanged('menu.isLanding', true);
+
+    this.form = fb.group({
+      'username': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
+    });
+
+    this.username = this.form.controls['username'];
+    this.password = this.form.controls['password'];
+
   }
-  /*public start() {
-    if (this.jwtservice.getUserToken()) {
-      if (this.jwtservice.getMemberRole() === 'admin') {
-        this.router.navigateByUrl('pages');
-      }else {
-        this.router.navigateByUrl('pages/userDashboard');
-      }
-    }else {
-      this.router.navigateByUrl('login');
+
+  public onSubmit(values: Object) {
+    this.submitted = true;
+    if (this.form.valid) {
+      this.userService.login(values).subscribe(
+        data => this.router.navigateByUrl('pages'),
+      );
     }
-  }*/
+  }
 }
+
+
 
 
 
