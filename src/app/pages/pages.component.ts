@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Routes } from '@angular/router';
-
+import { Component , OnInit } from '@angular/core';
+// import { Routes, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { BaMenuService } from '../theme';
 import { PAGES_MENU } from './pages.menu';
-
+import { JwtService } from '../shared/sevices/jwt.service';
 @Component({
   selector: 'pages',
   template: `
@@ -30,12 +30,23 @@ import { PAGES_MENU } from './pages.menu';
     <ba-back-top position="200"></ba-back-top>
     `
 })
-export class Pages {
+export class Pages implements OnInit{
 
-  constructor(private _menuService: BaMenuService,) {
+  constructor(private _menuService: BaMenuService,
+             // private routes: Routes,
+              private jwtservice: JwtService,
+              private router: Router) {
   }
 
   ngOnInit() {
-    //this._menuService.updateMenuByRoutes(<Routes>PAGES_MENU);
+    // this._menuService.updateMenuByRoutes(<Routes>PAGES_MENU);
+
+    if (this.jwtservice.getUserToken()) {
+      if (this.jwtservice.getMemberRole() !== 'admin') {
+        this.router.navigateByUrl('userDashboard');
+      }
+    }else {
+      this.router.navigateByUrl('login');
+    }
   }
 }

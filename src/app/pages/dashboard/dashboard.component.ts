@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-
-import { JwtService } from './../../shared/sevices/jwt.service';
+import { Router } from '@angular/router';
+import { JwtService } from '../../shared/sevices/jwt.service';
 import { UserService } from '../../shared/sevices/user.service';
 import { BaMenuService } from '../../theme';
 import { PAGES_MENU } from '../pages.menu';
@@ -14,7 +13,9 @@ import { Routes } from '@angular/router';
 export class Dashboard implements OnInit {
 
   constructor(private userService: UserService,
-              private router: Router, private jwtservice: JwtService, private _menuService: BaMenuService) {
+              private router: Router,
+              private jwtservice: JwtService,
+              private _menuService: BaMenuService) {
   }
   ngOnInit() {
 

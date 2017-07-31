@@ -19,10 +19,10 @@
                         <div class="offset-sm-1 col-sm-5">
                             <div class="row">
                                 <select class="form-control input-sm" [(ngModel)]="sortBy">
-                            <option ngValue="firstName">firstName</option>
-                            <option ngValue="lastName">lastName</option>
-                            <option ngValue="email">email</option>
-                                  <option ngValue="phone">phone</option>
+                            <option ngValue="firstName">First Name</option>
+                            <option ngValue="lastName">Last Name</option>
+                            <option ngValue="email">Email</option>
+                                  <option ngValue="phone">Phone</option>
                            &lt;!&ndash; <option [ngValue]="sortByWordLength">City</option>&ndash;&gt;
                         </select>
                             </div>
@@ -54,16 +54,16 @@
                         <tr>
 
                             <th style="width: 20%">
-                                <mfDefaultSorter by="firstName">firstName</mfDefaultSorter>
+                                <mfDefaultSorter by="firstName">First Name</mfDefaultSorter>
                             </th>
                             <th style="width: 30%">
-                                <mfDefaultSorter by="lastName">lastName</mfDefaultSorter>
+                                <mfDefaultSorter by="lastName">Last Name</mfDefaultSorter>
                             </th>
                             <th style="width: 30%">
                                 <mfDefaultSorter by="email">Email</mfDefaultSorter>
                             </th>
                           <th style="width: 20%">
-                            <mfDefaultSorter by="phone">phone</mfDefaultSorter>
+                            <mfDefaultSorter by="phone">Phone</mfDefaultSorter>
                           </th>
                             <th style="width: 20%">
                                 <mfDefaultSorter [by]="sortByWordLength">City</mfDefaultSorter>
