@@ -75,14 +75,14 @@ export class ProfileDetails {
 
 
 
-  public onSubmit() {
+  /*public onSubmit() {
     console.log("hi");
     this.router.navigateByUrl('profile');
 
 
 
 
-    /*this.submitted = true;
+    /!*this.submitted = true;
 
     this.userService.getDetails(values).subscribe(
       data => this.router.navigateByUrl('dashboard'));
@@ -93,8 +93,8 @@ export class ProfileDetails {
     //   this.userService.update(values).subscribe(
     //     data => this.router.navigateByUrl('login'),
     //   );
-    // }*/
+    // }*!/
   }
-
+*/
 
 }

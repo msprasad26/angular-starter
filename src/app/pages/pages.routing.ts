@@ -29,7 +29,8 @@ export const routes: Routes = [
       { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
       { path: 'usersManagement', loadChildren: './userManagement/users.module#UsersModule' },
       { path: 'profile', loadChildren: './profilepage/profile.module#ProfileModule' },
-      { path: 'profiledetails', loadChildren: './profile/profiledetails.module#ProfiledetailsModule' }
+      { path: 'profiledetails', loadChildren: './profile/profiledetails.module#ProfiledetailsModule' },
+      { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' },
     ]
   }
 ];

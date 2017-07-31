@@ -168,7 +168,7 @@ input[type=text]:not(.browser-default){
 }
 .modal {
   width: 600px;
-  max-height: 450px;
+  max-height: 370px;
 
 }
 
@@ -181,4 +181,10 @@ html {
 
 .textcolor {
   color:#080d15;
+}
+.modal-content{
+  border:none;
+}
+.modal .modal-content{
+  padding:0px;
 }
