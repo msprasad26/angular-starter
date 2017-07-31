@@ -11,3 +11,9 @@ export const environment = {
   client_secret: 'web-app-secret',
   grant_type: 'client_credentials'
 };
+
+export const environmentAdv = {
+  production: true,
+  api_url: 'https://wavelabs-olx-nonenunciatory-sage.au-syd.mybluemix.net',
+  client_id: '2b84167e-fa95-4b55-b535-e328a0db0341'
+};

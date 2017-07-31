@@ -13,3 +13,11 @@ export const environment = {
   grant_type: 'client_credentials',
   tenant_id: 'TNT:STA-quvnya91'
 };
+
+
+export const environmentAdv = {
+  production: true,
+  api_url: 'https://wavelabs-olx-nonenunciatory-sage.au-syd.mybluemix.net',
+  client_id: '2b84167e-fa95-4b55-b535-e328a0db0341',
+  tenantId: 'TNT:OLX-gz2tq8fy'
+}
