@@ -6,7 +6,8 @@ import { NgaModule } from '../../theme/nga.module';
 
 import { Login } from './login.component';
 import { routing }       from './login.routing';
-import { ListErrorsComponent } from '../../shared/list-errors.component';
+ //import { ListErrorsComponent } from '../../shared/list-errors.component';
+import {  ListerrorModule  } from '../../shared/listerror.module';
 
 @NgModule({
   imports: [
@@ -15,10 +16,12 @@ import { ListErrorsComponent } from '../../shared/list-errors.component';
     ReactiveFormsModule,
     FormsModule,
     NgaModule,
-    routing
+    routing,
+    ListerrorModule
   ],
   declarations: [
-    Login, ListErrorsComponent
+    Login,
+  // ListErrorsComponent
   ]
 })
 export class LoginModule {}

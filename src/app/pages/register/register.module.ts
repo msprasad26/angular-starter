@@ -6,6 +6,8 @@ import { NgaModule } from '../../theme/nga.module';
 import { Register } from './register.component';
 import { routing }       from './register.routing';
 
+//import { ListErrorsComponent } from '../../shared/list-errors.component';
+import {  ListerrorModule  } from '../../shared/listerror.module';
 
 @NgModule({
   imports: [
@@ -13,10 +15,12 @@ import { routing }       from './register.routing';
     ReactiveFormsModule,
     FormsModule,
     NgaModule,
-    routing
+    routing,
+    ListerrorModule
   ],
   declarations: [
-    Register
+    Register,
+    //ListErrorsComponent
   ]
 })
 export class RegisterModule {

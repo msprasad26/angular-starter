@@ -1,7 +1,26 @@
 <div class="auth-main">
   <div class="auth-block">
+
+
+    <div class="modal fade" id="over">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!--<div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Modal title</h4>
+          </div>-->
+          <!--<div class="modal-body">-->
+          <list-errors class="center text-danger" [errors]="errors"></list-errors>
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+
+
+
     <h1>Sign up</h1>
     <a routerLink="/login" class="auth-link" >Already have an account? Sign in!</a>
+
 
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
       <div class="form-group row" [ngClass]="{'has-error': (!firstName.valid && firstName.touched), 'has-success': (firstName.valid && firstName.touched)}">

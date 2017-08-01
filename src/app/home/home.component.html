@@ -1,9 +1,3 @@
-<!-- <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <img src="images/image.png" >
-      <h2>Logo</h2>
-    </div>
-  </nav> -->
 <div class="home  auth-main"  style="    display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -18,16 +12,23 @@
       <div class="section no-pad-bot">
         <div class="container">
 
+
+
+          <!--<button  class="btn-large waves-effect waves-light teal lighten-1 textcolor pull-right" data-toggle="modal" data-target="#myModalHorizontal1">-->
+            <!--Get Started-->
+          <!--</button>-->
+
           <br><br>
 
-          <h1 class="header center teal-text text-lighten-2">Wavelabs Starter Kits enable team to jumpstart any App
-          </h1>
-
-
-
+          <h1 class="header center teal-text text-lighten-2">Wavelabs Starter Kits enable team to jumpstart any App</h1>
           <!-- <div class="row center">
             <h5 class="header col s12 light">Text to write</h5>
           </div> -->
+
+
+
+
+
           <div class="center">
 
 
@@ -36,33 +37,16 @@
 
 
 
-            <button id="download-button" class="btn-large waves-effect waves-light teal lighten-1 textcolor" routerLink="pages/dashboard" data-toggle="modal">    <!-- data-target="#myModalHorizontal"-->
+            <button id="download-button" class="btn-large waves-effect waves-light teal lighten-1 textcolor" data-toggle="modal" data-target="#myModalHorizontal">
               Get Started
             </button>
 
-            <!-- errors -->
-          <!--  <div class="modal fade" id="over">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  &lt;!&ndash;<div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Modal title</h4>
-                  </div>&ndash;&gt;
-                  &lt;!&ndash;<div class="modal-body">&ndash;&gt;
-                  <list-errors class="text-danger" [errors]="errors"></list-errors>
-                  &lt;!&ndash;</div>&ndash;&gt;
-                </div>
-              </div>
-            </div>-->
-
-
-
             <!-- Modal -->
-           <!-- <div class="modal fade" id="myModalHorizontal"  role="dialog"
+            <div class="modal fade" id="myModalHorizontal"  role="dialog"
                  aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
-                  &lt;!&ndash; Modal Header &ndash;&gt;
+                  <!-- Modal Header -->
                   <div class="modal-header">
 
                     <h1 class="modal-title">
@@ -78,15 +62,15 @@
 
 
 
-                  &lt;!&ndash; Modal Body &ndash;&gt;
+                  <!-- Modal Body -->
                   <div class="modal-body">
                     <a class="margin" routerLink="/register">New to user? Sign up!</a>
 
                     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal" role="form">
                       <div class="form-group">
-                        &lt;!&ndash;<div class= "col-sm-4">&ndash;&gt;
-                        &lt;!&ndash;<label  class="control-label"&ndash;&gt;
-                                &lt;!&ndash;for="inputEmail3">User Name</label></div>&ndash;&gt;
+                        <!--<div class= "col-sm-4">-->
+                        <!--<label  class="control-label"-->
+                        <!--for="inputEmail3">User Name</label></div>-->
                         <div class= "col-sm-12">
                           <input formControlName="username" type="text" class="form-control"
                                  id="inputEmail3"  placeholder="User Name"/>
@@ -94,17 +78,17 @@
                       </div>
 
                       <div class="form-group">
-                        &lt;!&ndash;<div class= "col-sm-4">&ndash;&gt;
-                        &lt;!&ndash;<label class="control-label"&ndash;&gt;
-                               &lt;!&ndash;for="inputPassword3" >Password</label></div>&ndash;&gt;
+                        <!--<div class= "col-sm-4">-->
+                        <!--<label class="control-label"-->
+                        <!--for="inputPassword3" >Password</label></div>-->
                         <div class= "col-sm-12">
                           <input formControlName="password" type="password" class="form-control"
                                  id="inputPassword3"  placeholder="Password"/>
-                      </div>
+                        </div>
                       </div>
                       <div class="form-group">
                         <div class="col-sm-10">
-                          &lt;!&ndash;<button type="submit" class="btn btn-default">Sign in</button>&ndash;&gt;
+                          <!--<button type="submit" class="btn btn-default">Sign in</button>-->
                           <button [disabled]="!form.valid" type="submit" class="btn btn-default btn-auth">Sign in</button>
                         </div>
 
@@ -113,41 +97,27 @@
                     </form>
                   </div>
 
-
                   <!-- Modal Footer -->
                   <!--<div class="modal-footer">-->
-                    <!--<button type="button" class="btn btn-default"-->
-                            <!--data-dismiss="modal">-->
-                      <!--Close-->
-                    <!--</button>-->
-                    <!--<button type="button" class="btn btn-primary">-->
-                      <!--Save changes-->
-                    <!--</button>-->
+                  <!--<button type="button" class="btn btn-default"-->
+                  <!--data-dismiss="modal">-->
+                  <!--Close-->
+                  <!--</button>-->
+                  <!--<button type="button" class="btn btn-primary">-->
+                  <!--Save changes-->
+                  <!--</button>-->
                   <!--</div>-->
+
+
+
+
 
                 </div>
               </div>
             </div>
 
-
-
-<!--
-=======
-                  &lt;!&ndash; Modal Footer &ndash;&gt;
-                  &lt;!&ndash;<div class="modal-footer">&ndash;&gt;
-                    &lt;!&ndash;<button type="button" class="btn btn-default"&ndash;&gt;
-                            &lt;!&ndash;data-dismiss="modal">&ndash;&gt;
-                      &lt;!&ndash;Close&ndash;&gt;
-                    &lt;!&ndash;</button>&ndash;&gt;
-                    &lt;!&ndash;<button type="button" class="btn btn-primary">&ndash;&gt;
-                      &lt;!&ndash;Save changes&ndash;&gt;
-                    &lt;!&ndash;</button>&ndash;&gt;
-                  &lt;!&ndash;</div>&ndash;&gt;
-                </div>
-              </div>
-            </div>&ndash;&gt;
->>>>>>> 035b6a9cf5481a2d8f0bc2d58bc19fbf6024c504-->
           </div>
+
           <br><br>
         </div>
       </div>
@@ -155,100 +125,100 @@
     </div>
 
 
-<div class="container">
-  <div class="section sectionTwo">
-
-    <!--   Icon Section   -->
-    <div class="row">
-      <div class="col s12 m4">
-        <div class="icon-block">
-          <h1 class="center brown-text icons"><i class="material-icons">flash_on</i></h1>
-          <h2 class="center">Functional Features</h2>
-
-          <!--<p class="center">-->
-          <ul class="center">
-          <li>User Signup</li>
-          <li>User Login/ Logout</li>
-          <li>Search/ Results screen</li>
-          <li>Navigation</li>
-        </ul>
-
-
-
-        </div>
-      </div>
-
-      <div class="col s12 m4">
-        <div class="icon-block">
-          <h1 class="center brown-text icons"><i class="material-icons">group</i></h1>
-          <h2 class="center">Services/ Architecture</h2>
-
-          <ul class="center">
-            <li>Grails based Authentication services</li>
-            <li>API server based on NodeJS</li>
-            <li>Support for multiple technology stacks</li>
-          </ul>
-
-
-        </div>
-      </div>
-
-      <div class="col s12 m4">
-        <div class="icon-block">
-          <h1 class="center brown-text icons"><i class="material-icons">settings</i></h1>
-          <h2 class="center">Ready to deploy</h2>
-
-          <ul class="center">
-            <li>Deployable in Cloud based or On Premise environments</li>
-            <li> Integrated with Jenkins based DevOps Platform</li>
-          </ul>
-
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-<div class="parallax-container ">
-  <div class="overlay"></div>
-  <div class="section no-pad-bot">
     <div class="container">
-      <div class="row center">
-        <!--  <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
+      <div class="section sectionTwo">
+
+        <!--   Icon Section   -->
+        <div class="row">
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h1 class="center brown-text icons"><i class="material-icons">flash_on</i></h1>
+              <h2 class="center">Functional Features</h2>
+
+              <!--<p class="center">-->
+              <ul class="center">
+                <li>User Signup</li>
+                <li>User Login/ Logout</li>
+                <li>Search/ Results screen</li>
+                <li>Navigation</li>
+              </ul>
+
+
+
+            </div>
+          </div>
+
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h1 class="center brown-text icons"><i class="material-icons">group</i></h1>
+              <h2 class="center">Services/ Architecture</h2>
+
+              <ul class="center">
+                <li>Grails based Authentication services</li>
+                <li>API server based on NodeJS</li>
+                <li>Support for multiple technology stacks</li>
+              </ul>
+
+
+            </div>
+          </div>
+
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h1 class="center brown-text icons"><i class="material-icons">settings</i></h1>
+              <h2 class="center">Ready to deploy</h2>
+
+              <ul class="center">
+                <li>Deployable in Cloud based or On Premise environments</li>
+                <li> Integrated with Jenkins based DevOps Platform</li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-  <div class="parallax"><img src="/assets/images/setting.jpg" alt="Unsplashed background img 2" height="100%" width="100%"></div>
-</div>
 
-<div class="container">
-  <div class="section">
 
-    <div class="row">
-      <div class="col s12 center">
-        <h3><i class="mdi-content-send brown-text"></i></h3>
-        <h2>About Us</h2>
-        <p class="left-align light">
+    <div class="parallax-container ">
+      <div class="overlay"></div>
+      <div class="section no-pad-bot">
+        <div class="container">
+          <div class="row center">
+            <!--  <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
+          </div>
+        </div>
+      </div>
+      <div class="parallax"><img src="/assets/images/setting.jpg" alt="Unsplashed background img 2" height="100%" width="100%"></div>
+    </div>
 
-          We are designers, coders, nerds, and strategists who expedite the development process to build you cutting-edge products. We perform and innovate at a startup speed for reimagining the future through continuous delivery and iterations. As we drive digital revolution in the right direction, come take a colossal leap with us.
+    <div class="container">
+      <div class="section">
+
+        <div class="row">
+          <div class="col s12 center">
+            <h3><i class="mdi-content-send brown-text"></i></h3>
+            <h2>About Us</h2>
+            <p class="left-align light">
+
+              We are designers, coders, nerds, and strategists who expedite the development process to build you cutting-edge products. We perform and innovate at a startup speed for reimagining the future through continuous delivery and iterations. As we drive digital revolution in the right direction, come take a colossal leap with us.
+
+          </div>
+        </div>
 
       </div>
     </div>
-
-  </div>
-</div>
-<footer class="page-footer teal">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Contact us</h5>
-        <p class="grey-text text-lighten-4">
-         <span class="white-text">Email</span>: info@wavelabs.in
+    <footer class="page-footer teal">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Contact us</h5>
+            <p class="grey-text text-lighten-4">
+              <span class="white-text">Email</span>: info@wavelabs.in
+          </div>
+        </div>
       </div>
-    </div>
+    </footer>
   </div>
-</footer>
-</div>
 </div>

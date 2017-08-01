@@ -25,6 +25,7 @@ tostr =JSON.stringify;
   public socialAccounts:AbstractControl;
 
   public submitted:boolean = false;
+  public shouldshow:boolean=false;
 
   constructor(fb:FormBuilder , private userService: UserService, private route: ActivatedRoute,
               private router: Router,private jwtservice : JwtService) {
@@ -81,7 +82,18 @@ tostr =JSON.stringify;
     this.submitted = true;
 
     this.userService.update(values).subscribe(
-      data => this.router.navigateByUrl('dashboard'));
+      data => {
+
+        $('#over').modal('show');
+
+        setTimeout(function() {
+          $('#over').modal('hide');
+        }, 15000);
+
+        this.shouldshow = true;
+      }
+        //this.router.navigateByUrl('dashboard'),
+      );
 
 
     // if (this.form.valid) {
