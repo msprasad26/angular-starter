@@ -1,4 +1,4 @@
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule, ApplicationRef, ModuleWithProviders } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -11,7 +11,7 @@ import { JwtService } from './shared/sevices/jwt.service';
  * Platform and Environment providers/directives/pipes
  */
 import { routing } from './app.routing';
-
+import { Errors } from './shared/models/errors.model';
 // App is our top level component
 import { App } from './app.component';
 import { AppState, InternalStateType } from './app.service';
@@ -21,7 +21,7 @@ import { PagesModule } from './pages/pages.module';
 import { HomeModule } from './home/home.module';
 import { UsersModule } from './pages/userManagement/users.module';
 import { UserDashboardModule } from './pages/userDashboard/userDashboard.module';
-
+import { AdvModule } from './pages/advertisement/adv.module'
 // Application wide providers
 const APP_PROVIDERS = [
   AppState,
@@ -40,7 +40,7 @@ export type StoreType = {
 @NgModule({
   bootstrap: [App],
   declarations: [
-    App
+    App,
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -54,10 +54,11 @@ export type StoreType = {
     routing,
     HomeModule,
     UsersModule,
-    UserDashboardModule
+    UserDashboardModule,
+    AdvModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    APP_PROVIDERS, ApiService, JwtService,
+    APP_PROVIDERS, ApiService, JwtService, Errors
   ]
 })
 

@@ -7,6 +7,7 @@ import { BaThemeConfig } from './theme/theme.config';
 import { layoutPaths } from './theme/theme.constants';
 import { UserService } from './shared/sevices/user.service';
 import { JwtService } from './shared/sevices/jwt.service';
+import { Errors } from './shared/models/errors.model';
 /*
  * App Component
  * Top Level Component
@@ -70,7 +71,5 @@ export class App implements OnInit {
     } else {
       console.log(this.jwtservice.getClientToken());
     }
-
-
   }
 }

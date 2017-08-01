@@ -58,6 +58,18 @@ export const PAGES_MENU = [
         }
       },
       {
+        path: 'advertisement',
+        data: {
+          menu: {
+            title: 'Advertisement',
+            icon: 'ion-ios-cart',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
+      {
         path: ['/userDashboard'],
         data: {
           menu: {

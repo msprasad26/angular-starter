@@ -36,16 +36,33 @@
 
 
 
-            <button id="download-button" class="btn-large waves-effect waves-light teal lighten-1 textcolor" data-toggle="modal" data-target="#myModalHorizontal">
+            <button id="download-button" class="btn-large waves-effect waves-light teal lighten-1 textcolor" routerLink="pages/dashboard" data-toggle="modal">    <!-- data-target="#myModalHorizontal"-->
               Get Started
             </button>
 
+            <!-- errors -->
+          <!--  <div class="modal fade" id="over">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  &lt;!&ndash;<div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Modal title</h4>
+                  </div>&ndash;&gt;
+                  &lt;!&ndash;<div class="modal-body">&ndash;&gt;
+                  <list-errors class="text-danger" [errors]="errors"></list-errors>
+                  &lt;!&ndash;</div>&ndash;&gt;
+                </div>
+              </div>
+            </div>-->
+
+
+
             <!-- Modal -->
-            <div class="modal fade" id="myModalHorizontal"  role="dialog"
+           <!-- <div class="modal fade" id="myModalHorizontal"  role="dialog"
                  aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
-                  <!-- Modal Header -->
+                  &lt;!&ndash; Modal Header &ndash;&gt;
                   <div class="modal-header">
 
                     <h1 class="modal-title">
@@ -61,15 +78,15 @@
 
 
 
-                  <!-- Modal Body -->
+                  &lt;!&ndash; Modal Body &ndash;&gt;
                   <div class="modal-body">
                     <a class="margin" routerLink="/register">New to user? Sign up!</a>
 
                     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal" role="form">
                       <div class="form-group">
-                        <!--<div class= "col-sm-4">-->
-                        <!--<label  class="control-label"-->
-                                <!--for="inputEmail3">User Name</label></div>-->
+                        &lt;!&ndash;<div class= "col-sm-4">&ndash;&gt;
+                        &lt;!&ndash;<label  class="control-label"&ndash;&gt;
+                                &lt;!&ndash;for="inputEmail3">User Name</label></div>&ndash;&gt;
                         <div class= "col-sm-12">
                           <input formControlName="username" type="text" class="form-control"
                                  id="inputEmail3"  placeholder="User Name"/>
@@ -77,9 +94,9 @@
                       </div>
 
                       <div class="form-group">
-                        <!--<div class= "col-sm-4">-->
-                        <!--<label class="control-label"-->
-                               <!--for="inputPassword3" >Password</label></div>-->
+                        &lt;!&ndash;<div class= "col-sm-4">&ndash;&gt;
+                        &lt;!&ndash;<label class="control-label"&ndash;&gt;
+                               &lt;!&ndash;for="inputPassword3" >Password</label></div>&ndash;&gt;
                         <div class= "col-sm-12">
                           <input formControlName="password" type="password" class="form-control"
                                  id="inputPassword3"  placeholder="Password"/>
@@ -87,7 +104,7 @@
                       </div>
                       <div class="form-group">
                         <div class="col-sm-10">
-                          <!--<button type="submit" class="btn btn-default">Sign in</button>-->
+                          &lt;!&ndash;<button type="submit" class="btn btn-default">Sign in</button>&ndash;&gt;
                           <button [disabled]="!form.valid" type="submit" class="btn btn-default btn-auth">Sign in</button>
                         </div>
 
@@ -95,6 +112,7 @@
                       <a routerLink="/login">Forgot password</a>
                     </form>
                   </div>
+
 
                   <!-- Modal Footer -->
                   <!--<div class="modal-footer">-->
@@ -113,9 +131,23 @@
 
 
 
-
+<!--
+=======
+                  &lt;!&ndash; Modal Footer &ndash;&gt;
+                  &lt;!&ndash;<div class="modal-footer">&ndash;&gt;
+                    &lt;!&ndash;<button type="button" class="btn btn-default"&ndash;&gt;
+                            &lt;!&ndash;data-dismiss="modal">&ndash;&gt;
+                      &lt;!&ndash;Close&ndash;&gt;
+                    &lt;!&ndash;</button>&ndash;&gt;
+                    &lt;!&ndash;<button type="button" class="btn btn-primary">&ndash;&gt;
+                      &lt;!&ndash;Save changes&ndash;&gt;
+                    &lt;!&ndash;</button>&ndash;&gt;
+                  &lt;!&ndash;</div>&ndash;&gt;
+                </div>
+              </div>
+            </div>&ndash;&gt;
+>>>>>>> 035b6a9cf5481a2d8f0bc2d58bc19fbf6024c504-->
           </div>
-
           <br><br>
         </div>
       </div>

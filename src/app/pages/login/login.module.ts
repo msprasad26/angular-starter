@@ -6,7 +6,7 @@ import { NgaModule } from '../../theme/nga.module';
 
 import { Login } from './login.component';
 import { routing }       from './login.routing';
-
+import { ListErrorsComponent } from '../../shared/list-errors.component';
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ import { routing }       from './login.routing';
     routing
   ],
   declarations: [
-    Login
+    Login, ListErrorsComponent
   ]
 })
 export class LoginModule {}

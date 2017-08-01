@@ -1,6 +1,6 @@
 import { Component , OnInit } from '@angular/core';
 // import { Routes, ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { Router, Routes } from '@angular/router';
 import { BaMenuService } from '../theme';
 import { PAGES_MENU } from './pages.menu';
 import { JwtService } from '../shared/sevices/jwt.service';
@@ -30,7 +30,7 @@ import { JwtService } from '../shared/sevices/jwt.service';
     <ba-back-top position="200"></ba-back-top>
     `
 })
-export class Pages implements OnInit{
+export class Pages implements OnInit {
 
   constructor(private _menuService: BaMenuService,
              // private routes: Routes,
@@ -39,14 +39,14 @@ export class Pages implements OnInit{
   }
 
   ngOnInit() {
-    // this._menuService.updateMenuByRoutes(<Routes>PAGES_MENU);
+    this._menuService.updateMenuByRoutes(<Routes>PAGES_MENU);
 
-    if (this.jwtservice.getUserToken()) {
+    /*if (this.jwtservice.getUserToken()) {
       if (this.jwtservice.getMemberRole() !== 'admin') {
         this.router.navigateByUrl('userDashboard');
       }
     }else {
       this.router.navigateByUrl('login');
-    }
+    }*/
   }
 }

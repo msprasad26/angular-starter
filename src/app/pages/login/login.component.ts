@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../shared/sevices/user.service';
@@ -5,18 +6,30 @@ import { JwtService } from '../../shared/sevices/jwt.service';
 import * as _ from 'lodash';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Errors } from '../../shared/models/errors.model';
+
 
 @Component({
   selector: 'login',
   templateUrl: './login.html',
   styleUrls: ['./login.scss']
 })
+/*<<<<<<< HEAD
 export class Login implements OnInit{
 
   public form: FormGroup;
   public username: AbstractControl;
   public password: AbstractControl;
   public submitted: boolean = false;
+=======*/
+export class Login {
+  errors: Errors = new Errors();
+  public form:FormGroup;
+  public username:AbstractControl;
+  public password:AbstractControl;
+  public submitted:boolean = false;
+  public shouldshow:boolean=false;
+
 
   constructor(fb: FormBuilder , private userService: UserService,
               private router: Router, private jwtservice: JwtService) {
@@ -38,26 +51,39 @@ export class Login implements OnInit{
             data => {
               console.log(data);
               let userRole = 'guest';
-            if (data.length > 0 ) {
-
-              const roles = _.map(data, 'uRoleName');
-              if ( _.map(roles, 'role:app.tenant.admin') ) {
-                userRole = 'admin';
+              if (data.length > 0 ) {
+                const roles = _.map(data, 'uRoleName');
+                if ( _.map(roles, 'role:app.tenant.admin') ) {
+                  userRole = 'admin';
+                  this.userService.setRole(userRole);
+                  this.router.navigateByUrl('pages');
+                }
+              }else {
+                /* alert(userRole);*/
                 this.userService.setRole(userRole);
-                this.router.navigateByUrl('pages');
+                this.router.navigateByUrl('userDashboard');
               }
-            }else {
-             /* alert(userRole);*/
-              this.userService.setRole(userRole);
-              this.router.navigateByUrl('userDashboard');
-            }
             });
-        });
+        },
+        err => {
+          this.errors = err;
+          console.log(err);
+
+          $('#over').modal('show');
+
+          setTimeout(function() {
+            $('#over').modal('hide');
+          }, 1500);
+
+          this.shouldshow = true;
+        }
+    )
+        /*);*/
     }
   }
 
   ngOnInit() {
-    if (this.jwtservice.getUserToken()) {
+   /* if (this.jwtservice.getUserToken()) {
       if (this.jwtservice.getMemberRole() === 'admin') {
         this.router.navigateByUrl('pages');
       }else {
@@ -65,6 +91,6 @@ export class Login implements OnInit{
       }
     }else {
       this.router.navigateByUrl('login');
-    }
+    }*/
   }
 }

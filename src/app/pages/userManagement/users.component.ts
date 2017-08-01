@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { UserService } from '../../shared/sevices/user.service';
 import { UsersModule } from './users.module';
 import { GlobalState } from '../../global.state';
 import { Routes } from '@angular/router';
 import { PAGES_MENU } from '../pages.menu';
 import { BaMenuService } from '../../theme';
+import { JwtService } from '../../shared/sevices/jwt.service';
 @Component({
   selector: 'usersManagement',
   templateUrl: './users.component.html',
@@ -19,7 +20,12 @@ export class UsersComponent implements OnInit {
     sortBy = 'email';
     sortOrder = 'asc';
 
-    constructor(private userService: UserService, private _menuService: BaMenuService ) {
+    constructor(
+      private userService: UserService,
+      private _menuService: BaMenuService,
+      private router: Router,
+      private jwtservice: JwtService
+    ) {
     this.userService.getAllUsers().subscribe((data) => {
       this.data = data;
       console.log(data);
@@ -35,5 +41,11 @@ export class UsersComponent implements OnInit {
     }
   ngOnInit() {
     this._menuService.updateMenuByRoutes(<Routes>PAGES_MENU);
+    if (!this.jwtservice.getUserToken()) {
+      this.router.navigateByUrl('login');
+    }
+
   }
 }
+
+
