@@ -1,6 +1,7 @@
-import { Routes, RouterModule } from '@angular/router';
+/*import { Routes, RouterModule } from '@angular/router';*/
 import { Pages } from './pages.component';
 import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 // noinspection TypeScriptValidateTypes
 
 // export function loadChildren(path) { return System.import(path); };
@@ -18,6 +19,10 @@ export const routes: Routes = [
     path: 'userDashboard',
     loadChildren: 'app/pages/userDashboard/userDashboard.module#UserDashboardModule'
   },
+  /*{
+    path: 'advertisement',
+    loadChildren: 'app/pages/advertisement/adv.module#AdvModule'
+  },*/
   {
     path: '', redirectTo: 'home', pathMatch: 'full'
   },
@@ -37,8 +42,8 @@ export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'profile', loadChildren: './profilepage/profile.module#ProfileModule' },
       { path: 'profiledetails', loadChildren: './profile/profiledetails.module#ProfiledetailsModule' },
-      { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' }
-
+      { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' },
+      { path: 'advertisement', loadChildren: './advertisement/adv.module#AdvModule' }
     ]
   }
 ];

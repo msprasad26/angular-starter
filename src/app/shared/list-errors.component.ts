@@ -14,7 +14,8 @@ export class ListErrorsComponent {
     this.formattedErrors = [];
 
     if (errorList.errors) {
-      for(const field in errorList.errors) {
+
+      for (const field in errorList.errors) {
         this.formattedErrors.push(`${errorList.errors[field].propertyName} ${errorList.errors[field].message}`);
       }
     }

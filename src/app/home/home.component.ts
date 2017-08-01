@@ -6,6 +6,7 @@ import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/fo
 import { UserService } from '../shared/sevices/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
+import { Errors } from '../shared/models/errors.model';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class HomeComponent {
               fb: FormBuilder,
               private userService: UserService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private errors: Errors) {
     this._state.notifyDataChanged('menu.isLanding', true);
 
     this.form = fb.group({
@@ -68,7 +70,19 @@ export class HomeComponent {
                 this.router.navigateByUrl('userDashboard');
               }
             });
-        });
+        } , /*,
+        err => {
+          this.errors = err;
+          console.log(err);
+
+          $('#over').modal('show');
+
+          setTimeout(function() {
+            $('#over').modal('hide');
+          }, 1500);
+
+          this.shouldshow = true;
+        }*/);
     }
   }
 

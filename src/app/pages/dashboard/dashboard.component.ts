@@ -21,12 +21,12 @@ export class Dashboard implements OnInit {
 
     this._menuService.updateMenuByRoutes(<Routes>PAGES_MENU);
 
-    if (this.jwtservice.getUserToken()) {
+   /* if (this.jwtservice.getUserToken()) {
       if (this.jwtservice.getMemberRole() !== 'admin') {
         this.router.navigateByUrl('userDashboard');
       }
     }else {
       this.router.navigateByUrl('login');
-    }
+    }*/
   }
 }
