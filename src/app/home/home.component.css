@@ -188,3 +188,7 @@ html {
 .modal .modal-content{
   padding:0px;
 }
+
+ul:not(.browser-default)>li{
+  list-style-type: none;
+}
