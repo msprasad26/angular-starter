@@ -192,3 +192,19 @@ html {
 ul:not(.browser-default)>li{
   list-style-type: none;
 }
+
+.margintop {
+margin-top: 10px;
+  margin-right: 10px;
+}
+.color{
+  color:white;
+}
+
+.margin{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.modal{
+  overflow-y: hidden;
+}

@@ -8,25 +8,26 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
 import { Errors } from '../shared/models/errors.model';
 
-
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  errors: Errors = new Errors();
 
   public form: FormGroup;
   public username: AbstractControl;
   public password: AbstractControl;
   public submitted: boolean = false;
-
+  public shouldshow:boolean=false;
   constructor(private _state: GlobalState,
               fb: FormBuilder,
               private userService: UserService,
               private route: ActivatedRoute,
               private router: Router,
-              private errors: Errors) {
+              //private errors: Errors
+  ) {
     this._state.notifyDataChanged('menu.isLanding', true);
 
     this.form = fb.group({
@@ -70,19 +71,21 @@ export class HomeComponent {
                 this.router.navigateByUrl('userDashboard');
               }
             });
-        } , /*,
+        } ,
         err => {
           this.errors = err;
           console.log(err);
 
-          $('#over').modal('show');
-
-          setTimeout(function() {
-            $('#over').modal('hide');
-          }, 1500);
+          // $('#over').modal('show');
+          //
+          // setTimeout(function() {
+          //   $('#over').modal('hide');
+          // }, 1500);
 
           this.shouldshow = true;
-        }*/);
+
+
+        });
     }
   }
 

@@ -49,15 +49,15 @@ export class Login {
         response => {
           this.userService.getUserRole(response).subscribe(
             data => {
-              console.log(data);
-              let userRole = 'guest';
-              if (data.length > 0 ) {
-                const roles = _.map(data, 'uRoleName');
-                if ( _.map(roles, 'role:app.tenant.admin') ) {
-                  userRole = 'admin';
-                  this.userService.setRole(userRole);
-                  this.router.navigateByUrl('pages');
-                }
+                    console.log(data);
+                    let userRole = 'guest';
+                    if (data.length > 0 ) {
+                      const roles = _.map(data, 'uRoleName');
+                      if ( _.map(roles, 'role:app.tenant.admin') ) {
+                        userRole = 'admin';
+                        this.userService.setRole(userRole);
+                        this.router.navigateByUrl('pages');
+                      }
               }else {
                 /* alert(userRole);*/
                 this.userService.setRole(userRole);
@@ -65,32 +65,22 @@ export class Login {
               }
             });
         },
-        err => {
-          this.errors = err;
-          console.log(err);
+            err => {
+              this.errors = err;
+              console.log(err);
 
-          $('#over').modal('show');
+              $('#over').modal('show');
 
-          setTimeout(function() {
-            $('#over').modal('hide');
-          }, 1500);
+              setTimeout(function() {
+                $('#over').modal('hide');
+              }, 1500);
 
-          this.shouldshow = true;
-        }
+              this.shouldshow = true;
+            }
     )
-        /*);*/
+
     }
   }
 
-  ngOnInit() {
-   /* if (this.jwtservice.getUserToken()) {
-      if (this.jwtservice.getMemberRole() === 'admin') {
-        this.router.navigateByUrl('pages');
-      }else {
-        this.router.navigateByUrl('userDashboard');
-      }
-    }else {
-      this.router.navigateByUrl('login');
-    }*/
-  }
+  ngOnInit() {}
 }

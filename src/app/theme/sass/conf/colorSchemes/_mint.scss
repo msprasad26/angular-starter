@@ -58,6 +58,7 @@ $hoverlink: $primary-dark;
 
 @mixin body-bg() {
   background-color: $body-bg;
+  $mainBgUrl: $assets-root + $images-root + 'peachy-bg.jpg';
 }
 @mixin additional-bg() {
   //display: block; // additional background layer, hidden by default
