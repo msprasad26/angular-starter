@@ -10,7 +10,18 @@ nav ul a,
 nav .brand-logo {
   color: #444;
 }
-
+nav{
+  background-color:#1a1a1a  !important;
+}
+.logo{
+  padding-bottom: 35px;
+}
+.login{
+  float: right;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
 p {
   line-height: 2rem;
 }

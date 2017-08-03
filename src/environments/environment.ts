@@ -19,6 +19,11 @@ export const environment = {
 export const environmentAdv = {
   production: true,
   api_url: 'https://wavelabs-olx-nonenunciatory-sage.au-syd.mybluemix.net',
-  client_id: '2b84167e-fa95-4b55-b535-e328a0db0341',
+  client_id: '',
   tenantId: 'TNT:OLX-gz2tq8fy'
+}
+
+export const environmentTodo = {
+  api_url: 'http://php-todo-api.server'
+
 }

@@ -1,5 +1,15 @@
 @import '../../../theme/sass/conf/conf';
 
+.author {
+  font-size: 18px !important;
+}
+.message-content {
+  font-size: 13px !important;
+}
+.message-time {
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+}
 :host /deep/ .feed-messages-container {
 
   .feed-message {
@@ -215,3 +225,4 @@
 /deep/.feed-panel .card-body {
   padding: 10px 0;
 }
+

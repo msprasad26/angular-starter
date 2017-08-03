@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
-import { UserService } from '../../shared/sevices/user.service';
+import { UserService } from '../../shared/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { JwtService } from '../../shared/sevices/jwt.service';
+import { JwtService } from '../../shared/services/jwt.service';
 @Component({
   selector: 'profiledetails',
   templateUrl: './profiledetails.component.html',

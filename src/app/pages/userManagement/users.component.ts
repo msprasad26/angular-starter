@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../../shared/sevices/user.service';
+import { UserService } from '../../shared/services/user.service';
 import { UsersModule } from './users.module';
 import { GlobalState } from '../../global.state';
 import { Routes } from '@angular/router';
 import { PAGES_MENU } from '../pages.menu';
 import { BaMenuService } from '../../theme';
-import { JwtService } from '../../shared/sevices/jwt.service';
+import { JwtService } from '../../shared/services/jwt.service';
 @Component({
   selector: 'usersManagement',
   templateUrl: './users.component.html',

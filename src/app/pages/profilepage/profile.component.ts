@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
-import { UserService } from '../../shared/sevices/user.service';
+import { UserService } from '../../shared/services/user.service';
 import { ProfileModule } from './profile.module';
 import { GlobalState } from '../../global.state';
 import { ActivatedRoute, Router } from '@angular/router';
-import { JwtService } from '../../shared/sevices/jwt.service';
+import { JwtService } from '../../shared/services/jwt.service';
 @Component({
   selector: 'profilepage',
   templateUrl: './profile.component.html',

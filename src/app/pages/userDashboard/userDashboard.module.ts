@@ -7,16 +7,14 @@ import { AppTranslationModule } from '../../app.translation.module';
 import { NgaModule } from '../../theme/nga.module';
 import { UserDashboardComponent } from './userDashboard.component';
 import { routing } from './userDashboard.routing';
-
-
-
 import { UserCalendar } from './userCalendar';
 import { UserFeed } from './userFeed';
 import { UserTodo } from './userTodo';
+import { TodoService } from './userTodo/todo.service';
 import { CalendarService } from '../userDashboard/userCalendar/userCalendar.service';
 import { FeedService } from '../userDashboard/userFeed/userFeed.service';
-import { TodoService } from '../userDashboard/userTodo/userTodo.service';
-
+import { TodoServiceStatic } from '../userDashboard/userTodo/userTodo.service';
+import { ApiAdvServices } from './userTodo/api.todo.service'
 
 import { DashboardModule } from '../dashboard/dashboard.module';
 import { Dashboard } from '../dashboard/dashboard.component';
@@ -42,7 +40,9 @@ import { Dashboard } from '../dashboard/dashboard.component';
   providers: [
     CalendarService,
     FeedService,
-    TodoService
+    TodoServiceStatic,
+    TodoService,
+    ApiAdvServices
   ]
 })
 export class UserDashboardModule {}

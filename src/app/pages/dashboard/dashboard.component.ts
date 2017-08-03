@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { JwtService } from '../../shared/sevices/jwt.service';
-import { UserService } from '../../shared/sevices/user.service';
+import { JwtService } from '../../shared/services/jwt.service';
+import { UserService } from '../../shared/services/user.service';
 import { BaMenuService } from '../../theme';
 import { PAGES_MENU } from '../pages.menu';
 import { Routes } from '@angular/router';

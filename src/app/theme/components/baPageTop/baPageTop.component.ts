@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { UserService } from '../../../shared/sevices/user.service';
+import { UserService } from '../../../shared/services/user.service';
 import {GlobalState} from '../../../global.state';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({

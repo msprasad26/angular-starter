@@ -5,8 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
-import { ApiService } from './shared/sevices/api.service';
-import { JwtService } from './shared/sevices/jwt.service';
+import { ApiService } from './shared/services/api.service';
+import { JwtService } from './shared/services/jwt.service';
 /*
  * Platform and Environment providers/directives/pipes
  */

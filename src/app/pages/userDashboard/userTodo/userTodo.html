@@ -11,7 +11,7 @@
       <i class="mark" [ngStyle]="{ 'background-color': item.color }"></i>
       <label class="todo-checkbox custom-checkbox custom-input-success">
         <input type="checkbox" [(ngModel)]="item.isChecked">
-        <span class="cut-with-dots">{{ item.text }}</span>
+        <span class="cut-with-dots">{{ item.description }}</span>
       </label>
       <i class="remove-todo ion-ios-close-empty" (click)="item.deleted = true"></i>
     </li>

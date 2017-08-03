@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AdvService } from './../adv.service';
 import { FeedService } from './userFeed.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class AdvertisementComponent implements OnInit {
 
   public feed: Array<Object>;
 
-  constructor(private feedService: FeedService) {
+  constructor(private feedService: FeedService, private advService: AdvService ) {
   }
 
   ngOnInit() {
@@ -23,6 +23,10 @@ export class AdvertisementComponent implements OnInit {
   }
 
   private _loadFeed() {
-    this.feed = this.feedService.getData();
+    // this.feed = this.feedService.getData();
+    this.advService.getAllAdds().subscribe((feed) => {
+      this.feed = feed;
+      console.log(this.feed);
+    });
   }
 }

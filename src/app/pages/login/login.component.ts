@@ -1,34 +1,26 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../../shared/sevices/user.service';
-import { JwtService } from '../../shared/sevices/jwt.service';
+import { UserService } from '../../shared/services/user.service';
+import { JwtService } from '../../shared/services/jwt.service';
 import * as _ from 'lodash';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Errors } from '../../shared/models/errors.model';
-
 
 @Component({
   selector: 'login',
   templateUrl: './login.html',
   styleUrls: ['./login.scss']
 })
-/*<<<<<<< HEAD
-export class Login implements OnInit{
 
+export class Login {
+  errors: Errors = new Errors();
   public form: FormGroup;
   public username: AbstractControl;
   public password: AbstractControl;
   public submitted: boolean = false;
-=======*/
-export class Login {
-  errors: Errors = new Errors();
-  public form:FormGroup;
-  public username:AbstractControl;
-  public password:AbstractControl;
-  public submitted:boolean = false;
-  public shouldshow:boolean=false;
+  public shouldshow: boolean= false;
 
 
   constructor(fb: FormBuilder , private userService: UserService,
@@ -68,9 +60,7 @@ export class Login {
         err => {
           this.errors = err;
           console.log(err);
-
           $('#over').modal('show');
-
           setTimeout(function() {
             $('#over').modal('hide');
           }, 1500);

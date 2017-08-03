@@ -1,0 +1,109 @@
+/*@import '../../theme/sass/conf/conf';*/
+
+.imgAdd {
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+  float: right;
+}
+.add {
+  height: 55px;
+  width: 55px;
+  cursor: pointer;
+}
+
+.cardBlock {
+  clear:both;
+}
+.add:hover {
+  height: 60px;
+  width: 60px;
+}
+
+.parallax-container[_ngcontent-c2]{
+  color:#080d15;
+}
+
+.parallax-container[_ngcontent-c1] {
+  color:#080d15;
+}
+
+.modal .form-group label {
+  color: #080d15;
+
+}
+input[type=email]:not(.browser-default) {
+  color: #080d15;
+
+}
+input[type=password]:not(.browser-default) {
+  color:#080d15;
+}
+.modal-body button.btn.btn-default {
+  background: #26a69a;
+
+}
+input[type=text]:not(.browser-default){
+  color:black;
+  margin-top: 30px;
+}
+
+
+
+::-webkit-input-placeholder { /* Chrome */
+  color: #080d15;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color:  #080d15;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color:  #080d15;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: #080d15;
+  opacity: 1;
+
+}
+/*.parallax-container[_ngcontent-c2]{*/
+/*color:black;*/
+/*}*/
+.modal-backdrop.show {
+  display: none !important;
+
+}
+
+@media (min-width: 576px) {
+  .col-sm-10 {
+    max-width: 100%;
+  }
+}
+.parallax-container[_ngcontent-c18],.parallax-container[_ngcontent-c9]{
+  color:#080d15;
+}
+.modal {
+  width: 600px;
+  max-height: 500px;
+
+}
+
+.modal-open {
+  margin-right: 0 !important;
+}
+html {
+  overflow-y: scroll !important;
+}
+
+.textcolor {
+  color:#080d15;
+}
+.modal-content {
+  border:none;
+}
+.modal .modal-content {
+  padding: 0px;
+}
+
+.modal-body h1 {
+  color: #000 !important;
+}

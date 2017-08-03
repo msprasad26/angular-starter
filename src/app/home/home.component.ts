@@ -3,7 +3,7 @@ import { HomeModule } from './home.module';
 import { GlobalState } from '../global.state';
 import * as $ from 'jquery';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../shared/sevices/user.service';
+import { UserService } from '../shared/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
 import { Errors } from '../shared/models/errors.model';

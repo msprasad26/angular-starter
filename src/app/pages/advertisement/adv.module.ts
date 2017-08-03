@@ -8,6 +8,8 @@ import { routing } from './adv.routing';
 import { AdvComponent } from './adv.component';
 import { AdvertisementComponent } from './advertisementModule';
 import { FeedService } from './advertisementModule/userFeed.service';
+import { AdvService } from './adv.service';
+import { ApiAdvServices } from './api.adv.service';
 
 
 @NgModule({
@@ -24,7 +26,10 @@ import { FeedService } from './advertisementModule/userFeed.service';
     AdvertisementComponent
   ],
   providers: [
-    FeedService
+    FeedService,
+    AdvService,
+    ApiAdvServices
+
   ]
 })
 export class AdvModule {}

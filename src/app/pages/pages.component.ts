@@ -3,7 +3,7 @@ import { Component , OnInit } from '@angular/core';
 import { Router, Routes } from '@angular/router';
 import { BaMenuService } from '../theme';
 import { PAGES_MENU } from './pages.menu';
-import { JwtService } from '../shared/sevices/jwt.service';
+import { JwtService } from '../shared/services/jwt.service';
 @Component({
   selector: 'pages',
   template: `

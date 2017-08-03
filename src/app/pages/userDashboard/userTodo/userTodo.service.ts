@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class TodoService {
+export class TodoServiceStatic {
 
   private _todoList = [
     { text: 'Check me out' },
