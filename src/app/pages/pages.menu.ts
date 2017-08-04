@@ -15,7 +15,7 @@ export const USER_PAGES_MENU = [
       }
     },
     {
-      path: '#',
+      path: 'profiledetails',
       data: {
         menu: {
           title: 'Profile',

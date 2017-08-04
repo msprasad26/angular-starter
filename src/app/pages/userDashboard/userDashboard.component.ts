@@ -14,7 +14,6 @@ import * as _ from 'lodash';
 })
 export class UserDashboardComponent implements OnInit {
   constructor(private menuService: BaMenuService ) {
-
   }
   ngOnInit() {
     this.menuService.updateMenuByRoutes(<Routes>USER_PAGES_MENU);

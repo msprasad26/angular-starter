@@ -19,10 +19,14 @@ export const routes: Routes = [
     path: 'userDashboard',
     loadChildren: 'app/pages/userDashboard/userDashboard.module#UserDashboardModule'
   },
-  /*{
-    path: 'advertisement',
-    loadChildren: 'app/pages/advertisement/adv.module#AdvModule'
-  },*/
+  {
+    path: 'profiledetails',
+    loadChildren: 'app/pages/profile/profiledetails.module#ProfiledetailsModule'
+  },
+  {
+    path: 'profile',
+    loadChildren: 'app/pages/profilepage/profile.module#ProfileModule'
+  },
   {
     path: '', redirectTo: 'home', pathMatch: 'full'
   },
@@ -40,8 +44,8 @@ export const routes: Routes = [
       { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
       { path: 'usersManagement', loadChildren: './userManagement/users.module#UsersModule' },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'profile', loadChildren: './profilepage/profile.module#ProfileModule' },
-      { path: 'profiledetails', loadChildren: './profile/profiledetails.module#ProfiledetailsModule' },
+      // { path: 'profile', loadChildren: './profilepage/profile.module#ProfileModule' },
+     // { path: 'profiledetails', loadChildren: './profile/profiledetails.module#ProfiledetailsModule' },
       { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' },
       { path: 'advertisement', loadChildren: './advertisement/adv.module#AdvModule' }
     ]

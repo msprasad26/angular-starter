@@ -11,7 +11,8 @@ export class AdvertisementComponent implements OnInit {
 
   public feed: Array<Object>;
 
-  constructor(private feedService: FeedService, private advService: AdvService ) {
+  constructor(private feedService: FeedService,
+              private advService: AdvService ) {
   }
 
   ngOnInit() {
@@ -29,4 +30,9 @@ export class AdvertisementComponent implements OnInit {
       console.log(this.feed);
     });
   }
+
+  deleteAdv() {
+    // this.advService.deleteAdvertisement() {
+    }
+
 }

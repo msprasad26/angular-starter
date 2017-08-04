@@ -29,7 +29,11 @@ export class AdvService {
   addAdvertisement(params) {
     return this.apiAdvServices.post('/advertisement', JSON.stringify(params), 'raw')
       .map(data => {
-        console.log(data);
+      });
+  }
+  deleteAdvertisement(id) {
+    return this.apiAdvServices.delete('/advertisement/' + 'id')
+      .map(data => {
       });
   }
 }

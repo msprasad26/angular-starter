@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-// import { PAGES_MENU } from './../pages.menu';
 import { Routes } from '@angular/router';
 import { BaMenuService } from '../../theme';
 import * as _ from 'lodash';
@@ -8,9 +7,10 @@ import { AdvService } from './adv.service';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { GlobalState } from '../../global.state';
 import { JwtService } from './../../shared/services/jwt.service';
+import * as jQuery from 'jquery';
+import { ViewChild } from '@angular/core';
+import { AdvertisementComponent } from './advertisementModule/advertisement.component';
 
-//import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-//import { DefaultModal } from '../ui/components/modals/default-modal/default-modal.component';
 @Component({
   selector: 'adv',
   templateUrl: './adv.component.html',
@@ -20,11 +20,13 @@ import { JwtService } from './../../shared/services/jwt.service';
 export class AdvComponent implements OnInit {
   users;
   data;
-  public form: FormGroup;
-  public name: AbstractControl;
-  public type: AbstractControl;
-  public description: AbstractControl;
-  public location: AbstractControl;
+  feed;
+  @ViewChild(AdvertisementComponent) child;
+   form: FormGroup;
+   name: AbstractControl;
+   type: AbstractControl;
+   description: AbstractControl;
+   location: AbstractControl;
   constructor(private menuService: BaMenuService,
               private _state: GlobalState,
               fb: FormBuilder,
@@ -37,8 +39,8 @@ export class AdvComponent implements OnInit {
     this.form = fb.group({
       'name': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       'description': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-      'location': ['', Validators.compose([Validators.required, Validators.minLength(3)])],
-      'type': ['', Validators.compose([Validators.required, Validators.minLength(3)])]
+      'location': ['', Validators.compose([Validators.required, Validators.minLength(3)])]
+     // 'type': ['', Validators.compose([Validators.required, Validators.minLength(3)])]
     });
 
     this.name = this.form.controls['name'];
@@ -47,14 +49,20 @@ export class AdvComponent implements OnInit {
     this.type = this.form.controls['type'];
 
   }
-  public onSubmit(values: Object) {
+  onSubmit(values: Object) {
     const userObj = this.jwtService.getUser();
     values['users'] = { 'id' : userObj.member.id } ;
-    console.log(values);
     this.advService.addAdvertisement(values).subscribe((data) => {
       this.data = data;
-      console.log(this.data);
+      $('#myModalHorizontal').hide();
+      this.child._loadFeed();
+      /*this.advService.getAllAdds().subscribe((feed) => {
+        this.feed = feed;
+        console.log(this.feed);
+      });*/
+
     });
+
 }
   ngOnInit() {
   }

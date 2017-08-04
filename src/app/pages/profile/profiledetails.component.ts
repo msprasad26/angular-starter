@@ -2,8 +2,10 @@ import {Component} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
 import { UserService } from '../../shared/services/user.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { JwtService } from '../../shared/services/jwt.service';
+import { USER_PAGES_MENU } from './../pages.menu';
+import { BaMenuService } from '../../theme';
 @Component({
   selector: 'profiledetails',
   templateUrl: './profiledetails.component.html',
@@ -23,8 +25,12 @@ export class ProfileDetails {
 
   public submitted:boolean = false;
 
-  constructor(fb:FormBuilder , private userService: UserService, private route: ActivatedRoute,
-              private router: Router,private jwtservice : JwtService) {
+  constructor( fb: FormBuilder,
+               private userService: UserService,
+               private route: ActivatedRoute,
+               private router: Router,
+               private jwtservice: JwtService,
+               private menuService: BaMenuService) {
 
     this.form = fb.group({
       'firstName': ['', Validators.compose([Validators.required])],
@@ -50,12 +56,14 @@ export class ProfileDetails {
     this.description = this.form.controls['description'];
     this.socialAccounts = this.form.controls['socialAccounts'];
   }
-  ngOnInit(){
+  ngOnInit() {
+
+    this.menuService.updateMenuByRoutes(<Routes>USER_PAGES_MENU);
     var user=this.jwtservice.getUser()
     console.log(user);
 
 
-    this.firstName= user.member.firstName;
+    this.firstName = user.member.firstName;
     // this.username= user.member.username;
     this.uid = user.member.id;
     this.email = user.member.email;
@@ -72,29 +80,4 @@ export class ProfileDetails {
     this.form.patchValue({description:this.description});
     this.form.patchValue({socialAccounts:this.socialAccounts});
   }
-
-
-
-  /*public onSubmit() {
-    console.log("hi");
-    this.router.navigateByUrl('profile');
-
-
-
-
-    /!*this.submitted = true;
-
-    this.userService.getDetails(values).subscribe(
-      data => this.router.navigateByUrl('dashboard'));
-
-    // if (this.form.valid) {
-    //   console.log(values);
-    //
-    //   this.userService.update(values).subscribe(
-    //     data => this.router.navigateByUrl('login'),
-    //   );
-    // }*!/
-  }
-*/
-
 }
