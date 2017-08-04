@@ -25,6 +25,7 @@ tostr =JSON.stringify;
   public socialAccounts:AbstractControl;
 
   public submitted:boolean = false;
+  public shouldshow:boolean=false;
 
   constructor(fb:FormBuilder , private userService: UserService, private route: ActivatedRoute,
               private router: Router,private jwtservice : JwtService) {
@@ -53,35 +54,36 @@ tostr =JSON.stringify;
     this.description = this.form.controls['description'];
     this.socialAccounts = this.form.controls['socialAccounts'];
   }
-  ngOnInit(){
-   var user=this.jwtservice.getUser()
+  ngOnInit() {
+   var user = this.jwtservice.getUser()
     console.log(user);
-    this.firstName= user.member.firstName;
+    this.firstName = user.member.firstName;
    // this.username= user.member.username;
     this.uid = user.member.id;
     this.email = user.member.email;
-    this.lastName= user.member.lastName;
-    this.phone= user.member.phone;
-    this.description= user.member.description;
-    this.socialAccounts= user.member.socialAccounts;
-
-    this.form.patchValue({firstName:this.firstName});
-    this.form.patchValue({uid:this.uid});
-    this.form.patchValue({email:this.email});
-    this.form.patchValue({lastName:this.lastName});
-    this.form.patchValue({phone:this.phone});
-    this.form.patchValue({description:this.description});
-    this.form.patchValue({socialAccounts:this.socialAccounts});
+    this.lastName = user.member.lastName;
+    this.phone = user.member.phone;
+    this.description = user.member.description;
+    this.socialAccounts = user.member.socialAccounts;
+    this.form.patchValue({ firstName: this.firstName });
+    this.form.patchValue({ uid: this.uid });
+    this.form.patchValue({ email: this.email });
+    this.form.patchValue({ lastName: this.lastName });
+    this.form.patchValue({ phone: this.phone });
+    this.form.patchValue({ description: this.description });
+    this.form.patchValue({ socialAccounts: this.socialAccounts });
 }
 
-
-
-  public onSubmit(values):void {
-    console.log("hi");
+  public onSubmit(values): void {
     this.submitted = true;
-
     this.userService.update(values).subscribe(
-      data => this.router.navigateByUrl('dashboard'));
+      data => {
+        $('#over').modal('show');
+        setTimeout(function() {
+          $('#over').modal('hide');
+        }, 15000);
+        this.shouldshow = true;
+      });
   }
 
 

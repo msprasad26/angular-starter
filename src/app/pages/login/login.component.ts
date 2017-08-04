@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../shared/services/user.service';
@@ -41,15 +40,15 @@ export class Login {
         response => {
           this.userService.getUserRole(response).subscribe(
             data => {
-              console.log(data);
-              let userRole = 'guest';
-              if (data.length > 0 ) {
-                const roles = _.map(data, 'uRoleName');
-                if ( _.map(roles, 'role:app.tenant.admin') ) {
-                  userRole = 'admin';
-                  this.userService.setRole(userRole);
-                  this.router.navigateByUrl('pages');
-                }
+                    console.log(data);
+                    let userRole = 'guest';
+                    if (data.length > 0 ) {
+                      const roles = _.map(data, 'uRoleName');
+                      if ( _.map(roles, 'role:app.tenant.admin') ) {
+                        userRole = 'admin';
+                        this.userService.setRole(userRole);
+                        this.router.navigateByUrl('pages');
+                      }
               }else {
                 /* alert(userRole);*/
                 this.userService.setRole(userRole);
@@ -57,6 +56,7 @@ export class Login {
               }
             });
         },
+/*<<<<<<< HEAD
         err => {
           this.errors = err;
           console.log(err);
@@ -64,23 +64,19 @@ export class Login {
           setTimeout(function() {
             $('#over').modal('hide');
           }, 1500);
-
-          this.shouldshow = true;
-        }
+=======*/
+            err => {
+              this.errors = err;
+              $('#over').modal('show');
+              setTimeout(function() {
+                $('#over').modal('hide');
+              }, 1500);
+              this.shouldshow = true;
+            }
     )
-        /*);*/
+
     }
   }
 
-  ngOnInit() {
-   /* if (this.jwtservice.getUserToken()) {
-      if (this.jwtservice.getMemberRole() === 'admin') {
-        this.router.navigateByUrl('pages');
-      }else {
-        this.router.navigateByUrl('userDashboard');
-      }
-    }else {
-      this.router.navigateByUrl('login');
-    }*/
-  }
+  ngOnInit() {}
 }

@@ -1,11 +1,3 @@
-
-<nav class="navbar  navbar-inverse  navbar-fixed-top">
-  <div class="container">
-    <a class="navbar-brand logo" href="#"> <img src="http://wavelabs.in/wp-content/uploads/2017/05/Wavelabs-logo.png" ></a>
-  <label class="login" data-toggle="modal" data-target="#myModalHorizontal">Login</label>
-  </div>
-</nav>
-
 <div class="home  auth-main"  style="    display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -17,19 +9,19 @@
     color: black;">
     <div id="index-banner" class="parallax-container">
       <div class="overlay"></div>
-      <!--<button  class="btn-large waves-effect waves-light teal lighten-1 textcolor pull-right" data-toggle="modal" data-target="#myModalHorizontal1">
-        Get Started
-      </button>-->
+      <button class="btn-large waves-effect waves-light teal lighten-1 textcolor pull-right margintop" data-toggle="modal" data-target="#myModalHorizontal">
+        Login
+      </button>
       <div class="section no-pad-bot">
         <div class="container">
           <br><br>
-          <h1 class="header center teal-text text-lighten-2"><label class="header" style="color: #00abff">Wavelabs</label> Starter Kits enable team to jumpstart any App</h1>
+          <h1 class="header center teal-text text-lighten-2">Wavelabs Starter Kits enable team to jumpstart any App</h1>
           <!-- <div class="row center">
             <h5 class="header col s12 light">Text to write</h5>
           </div> -->
           <div class="center">
             <!--<a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1" routerLink="../login">Get Started</a>-->
-            <button id="download-button" class="btn-large waves-effect waves-light teal lighten-1 textcolor" routerLink="pages" >
+            <button id="download-button" class="btn-large waves-effect waves-light teal lighten-1 textcolor" data-toggle="modal" data-target="#myModalHorizontal1" routerLink="/dashboard">
               Get Started
             </button>
             <!-- Modal -->
@@ -39,7 +31,6 @@
                 <div class="modal-content">
                   <!-- Modal Header -->
                   <div class="modal-header">
-
                     <h1 class="modal-title">
                       Sign in
                     </h1>
@@ -52,22 +43,15 @@
                   <!-- Modal Body -->
                   <div class="modal-body">
                     <a class="margin" routerLink="/register">New to user? Sign up!</a>
-
+                    <div class="margin"> <list-errors class="center text-danger" [errors]="errors"></list-errors></div>
                     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal" role="form">
                       <div class="form-group">
-                        <!--<div class= "col-sm-4">-->
-                        <!--<label  class="control-label"-->
-                        <!--for="inputEmail3">User Name</label></div>-->
                         <div class= "col-sm-12">
                           <input formControlName="username" type="text" class="form-control"
                                  id="inputEmail3"  placeholder="User Name"/>
                         </div>
                       </div>
-
                       <div class="form-group">
-                        <!--<div class= "col-sm-4">-->
-                        <!--<label class="control-label"-->
-                        <!--for="inputPassword3" >Password</label></div>-->
                         <div class= "col-sm-12">
                           <input formControlName="password" type="password" class="form-control"
                                  id="inputPassword3"  placeholder="Password"/>
@@ -78,22 +62,10 @@
                           <!--<button type="submit" class="btn btn-default">Sign in</button>-->
                           <button [disabled]="!form.valid" type="submit" class="btn btn-default btn-auth">Sign in</button>
                         </div>
-
                       </div>
                       <a routerLink="/login">Forgot password</a>
                     </form>
                   </div>
-
-                  <!-- Modal Footer -->
-                  <!--<div class="modal-footer">-->
-                  <!--<button type="button" class="btn btn-default"-->
-                  <!--data-dismiss="modal">-->
-                  <!--Close-->
-                  <!--</button>-->
-                  <!--<button type="button" class="btn btn-primary">-->
-                  <!--Save changes-->
-                  <!--</button>-->
-                  <!--</div>-->
                 </div>
               </div>
             </div>
@@ -135,10 +107,12 @@
             <div class="icon-block">
               <h1 class="center brown-text icons"><i class="material-icons">add_to_queue</i></h1>
               <h2 class="center">Ready to deploy</h2>
+
               <ul class="center">
                 <li>Deployable in Cloud based or On Premise environments</li>
                 <li> Integrated with Jenkins based DevOps Platform</li>
               </ul>
+
             </div>
           </div>
         </div>
