@@ -11,6 +11,7 @@ import { BaMenuService } from '../../theme';
   templateUrl: './profiledetails.component.html',
   styleUrls: ['./profiledetails.component.scss']
 })
+
 export class ProfileDetails {
   public form:FormGroup;
   public firstName:AbstractControl;
@@ -19,7 +20,6 @@ export class ProfileDetails {
   public email:AbstractControl;
   // public password:AbstractControl;
   public uid:AbstractControl;
-  //
   public description:AbstractControl;
   public socialAccounts:AbstractControl;
 

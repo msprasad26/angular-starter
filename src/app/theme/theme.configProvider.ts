@@ -3,6 +3,9 @@ import * as _ from 'lodash';
 
 import { colorHelper } from './theme.constants';
 
+import { environment } from '../../environments/environment';
+
+
 @Injectable()
 export class BaThemeConfigProvider {
 
@@ -10,14 +13,27 @@ export class BaThemeConfigProvider {
   private colorScheme: any;
   private dashboardColors: any;
   private conf: any;
+  private theme:any;
+ // value= '{ environment.theme3 }';
 
-  constructor() {
-    this.basic = {
-      default: '#ffffff',
-      defaultText: '#ffffff',
-      border: '#dddddd',
-      borderDark: '#aaaaaa',
-    };
+  // value= 'mint';
+
+  constructor( ) {
+
+    this.theme = environment.theme2;
+
+     if (this.theme === 'mint') {
+       this.basic = {
+         defaultText: '#8bd22f' }
+
+     } else {
+       this.basic = {
+         default: '#ffffff',
+         defaultText: '#ffffff', //#ffffff
+         border: '#dddddd',     //#dddddd
+         borderDark: '#aaaaaa',
+       };
+     }
 
     // main functional color scheme
     this.colorScheme = {
@@ -79,14 +95,36 @@ export class BaThemeConfigProvider {
         }
       }
     };
+
   }
+
+
 
   get() {
     return this.conf;
   }
 
+
+
   changeTheme(theme: any) {
+
     _.merge(this.get().theme, theme);
+
+
+    // if ( this.get().theme === 'mint') {
+    //   return this.conf1;
+       // this.defaultText: '#8bd22f'
+    // }
+    // if ( this.get().theme === 'dark') {
+    //   return this.conf;
+    // }
+    // if ( this.get().theme === 'ng2') {
+    //   return this.conf2;
+    // }
+    // if ( this.get().theme === 'blur') {
+    //   return this.conf3;
+    // }
+
   }
 
   changeColors(colors: any) {

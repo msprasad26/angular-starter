@@ -54,7 +54,7 @@ tostr =JSON.stringify;
     this.socialAccounts = this.form.controls['socialAccounts'];
   }
   ngOnInit(){
-   var user=this.jwtservice.getUser()
+   var user = this.jwtservice.getUser()
     console.log(user);
     this.firstName= user.member.firstName;
    // this.username= user.member.username;

@@ -47,7 +47,8 @@ export const routes: Routes = [
       // { path: 'profile', loadChildren: './profilepage/profile.module#ProfileModule' },
      // { path: 'profiledetails', loadChildren: './profile/profiledetails.module#ProfiledetailsModule' },
       { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' },
-      { path: 'advertisement', loadChildren: './advertisement/adv.module#AdvModule' }
+      { path: 'advertisement', loadChildren: './advertisement/adv.module#AdvModule' },
+      { path: 'calander', loadChildren: './calander/calander.module#CalanderModule' }
     ]
   }
 ];

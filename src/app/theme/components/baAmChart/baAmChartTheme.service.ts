@@ -17,8 +17,8 @@ export class BaAmChartThemeService {
       themeName: "blur",
 
       AmChart: {
-        color: layoutColors.defaultText,
-        backgroundColor: "#FFFFFF"
+        color: layoutColors.defaultText,     //defaultText
+        backgroundColor: "#FFFFFF"     //#FFFFFF
       },
 
       AmCoordinateChart: {
@@ -49,7 +49,7 @@ export class BaAmChartThemeService {
       },
 
       ChartScrollbar: {
-        backgroundColor: "#FFFFFF",
+        backgroundColor: "#FFFFFF",  // #FFFFFF
         backgroundAlpha: 0.12,
         graphFillAlpha: 0.5,
         graphLineAlpha: 0,
@@ -137,7 +137,7 @@ export class BaAmChartThemeService {
         buttonBorderAlpha: 0,
         buttonCornerRadius: 0,
         gridColor: "#FFFFFF",
-        gridBackgroundColor: "#FFFFFF",
+        gridBackgroundColor: "#FFFFFF",     //#FFFFFF
         buttonIconAlpha: 0.6,
         gridAlpha: 0.6,
         buttonSize: 20

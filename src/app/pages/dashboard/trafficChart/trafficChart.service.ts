@@ -14,7 +14,7 @@ export class TrafficChartService {
       {
         value: 2000,
         color: dashboardColors.white,
-        highlight: colorHelper.shade(dashboardColors.white, 15),
+        highlight: colorHelper.shade(dashboardColors.white, 15), //white
         label: 'Other',
         percentage: 87,
         order: 1,
