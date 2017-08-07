@@ -26,3 +26,5 @@ npm install
 To start server
 ---------------
 ng serve
+
+Open the dev url in browser: http://localhost:4200
