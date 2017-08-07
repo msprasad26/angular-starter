@@ -1,0 +1,17 @@
+@import '../../theme/sass/auth';
+.modal {
+  height: 90px;
+  width: 450px;
+  background-color:#FFFFFF;
+  color: #000;
+}
+
+.modal-content{
+  border:none;
+}
+.modal{
+  overflow-y: hidden;
+}
+.center{
+  text-align: center;
+}
