@@ -179,7 +179,7 @@ input[type=text]:not(.browser-default){
 }
 .modal {
   width: 600px;
-  max-height: 370px;
+  max-height: 400px;
 
 }
 

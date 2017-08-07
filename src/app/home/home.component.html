@@ -43,7 +43,10 @@
                   <!-- Modal Body -->
                   <div class="modal-body">
                     <a class="margin" routerLink="/register">New to user? Sign up!</a>
+
                     <div class="margin"> <list-errors class="center text-danger" [errors]="errors"></list-errors></div>
+                    <h3> For Admin login: admin/admin</h3>
+                    <h3> For User login: user/user</h3>
                     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal" role="form">
                       <div class="form-group">
                         <div class= "col-sm-12">
