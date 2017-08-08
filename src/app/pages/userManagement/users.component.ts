@@ -39,6 +39,12 @@ export class UsersComponent implements OnInit {
     sortByWordLength = (a: any) => {
         return a.city.length;
     }
+  getUserDetails(id) {
+      if (this.jwtservice.getMemberRole() === 'admin') {
+        this.router.navigateByUrl('profiledetails');
+      }
+    }
+
   ngOnInit() {
     this._menuService.updateMenuByRoutes(<Routes>PAGES_MENU);
     if (!this.jwtservice.getUserToken()) {

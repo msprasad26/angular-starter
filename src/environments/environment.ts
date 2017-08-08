@@ -24,5 +24,5 @@ export const environmentAdv = {
 }
 
 export const environmentTodo = {
-  api_url: 'http://php-todo-api.server'
+  api_url: 'http://php-todo.labs.nbos.io'
 }

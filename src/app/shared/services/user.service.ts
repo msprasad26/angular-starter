@@ -11,6 +11,7 @@ import { environment } from '../../../environments/environment';
 
 import { ApiService } from './api.service';
 import { JwtService } from './jwt.service';
+// import {type} from "os";
 
 
 @Injectable()
@@ -41,11 +42,30 @@ export class UserService {
     );
   }
 
-  getUserRole(user) {
+  getUserRole(id) {
     const pObj: URLSearchParams = new URLSearchParams();
-    return this.apiService.get('/api/identity/v0/tenants/' + `${environment.tenant_id}` + '/members/' + user.member.id + '/roles', pObj, '')
+    return this.apiService.get('/api/identity/v0/tenants/' + `${environment.tenant_id}` + '/members/' + id + '/roles', pObj, '')
       .map(data => {
         console.log(data);
+        return data;
+      });
+  }
+
+  updateUserRole(item, id) {
+    return this.apiService.post('/api/identity/v0/tenants/' + `${environment.tenant_id}` + '/members/' + id + '/roles', JSON.stringify(item), 'raw')
+      .map( data => {
+      return data;
+    });
+  }
+
+  removeRole(item, id) {
+    return this.apiService.deleteRole('/api/identity/v0/tenants/' + `${environment.tenant_id}` + '/members/' + id + '/roles', JSON.stringify(item), 'raw')
+      .map( data => {return data})
+  }
+
+  getTenantRoles(tenantId) {
+    const pObj: URLSearchParams = new URLSearchParams();
+      return this.apiService.get('/api/identity/v0/tenants/'+ tenantId +'/roles', pObj, '').map( data => {
         return data;
       });
   }
@@ -95,4 +115,6 @@ export class UserService {
       }
     );
   }
+
+
 }

@@ -4,8 +4,10 @@ import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
 import { UserService } from '../../shared/services/user.service';
 import { ProfileModule } from './profile.module';
 import { GlobalState } from '../../global.state';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { JwtService } from '../../shared/services/jwt.service';
+import { BaMenuService } from './../../theme';
+import { USER_PAGES_MENU } from './../pages.menu';
 @Component({
   selector: 'profilepage',
   templateUrl: './profile.component.html',
@@ -27,8 +29,12 @@ tostr =JSON.stringify;
   public submitted:boolean = false;
   public shouldshow:boolean=false;
 
-  constructor(fb:FormBuilder , private userService: UserService, private route: ActivatedRoute,
-              private router: Router,private jwtservice : JwtService) {
+  constructor(fb: FormBuilder,
+              private userService: UserService,
+              private route: ActivatedRoute,
+              private router: Router,
+              private jwtservice: JwtService,
+              private menuService: BaMenuService ) {
 
     this.form = fb.group({
       'firstName': ['', Validators.compose([Validators.required])],
@@ -55,6 +61,7 @@ tostr =JSON.stringify;
     this.socialAccounts = this.form.controls['socialAccounts'];
   }
   ngOnInit() {
+    this.menuService.updateMenuByRoutes(<Routes>USER_PAGES_MENU);
    var user = this.jwtservice.getUser()
     console.log(user);
     this.firstName = user.member.firstName;
@@ -81,7 +88,7 @@ tostr =JSON.stringify;
         $('#over').modal('show');
         setTimeout(function() {
           $('#over').modal('hide');
-        }, 15000);
+        }, 1500);
         this.shouldshow = true;
       });
   }

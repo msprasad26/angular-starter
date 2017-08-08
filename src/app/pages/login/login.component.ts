@@ -38,7 +38,7 @@ export class Login {
     if (this.form.valid) {
       this.userService.login(values).subscribe(
         response => {
-          this.userService.getUserRole(response).subscribe(
+          this.userService.getUserRole(response.member.id).subscribe(
             data => {
                     console.log(data);
                     let userRole = 'guest';
@@ -56,16 +56,7 @@ export class Login {
               }
             });
         },
-/*<<<<<<< HEAD
-        err => {
-          this.errors = err;
-          console.log(err);
-          $('#over').modal('show');
-          setTimeout(function() {
-            $('#over').modal('hide');
-          }, 1500);
-=======*/
-            err => {
+             err => {
               this.errors = err;
               $('#over').modal('show');
               setTimeout(function() {

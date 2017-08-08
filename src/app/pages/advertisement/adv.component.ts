@@ -49,13 +49,14 @@ export class AdvComponent implements OnInit {
     this.type = this.form.controls['type'];
 
   }
-  onSubmit(values: Object) {
+  onSubmit(values) {
     const userObj = this.jwtService.getUser();
     values['users'] = { 'id' : userObj.member.id } ;
     this.advService.addAdvertisement(values).subscribe((data) => {
       this.data = data;
       $('#myModalHorizontal').hide();
       this.child._loadFeed();
+      this.form.reset();
       /*this.advService.getAllAdds().subscribe((feed) => {
         this.feed = feed;
         console.log(this.feed);

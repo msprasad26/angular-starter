@@ -6,7 +6,7 @@ import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { environment, environmentAdv } from '../../../environments/environment';
+// import { environment, environmentAdv } from '../../../environments/environment';
 import { ApiAdvServices } from './api.adv.service';
 
 
@@ -32,8 +32,11 @@ export class AdvService {
       });
   }
   deleteAdvertisement(id) {
-    return this.apiAdvServices.delete('/advertisement/' + 'id')
+    return this.apiAdvServices.delete('/advertisement/' + id )
       .map(data => {
       });
   }
+  /*updateAdd(id) {
+   // return this.apiAdvServices.put()
+  }*/
 }

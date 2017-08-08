@@ -35,7 +35,7 @@ export class JwtService {
    return  JSON.parse(window.localStorage['user']);
   }
 
-  setMemberRole(role){
+  setMemberRole(role) {
     window.localStorage['userRole'] = role;
   }
   getMemberRole() {
