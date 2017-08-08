@@ -20,7 +20,7 @@ export class BaThemeConfigProvider {
 
   constructor( ) {
 
-    this.theme = environment.theme2;
+    this.theme = environment.theme1;
 
      if (this.theme === 'mint') {
        this.basic = {

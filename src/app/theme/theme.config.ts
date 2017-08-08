@@ -14,7 +14,7 @@ export class BaThemeConfig {
   config() {
 
 
-    this.theme = environment.theme2;
+    this.theme = environment.theme1;
 
        // if ( this.theme === 'mint') {
        //   this._baConfig.changeTheme({ name: this.theme });   //'ng2'

@@ -4,7 +4,8 @@ import { Errors } from './models/errors.model';
 
 @Component({
   selector: 'list-errors',
-  templateUrl: './list-errors.component.html'
+  templateUrl: './list-errors.component.html',
+  styleUrls: ['./list-errors.component.scss']
 })
 export class ListErrorsComponent {
   formattedErrors: Array<string> = [];
@@ -16,7 +17,7 @@ export class ListErrorsComponent {
     if (errorList.errors) {
 
       for (const field in errorList.errors) {
-        this.formattedErrors.push(`${errorList.errors[field].propertyName} ${errorList.errors[field].message}`);
+        this.formattedErrors.push(` ${errorList.errors[field].message}`);
       }
     }
   };

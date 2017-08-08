@@ -20,6 +20,8 @@ export class HomeComponent {
   public username: AbstractControl;
   public password: AbstractControl;
   public submitted: boolean = false;
+  public shouldshow: boolean= false;
+
 
   constructor(private _state: GlobalState,
               fb: FormBuilder,
@@ -70,19 +72,22 @@ export class HomeComponent {
                 this.router.navigateByUrl('userDashboard');
               }
             });
-        } , /*,
-        err => {
+        } ,
+
+
+          err => {
           this.errors = err;
           console.log(err);
 
-          $('#over').modal('show');
+         /* $('#over').modal('show');
 
           setTimeout(function() {
             $('#over').modal('hide');
           }, 1500);
-
+*/
           this.shouldshow = true;
-        }*/);
+        }
+        );
     }
   }
 
