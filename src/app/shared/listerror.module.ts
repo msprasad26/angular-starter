@@ -3,7 +3,7 @@ import { CommonModule }  from '@angular/common';
 
 
 
-import {  ListErrorsComponent } from './list-errors.component';
+import { ListErrorsComponent } from './list-errors.component';
 
 
 
@@ -14,7 +14,6 @@ import {  ListErrorsComponent } from './list-errors.component';
   ],
   declarations: [
     ListErrorsComponent ,
-
   ],
   exports: [
     ListErrorsComponent

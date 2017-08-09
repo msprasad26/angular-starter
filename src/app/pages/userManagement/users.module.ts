@@ -7,7 +7,6 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2
 import { routing } from './users.routing';
 import { NgaModule } from '../../theme/nga.module';
 import { AppTranslationModule } from '../../app.translation.module';
-
 import { UsersComponent } from './users.component';
 
 @NgModule({

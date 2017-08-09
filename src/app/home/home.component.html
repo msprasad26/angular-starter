@@ -1,171 +1,179 @@
-<nav class="navbar  navbar-inverse  navbar-fixed-top">
-  <div class="container">
-    <a class="navbar-brand logo" href="#"> <img src="http://wavelabs.in/wp-content/uploads/2017/05/Wavelabs-logo.png" ></a>
-    <label class="login" data-toggle="modal" data-target="#myModalHorizontal">Login</label>
-  </div>
-</nav>
+<div class="container-fluid bg-color ">
+  <nav class="navbar navbar-inverse">
 
-<div class="home  auth-main"  style="    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    position: absolute;">
-  <div class="auth-block" style="    width: 100%;
-    margin: 0 auto;
-    border-radius: 5px;
-    background: white;
-    color: black;">
-    <div id="index-banner" class="parallax-container">
-      <div class="overlay"></div>
-      <!--<button  class="btn-large waves-effect waves-light teal lighten-1 textcolor pull-right" data-toggle="modal" data-target="#myModalHorizontal1">
-        Get Started
-      </button>-->
-      <div class="section no-pad-bot">
-        <div class="container">
-          <br><br>
-          <h1 class="header center teal-text text-lighten-2"><label class="header" style="color: #00abff">Wavelabs</label> Starter Kits enable team to jumpstart any App</h1>
-          <!-- <div class="row center">
-            <h5 class="header col s12 light">Text to write</h5>
-          </div> -->
-          <div class="center">
-            <!--<a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1" routerLink="../login">Get Started</a>-->
-            <button id="download-button" class="btn-large waves-effect waves-light teal lighten-1 textcolor" routerLink="pages" >
-              Get Started
-            </button>
-            <!-- Modal -->
-            <div class="modal fade" id="myModalHorizontal"  role="dialog"
-                 aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <!-- Modal Header -->
-                  <div class="modal-header">
+    <div class="navbar-header">
+      <a class="navbar-brand logo" href="#">
+        <img src="http://wavelabs.in/wp-content/uploads/2017/05/Wavelabs-logo.png"  class="d-inline-block align-top " alt="">
+      </a>
 
-                    <h1 class="modal-title">
-                      Sign in
-                    </h1>
-                    <button type="button" class="close"
-                            data-dismiss="modal">
-                      <span aria-hidden="true">&times;</span>
-                      <span class="sr-only">Close</span>
-                    </button>
-                  </div>
-                  <!-- Modal Body -->
-                  <div class="modal-body">
-                    <a class="margin" routerLink="/register">New to user? Sign up!</a>
+      <button *ngIf="!buttonshow" class="btn btn-primary login" type="submit" data-toggle="modal" data-target="#myModalHorizontal">Login</button>
 
-                    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal" role="form">
-                      <div class="form-group">
-                        <!--<div class= "col-sm-4">-->
-                        <!--<label  class="control-label"-->
-                        <!--for="inputEmail3">User Name</label></div>-->
-                        <div class= "col-sm-12">
-                          <input formControlName="username" type="text" class="form-control"
-                                 id="inputEmail3"  placeholder="User Name"/>
-                        </div>
-                      </div>
+      <button *ngIf="buttonshow" (click)="logout()" class="btn btn-primary login" >logout</button>
+      <button *ngIf="buttonshow" class="btn btn-primary login" routerLink="/userDashboard">home</button>
 
-                      <div class="form-group">
-                        <!--<div class= "col-sm-4">-->
-                        <!--<label class="control-label"-->
-                        <!--for="inputPassword3" >Password</label></div>-->
-                        <div class= "col-sm-12">
-                          <input formControlName="password" type="password" class="form-control"
-                                 id="inputPassword3"  placeholder="Password"/>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="col-sm-10">
-                          <!--<button type="submit" class="btn btn-default">Sign in</button>-->
-                          <button [disabled]="!form.valid" type="submit" class="btn btn-default btn-auth">Sign in</button>
-                        </div>
+    </div>
 
-                      </div>
-                      <a routerLink="/login">Forgot password</a>
-                    </form>
-                  </div>
 
-                </div>
+  </nav>
+
+  <body>
+
+  <div class="modal fade modalcontent" id="myModalHorizontal"  role="dialog"
+       aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+
+          <h1 class="modal-title">
+            Sign in
+          </h1>
+          <button type="button" class="close"
+                  data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+        </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <a class="" routerLink="/register">New to user? Sign up!</a>
+
+          <list-errors class="text-danger"  [errors]="errors"></list-errors>
+
+          <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal " role="form">
+            <div class="form-group">
+
+              <div class= "col-sm-12">
+                <input formControlName="username" type="text" class="form-control margin"
+                       id="inputEmail3"  placeholder="User Name"/>
               </div>
             </div>
-          </div>
-          <br><br>
-        </div>
-      </div>
-      <div class="parallax banner-img"><img src="/assets/images/background1.jpeg" alt="Unsplashed background img 1"></div>
-    </div>
-    <div class="container">
-      <div class="section sectionTwo">
-        <!--   Icon Section   -->
-        <div class="row">
-          <div class="col s12 m4">
-            <div class="icon-block">
-              <h1 class="center brown-text icons"><i class="material-icons">extension</i></h1>
-              <h2 class="center">Functional Features</h2>
-              <!--<p class="center">-->
-              <ul class="center">
-                <li>User Signup</li>
-                <li>User Login/ Logout</li>
-                <li>Search/ Results screen</li>
-                <li>Navigation</li>
-              </ul>
+
+            <div class="form-group">
+
+              <div class= "col-sm-12">
+                <input formControlName="password" type="password" class="form-control"
+                       id="inputPassword3"  placeholder="Password"/>
+              </div>
             </div>
-          </div>
-          <div class="col s12 m4">
-            <div class="icon-block">
-              <h1 class="center brown-text icons"><i class="material-icons">settings</i></h1>
-              <h2 class="center">Services/ Architecture</h2>
-              <ul class="center">
-                <li>Grails based Authentication services</li>
-                <li>API server based on NodeJS</li>
-                <li>Support for multiple technology stacks</li>
-              </ul>
+            <div class="form-group">
+              <div class="col-sm-10">
+
+                <button [disabled]="!form.valid" type="submit" class="btn btn-primary btn-margin">Sign in</button>
+              </div>
+
             </div>
-          </div>
-          <div class="col s12 m4">
-            <div class="icon-block">
-              <h1 class="center brown-text icons"><i class="material-icons">add_to_queue</i></h1>
-              <h2 class="center">Ready to deploy</h2>
-              <ul class="center">
-                <li>Deployable in Cloud based or On Premise environments</li>
-                <li> Integrated with Jenkins based DevOps Platform</li>
-              </ul>
-            </div>
-          </div>
+          </form>
         </div>
+
+
       </div>
     </div>
-    <div class="parallax-container ">
-      <div class="overlay"></div>
-      <div class="section no-pad-bot">
-        <div class="container">
-          <div class="row center">
-            <!--  <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
-          </div>
-        </div>
-      </div>
-      <div class="parallax"><img src="/assets/images/setting.jpg" alt="Unsplashed background img 2" height="100%" width="100%"></div>
-    </div>
-    <div class="container">
-      <div class="section">
-        <div class="row">
-          <div class="col s12 center">
-            <h3><i class="mdi-content-send brown-text"></i></h3>
-            <h2>About Us</h2>
-            <p class="left-align light">
-              We are designers, coders, nerds, and strategists who expedite the development process to build you cutting-edge products. We perform and innovate at a startup speed for reimagining the future through continuous delivery and iterations. As we drive digital revolution in the right direction, come take a colossal leap with us.
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer class="page-footer teal">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Contact us</h5>
-            <p class="grey-text text-lighten-4">
-              <span class="white-text">Email</span>: info@wavelabs.in
-          </div>
-        </div>
-      </div>
-    </footer>
   </div>
+
+
+
+
+  <!--<div class="container-fluid ">-->
+  <div class="row text-center">
+
+
+
+
+    <div class="col-md-12 col-xs-12 center">
+      <div class="overlay"></div>
+
+      <img src="/assets/images/background1.jpeg"  class="image" alt="Unsplashed background img 1">
+      <div class="text ">
+        <h1 class="header"><label class="header lablel-color"> Wavelabs</label> Starter Kits enable team to jumpstart any App</h1>
+        <button type="button" class="btn btn-lg btn-primary" routerLink="pages"> Get Started</button>
+      </div>
+      <!--<h1 class="header"> Wavelabs Starter Kits enable team to jumpstart any App</h1>-->
+    </div>
+
+
+  </div>
+  <div class="margin">
+
+    <div class="row center">
+
+      <div class="col-md-4">
+        <i class="fa fa-podcast  browser-icons icons" aria-hidden="true"></i>
+
+        <h2 class="center">Functional Features</h2>
+        <!--<p class="center">-->
+        <ul>
+          <li>User Signup</li>
+          <li>User Login/ Logout</li>
+          <li>Search/ Results screen</li>
+          <li>Navigation</li>
+        </ul>
+
+      </div>
+      <!--second-->
+      <div class="col-md-4">
+        <i class="fa fa-cog browser-icons icons" aria-hidden="true"></i>
+
+        <h2 class="center">Functional Features</h2>
+        <!--<p class="center">-->
+        <ul>
+          <li>Grails based Authentication services</li>
+          <li>API server based on NodeJS</li>
+          <li>Support for multiple technology stacks</li>
+        </ul>
+
+      </div>
+      <!--third-->
+      <div class="col-md-4">
+        <i class="fa fa-desktop browser-icons icons" aria-hidden="true"></i>
+        <h2 class="center">Functional Features</h2>
+        <!--<p class="center">-->
+        <ul>
+          <li>Deployable in Cloud based or On Premise environments</li>
+          <li>Integrated with Jenkins based DevOps Platform</li>
+        </ul>
+
+      </div>
+
+
+
+
+
+    </div>
+
+    <div class="col-md-12 center">
+      <div class="overlay"></div>
+      <div class="image"><img src="/assets/images/setting.jpg" alt="Unsplashed background img 2" height="100%" width="100%"></div>
+    </div>
+
+    <div class="row margintext">
+      <h2>About Us</h2>
+      <p>We are designers, coders, nerds, and strategists who expedite the development process to build you cutting-edge products.
+        We perform and innovate at a startup speed for reimagining the future through continuous delivery and iterations.
+        As we drive digital revolution in the right direction, come take a colossal leap with us.</p>
+
+    </div>
+
+
+
+
+
+    <footer class="bg-lightgray footer">
+      <div class="row">
+        <h5 class="white-text">Contact us</h5>
+        <span class="white-text lablel-color">Email :</span>  info@wavelabs.in
+      </div>
+
+    </footer>
+
+
+
+
+  </div>
+
+
+  </body>
+
+
+
 </div>

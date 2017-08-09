@@ -4,7 +4,7 @@ import { Errors } from './models/errors.model';
 
 @Component({
   selector: 'list-errors',
-  templateUrl: './list-errors.component.html'
+  templateUrl: './list-errors.component.html',
 })
 export class ListErrorsComponent {
   formattedErrors: Array<string> = [];
@@ -19,7 +19,7 @@ export class ListErrorsComponent {
         this.formattedErrors.push(` ${errorList.errors[field].message}`);
       }
     }
-  };
+  }
 
   get errorList() { return this.formattedErrors; }
 

@@ -7,6 +7,8 @@ import { Routes } from '@angular/router';
 import { PAGES_MENU } from '../pages.menu';
 import { BaMenuService } from '../../theme';
 import { JwtService } from '../../shared/services/jwt.service';
+import * as _ from 'lodash';
+import { environment } from './../../../environments/environment';
 @Component({
   selector: 'usersManagement',
   templateUrl: './users.component.html',
@@ -15,6 +17,12 @@ import { JwtService } from '../../shared/services/jwt.service';
 export class UsersComponent implements OnInit {
 
     data;
+    uid;
+  dropdownList = [];
+  selectedItems = [];
+  dropdownSettings = {};
+  userRoles = {};
+  params = {};
     filterQuery = '';
     rowsOnPage = 10;
     sortBy = 'email';
@@ -31,26 +39,56 @@ export class UsersComponent implements OnInit {
       console.log(data);
     });
   }
-
-    toInt(num: string) {
+  toInt(num: string) {
         return +num;
     }
-
-    sortByWordLength = (a: any) => {
+  sortByWordLength = (a: any) => {
         return a.city.length;
     }
   getUserDetails(id) {
+      this.uid = id;
       if (this.jwtservice.getMemberRole() === 'admin') {
-        this.router.navigateByUrl('profiledetails');
+        this.selectedItems = [];
+        this.userService.getUserRole(this.uid).subscribe((data) => {
+          const roles = _.map(data , 'uRoleName');
+          let that = this;
+          _.each(roles, function (value) {
+            that.selectedItems.push({ 'id' : value, 'itemName': value });
+          });
+          document.getElementById('openModalButton').click();
+
+        });
       }
     }
+  onItemSelect(item) {
+    this.params['uRoleName'] = item.itemName;
+    this.userService.updateUserRole(this.params, this.uid).subscribe( (data) => {
+    })
+  }
+  OnItemDeSelect(item) {
+    this.params['uRoleName'] = item.itemName;
+    this.userService.removeRole(this.params, this.uid).subscribe( (data) => {})
+  }
 
   ngOnInit() {
     this._menuService.updateMenuByRoutes(<Routes>PAGES_MENU);
     if (!this.jwtservice.getUserToken()) {
       this.router.navigateByUrl('login');
     }
-
+    this.userService.getTenantRoles(environment.tenant_id).subscribe( (data) => {
+      let that = this;
+      const allRoles = _.map(data, 'uRoleName');
+      _.each(allRoles, function(role) {
+        that.dropdownList.push({ 'id': role, 'itemName': role } );
+      });
+    });
+    this.dropdownSettings = {
+      singleSelection: false,
+      // text:"Select Countries",
+      // selectAllText: 'UnSelect All',
+     // unSelectAllText:'UnSelect All',
+     //  enableSearchFilter: true
+    };
   }
 }
 

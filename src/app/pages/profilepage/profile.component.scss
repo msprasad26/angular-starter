@@ -1,6 +1,6 @@
 @import '../../theme/sass/conf/conf';
 @import '../../theme/sass/auth';
-.padding{
+.padding {
   padding-top: 15px;
   padding-right: 36px;
   padding-bottom: 15px;
@@ -13,12 +13,15 @@
   color:#008000;
 }
 
-.modal-content{
+.modal-content {
   border:none;
 }
-.modal{
+.modal {
   overflow-y: hidden;
 }
-.center{
+.center {
   text-align: center;
+}
+.textcolor {
+  color:#008000;
 }

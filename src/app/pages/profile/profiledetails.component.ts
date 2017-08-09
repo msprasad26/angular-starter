@@ -7,7 +7,7 @@ import { JwtService } from '../../shared/services/jwt.service';
 import { USER_PAGES_MENU } from './../pages.menu';
 import { BaMenuService } from '../../theme';
 import * as _ from 'lodash';
-import { environment } from './../../../environments/environment'
+
 @Component({
   selector: 'profiledetails',
   templateUrl: './profiledetails.component.html',
@@ -24,11 +24,11 @@ export class ProfileDetails {
   public socialAccounts: AbstractControl;
   public submitted: boolean = false;
   public userRole: boolean = false;
-  dropdownList = [];
+  /*dropdownList = [];
  public selectedItems = [];
   dropdownSettings = {};
   userRoles = {};
-  params = {};
+  params = {};*/
   constructor( fb: FormBuilder,
                private userService: UserService,
                private route: ActivatedRoute,
@@ -42,11 +42,8 @@ export class ProfileDetails {
       'firstName': ['', Validators.compose([Validators.required])],
       'lastName': ['', Validators.compose([Validators.required])],
       'description': ['', Validators.compose([Validators.required])],
-
-
       'email': ['', Validators.compose([Validators.required])],
       // 'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-
       'uid': ['', Validators.compose([Validators.required])],
       'phone': ['', Validators.compose([Validators.required])],
       'socialAccounts': ['', Validators.compose([Validators.required])],
@@ -58,7 +55,6 @@ export class ProfileDetails {
     this.phone = this.form.controls['phone'];
     // this.password = this.form.controls['password'];
     // this.uid = this.form.controls['uid'];
-    //
     this.description = this.form.controls['description'];
     this.socialAccounts = this.form.controls['socialAccounts'];
   }
@@ -91,10 +87,10 @@ export class ProfileDetails {
 
 
 
-    this.userService.getTenantRoles(environment.tenant_id).subscribe( (data) => {
+    /*this.userService.getTenantRoles(environment.tenant_id).subscribe( (data) => {
         console.log(data);
         let that = this;
-        const  allRoles = _.map(data, 'uRoleName');
+        const allRoles = _.map(data, 'uRoleName');
         _.each(allRoles, function(role) {
           that.dropdownList.push({ 'id': role, 'itemName': role } );
         });
@@ -106,22 +102,22 @@ export class ProfileDetails {
       _.each(roles, function (value) {
        that.selectedItems.push({ 'id' : value, 'itemName': value });
      });
-    });
+    });*/
 
 
     /*  = [
      // {"id":'System admin',"itemName":'System admin'},
       { 'id' : value,'itemName': value}
     ];*/
-    this.dropdownSettings = {
+    /*this.dropdownSettings = {
       singleSelection: false,
      // text:"Select Countries",
       // selectAllText: 'UnSelect All',
      // unSelectAllText:'UnSelect All',
      // enableSearchFilter: true
-    };
+    };*/
   }
-  onItemSelect(item) {
+  /*onItemSelect(item) {
     this.params['uRoleName'] = item.itemName;
     this.userService.updateUserRole(this.params, this.uid).subscribe( (data) => {
     })
@@ -129,5 +125,5 @@ export class ProfileDetails {
   OnItemDeSelect(item) {
     this.params['uRoleName'] = item.itemName;
     this.userService.removeRole(this.params, this.uid).subscribe( (data) => {})
-  }
+  }*/
 }

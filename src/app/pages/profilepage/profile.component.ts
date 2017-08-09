@@ -85,10 +85,10 @@ tostr =JSON.stringify;
     this.submitted = true;
     this.userService.update(values).subscribe(
       data => {
-        $('#over').modal('show');
+       /* $('#over').modal('show');
         setTimeout(function() {
           $('#over').modal('hide');
-        }, 1500);
+        }, 1500);*/
         this.shouldshow = true;
       });
   }
