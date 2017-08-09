@@ -7,28 +7,30 @@ import { UserService } from '../shared/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
 import { Errors } from '../shared/models/errors.model';
-
+import { JwtService } from '../shared/services/jwt.service';
 
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
   public form: FormGroup;
   public username: AbstractControl;
   public password: AbstractControl;
   public submitted: boolean = false;
   public shouldshow: boolean= false;
-
+  public buttonshow: boolean= false;
 
   constructor(private _state: GlobalState,
               fb: FormBuilder,
               private userService: UserService,
               private route: ActivatedRoute,
               private router: Router,
-              private errors: Errors) {
+              private errors: Errors,
+              private jwtservice: JwtService
+  ) {
     this._state.notifyDataChanged('menu.isLanding', true);
 
     this.form = fb.group({
@@ -49,12 +51,19 @@ export class HomeComponent {
        );
      }
    }*/
+
+ ngOnInit() {
+   if (this.jwtservice.getUserToken()) {
+     this.buttonshow = true;
+   }
+ }
+
   public onSubmit(values: Object) {
     this.submitted = true;
     if (this.form.valid) {
       this.userService.login(values).subscribe(
         response => {
-          this.userService.getUserRole(response).subscribe(
+          this.userService.getUserRole(response.member.id).subscribe(
             data => {
               console.log(data);
               let userRole = 'guest';
@@ -65,6 +74,8 @@ export class HomeComponent {
                   userRole = 'admin';
                   this.userService.setRole(userRole);
                   this.router.navigateByUrl('pages');
+
+
                 }
               }else {
                 /* alert(userRole);*/
@@ -86,9 +97,16 @@ export class HomeComponent {
            }, 1500);
  */
           this.shouldshow = true;
-        }
+        },
       );
     }
+
+
+
+  }
+  logout() {
+   this.userService.logout();
+    this.buttonshow = false;
   }
 
 }

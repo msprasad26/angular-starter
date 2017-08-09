@@ -9,7 +9,7 @@ import { AppTranslationModule } from '../../app.translation.module';
 
 import { ProfileDetails } from './profiledetails.component';
 
-import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
+
 
 @NgModule({
   imports: [CommonModule,
@@ -20,7 +20,8 @@ import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
     DataTableModule,
     ReactiveFormsModule,
      AngularMultiSelectModule,
-    MultiselectDropdownModule],
+
+    ],
   declarations: [ProfileDetails]
 })
 export class ProfiledetailsModule {
