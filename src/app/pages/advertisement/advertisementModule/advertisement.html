@@ -1,5 +1,5 @@
 <div class="feed-messages-container">
-  <div class="feed-message" *ngFor="let message of feed" >
+  <div class="feed-message" *ngFor="let message of feed"  >
     <div class="message-icon" *ngIf="message.image">
       <img class="photo-icon" src="{{ ( message.image  ) }}">
     </div>
@@ -9,12 +9,12 @@
     </div>
     <div class="text-block text-message">
       <div class="message-header">
-        <span class="author">{{ message.name }} {{ message.surname}}<span class="close" (click)="deleteAdv()">&times;</span></span>
+        <span class="author">{{ message.name }} {{ message.surname}}<span class="close" (click)="deleteAdv(message.id)">&times;</span></span>
       </div>
-      <div class="message-content line-clamp" [ngClass]="{'line-clamp-2' : !message.expanded}">
+      <div class="message-content line-clamp" [ngClass]="{'line-clamp-2' : !message.expanded}" (click)="updateAdd(message.id)">
         <span *ngIf="message.preview">{{ message.description }} </span>{{ message.description }}
       </div>
-      <div class="preview" [ngClass]="{'hidden': !message.expanded}" *ngIf="message.preview">
+      <div class="preview" [ngClass]="{'hidden': !message.expanded}" *ngIf="message.preview" >
         <a href="{{ message.link }}" target="_blank">
           <img src="{{ ( message.preview | baAppPicture )}}">
         </a>

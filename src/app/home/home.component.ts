@@ -41,14 +41,14 @@ export class HomeComponent {
 
   }
 
- /* public onSubmit(values: Object) {
-    this.submitted = true;
-    if (this.form.valid) {
-      this.userService.login(values).subscribe(
-        data => this.router.navigateByUrl('pages'),
-      );
-    }
-  }*/
+  /* public onSubmit(values: Object) {
+     this.submitted = true;
+     if (this.form.valid) {
+       this.userService.login(values).subscribe(
+         data => this.router.navigateByUrl('pages'),
+       );
+     }
+   }*/
   public onSubmit(values: Object) {
     this.submitted = true;
     if (this.form.valid) {
@@ -75,19 +75,19 @@ export class HomeComponent {
         } ,
 
 
-          err => {
+        err => {
           this.errors = err;
           console.log(err);
 
-         /* $('#over').modal('show');
+          /* $('#over').modal('show');
 
-          setTimeout(function() {
-            $('#over').modal('hide');
-          }, 1500);
-*/
+           setTimeout(function() {
+             $('#over').modal('hide');
+           }, 1500);
+ */
           this.shouldshow = true;
         }
-        );
+      );
     }
   }
 

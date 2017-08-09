@@ -8,17 +8,15 @@ import { FeedService } from './userFeed.service';
   styleUrls: ['./advertisement.scss']
 })
 export class AdvertisementComponent implements OnInit {
-
+   data;
   public feed: Array<Object>;
 
   constructor(private feedService: FeedService,
               private advService: AdvService ) {
   }
-
   ngOnInit() {
     this._loadFeed();
   }
-
   expandMessage (message) {
     message.expanded = !message.expanded;
   }
@@ -30,9 +28,14 @@ export class AdvertisementComponent implements OnInit {
       console.log(this.feed);
     });
   }
+  deleteAdv(id) {
+    this.advService.deleteAdvertisement(id).subscribe((data) => {
+      this._loadFeed();
+    });
+  }
+  /*updateAdd(id) {
+  //  this.advService.updateAdd(id).subscribe((data) => {
 
-  deleteAdv() {
-    // this.advService.deleteAdvertisement() {
-    }
-
+    });*/
+  // }
 }

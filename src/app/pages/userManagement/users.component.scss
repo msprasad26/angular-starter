@@ -1,4 +1,7 @@
 @import '../../theme/sass/conf/conf';
+.getUser {
+  cursor: pointer;
+}
 :host /deep/ .widgets {
     .data-table-container {
         width: 100%;

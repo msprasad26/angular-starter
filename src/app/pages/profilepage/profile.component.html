@@ -7,6 +7,17 @@
       <div class="row">
         <div class="col-md-6" >
           <ba-card   cardTitle="Profile" baCardClass="with-scroll">
+
+            <div class="modal fade" id="over">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <p class="center">Updated successfully</p>
+
+                </div>
+              </div>
+            </div>
+
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
       <div class="form-group row" [ngClass]="{'has-error': (!firstName.valid && firstName.touched), 'has-success': (firstName.valid && firstName.touched)}">
         <label for="inputName3" >First Name</label>

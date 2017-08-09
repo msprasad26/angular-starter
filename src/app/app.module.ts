@@ -21,7 +21,10 @@ import { PagesModule } from './pages/pages.module';
 import { HomeModule } from './home/home.module';
 import { UsersModule } from './pages/userManagement/users.module';
 import { UserDashboardModule } from './pages/userDashboard/userDashboard.module';
-import { AdvModule } from './pages/advertisement/adv.module'
+import { AdvModule } from './pages/advertisement/adv.module';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
+
+
 // Application wide providers
 const APP_PROVIDERS = [
   AppState,
@@ -55,13 +58,13 @@ export type StoreType = {
     HomeModule,
     UsersModule,
     UserDashboardModule,
-    AdvModule
+    AdvModule,
+    AngularMultiSelectModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS, ApiService, JwtService, Errors
   ]
 })
-
 export class AppModule {
 
   constructor(public appState: AppState) {

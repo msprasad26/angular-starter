@@ -3,13 +3,19 @@ import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/form
 import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
 import { UserService } from '../../shared/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { Errors } from '../../shared/models/errors.model';
+
+
 @Component({
   selector: 'register',
   templateUrl: './register.html',
   styleUrls: ['./register.scss']
 })
 export class Register {
+  errors: Errors = new Errors();
 
+  public shouldshow:boolean=false;
   public form:FormGroup;
   public firstName:AbstractControl;
   public username:AbstractControl;
@@ -46,7 +52,25 @@ export class Register {
 
       this.userService.signup(values).subscribe(
         data => this.router.navigateByUrl('login'),
-      );
+
+        err => {
+          this.errors = err;
+          console.log(err);
+
+          $('#over').modal('show');
+
+          setTimeout(function() {
+            $('#over').modal('hide');
+          }, 1500);
+
+          this.shouldshow = true;
+
+
+        }
+
+
+
+        );
     }
   }
 }

@@ -4,7 +4,7 @@
   <div class="box-shadow-border"></div>
 
   <ul class="todo-list">
-    <li *ngFor="let item of getNotDeleted()" [ngClass]="{checked: item.isChecked, active: item.isActive}"
+    <li *ngFor="let item of todoList" [ngClass]="{checked: item.isChecked, active: item.isActive}"
         (mouseenter)="item.isActive=true" (mouseleave)="item.isActive=false">
 
       <div class="blur-container"><div class="blur-box"></div></div>

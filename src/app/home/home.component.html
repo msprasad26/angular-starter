@@ -1,78 +1,77 @@
-
 <div class="container-fluid bg-color ">
-<nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse">
 
     <div class="navbar-header">
       <a class="navbar-brand logo" href="#">
         <img src="http://wavelabs.in/wp-content/uploads/2017/05/Wavelabs-logo.png"  class="d-inline-block align-top " alt="">
       </a>
 
-       <button class="btn btn-outline-success login" type="submit" data-toggle="modal" data-target="#myModalHorizontal">Login</button>
-
-       </div>
-
-
-</nav>
-
-<body>
-
-<div class="modal fade modalcontent" id="myModalHorizontal"  role="dialog"
-     aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- Modal Header -->
-      <div class="modal-header">
-
-        <h1 class="modal-title">
-          Sign in
-        </h1>
-        <button type="button" class="close"
-                data-dismiss="modal">
-          <span aria-hidden="true">&times;</span>
-          <span class="sr-only">Close</span>
-        </button>
-      </div>
-      <!-- Modal Body -->
-      <div class="modal-body">
-        <a class="" routerLink="/register">New to user? Sign up!</a>
-
-       <list-errors class="text-danger"  [errors]="errors"></list-errors>
-
-        <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal " role="form">
-          <div class="form-group">
-
-            <div class= "col-sm-12">
-              <input formControlName="username" type="text" class="form-control margin"
-                     id="inputEmail3"  placeholder="User Name"/>
-            </div>
-          </div>
-
-          <div class="form-group">
-
-            <div class= "col-sm-12">
-              <input formControlName="password" type="password" class="form-control"
-                     id="inputPassword3"  placeholder="Password"/>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-10">
-
-              <button [disabled]="!form.valid" type="submit" class="btn btn-default  btn-auth btn-margin">Sign in</button>
-            </div>
-
-          </div>
-        </form>
-      </div>
-
+      <button class="btn btn-outline-success login" type="submit" data-toggle="modal" data-target="#myModalHorizontal">Login</button>
 
     </div>
+
+
+  </nav>
+
+  <body>
+
+  <div class="modal fade modalcontent" id="myModalHorizontal"  role="dialog"
+       aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+
+          <h1 class="modal-title">
+            Sign in
+          </h1>
+          <button type="button" class="close"
+                  data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+        </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <a class="" routerLink="/register">New to user? Sign up!</a>
+
+          <list-errors class="text-danger"  [errors]="errors"></list-errors>
+
+          <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal " role="form">
+            <div class="form-group">
+
+              <div class= "col-sm-12">
+                <input formControlName="username" type="text" class="form-control margin"
+                       id="inputEmail3"  placeholder="User Name"/>
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <div class= "col-sm-12">
+                <input formControlName="password" type="password" class="form-control"
+                       id="inputPassword3"  placeholder="Password"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-10">
+
+                <button [disabled]="!form.valid" type="submit" class="btn btn-default  btn-auth btn-margin">Sign in</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+
+
+      </div>
+    </div>
   </div>
-</div>
 
 
 
 
-<!--<div class="container-fluid ">-->
+  <!--<div class="container-fluid ">-->
   <div class="row text-center">
 
 
@@ -93,21 +92,21 @@
   </div>
   <div class="margin">
 
-  <div class="row center">
+    <div class="row center">
 
-    <div class="col-md-4">
-      <i class="fa fa-podcast  browser-icons icons" aria-hidden="true"></i>
+      <div class="col-md-4">
+        <i class="fa fa-podcast  browser-icons icons" aria-hidden="true"></i>
 
-      <h2 class="center">Functional Features</h2>
-      <!--<p class="center">-->
-      <ul>
-        <li>User Signup</li>
-        <li>User Login/ Logout</li>
-        <li>Search/ Results screen</li>
-        <li>Navigation</li>
-      </ul>
+        <h2 class="center">Functional Features</h2>
+        <!--<p class="center">-->
+        <ul>
+          <li>User Signup</li>
+          <li>User Login/ Logout</li>
+          <li>Search/ Results screen</li>
+          <li>Navigation</li>
+        </ul>
 
-    </div>
+      </div>
       <!--second-->
       <div class="col-md-4">
         <i class="fa fa-cog browser-icons icons" aria-hidden="true"></i>
@@ -121,7 +120,7 @@
         </ul>
 
       </div>
-     <!--third-->
+      <!--third-->
       <div class="col-md-4">
         <i class="fa fa-desktop browser-icons icons" aria-hidden="true"></i>
         <h2 class="center">Functional Features</h2>
@@ -141,14 +140,14 @@
 
     <div class="col-md-12 center">
       <div class="overlay"></div>
-    <div class="image"><img src="/assets/images/setting.jpg" alt="Unsplashed background img 2" height="100%" width="100%"></div>
+      <div class="image"><img src="/assets/images/setting.jpg" alt="Unsplashed background img 2" height="100%" width="100%"></div>
     </div>
 
     <div class="row margintext">
       <h2>About Us</h2>
-     <p>We are designers, coders, nerds, and strategists who expedite the development process to build you cutting-edge products.
-       We perform and innovate at a startup speed for reimagining the future through continuous delivery and iterations.
-       As we drive digital revolution in the right direction, come take a colossal leap with us.</p>
+      <p>We are designers, coders, nerds, and strategists who expedite the development process to build you cutting-edge products.
+        We perform and innovate at a startup speed for reimagining the future through continuous delivery and iterations.
+        As we drive digital revolution in the right direction, come take a colossal leap with us.</p>
 
     </div>
 
@@ -157,10 +156,10 @@
 
 
     <footer class="bg-lightgray footer">
-    <div class="row">
-      <h5 class="white-text">Contact us</h5>
-      <span class="white-text lablel-color">Email :</span>  info@wavelabs.in
-    </div>
+      <div class="row">
+        <h5 class="white-text">Contact us</h5>
+        <span class="white-text lablel-color">Email :</span>  info@wavelabs.in
+      </div>
 
     </footer>
 
@@ -170,7 +169,7 @@
   </div>
 
 
-</body>
+  </body>
 
 
 
