@@ -9,7 +9,9 @@
       <button *ngIf="!buttonshow" class="btn btn-primary login" type="submit" data-toggle="modal" data-target="#myModalHorizontal">Login</button>
 
       <button *ngIf="buttonshow" (click)="logout()" class="btn btn-primary login" >logout</button>
+
       <button *ngIf="buttonshow" class="btn btn-primary login" routerLink="/pages">home</button>
+
 
     </div>
 
@@ -28,7 +30,9 @@
           <h1 class="modal-title">
             Sign in
           </h1>
+
           <button id='closeModal' type="button" class="close"
+
                   data-dismiss="modal">
             <span aria-hidden="true">&times;</span>
             <span class="sr-only">Close</span>
@@ -39,8 +43,10 @@
           <a class="" routerLink="/register">New to user? Sign up!</a>
 
           <list-errors class="text-danger"  [errors]="errors"></list-errors>
+
           <h5> For Admin login: admin/admin</h5>
           <h5> For User login: user/user</h5>
+
           <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal " role="form">
             <div class="form-group">
 
@@ -81,10 +87,12 @@
 
 
 
+
     <div class="col-md-12 col-xs-12 center image">
       <div class="overlay"></div>
 
       <img src="/assets/images/background1.jpeg"   alt="Unsplashed background img 1">
+
       <div class="text ">
         <h1 class="header"><label class="header lablel-color"> Wavelabs</label> Starter Kits enable team to jumpstart any App</h1>
         <button type="button" class="btn btn-lg btn-primary" routerLink="pages"> Get Started</button>
@@ -178,3 +186,4 @@
 
 
 </div>
+

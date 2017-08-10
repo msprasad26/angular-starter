@@ -31,7 +31,7 @@ export class BaAmChart {
   }
 
   ngOnInit() {
-    AmCharts.themes.blur = this._baAmChartThemeService.getTheme();
+    AmCharts.themes.blur = this._baAmChartThemeService.getTheme();    // mint
   }
 
   ngAfterViewInit() {

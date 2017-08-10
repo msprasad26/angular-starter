@@ -12,7 +12,7 @@ export const environment = {
   client_secret: 'web-app-secret',
   grant_type: 'client_credentials',
   tenant_id: 'TNT:STA-quvnya91',
-  theme: 'ng2'
+  theme: 'mint'
 };
 
 
@@ -20,9 +20,9 @@ export const environmentAdv = {
   production: true,
   api_url: 'https://wavelabs-olx-nonenunciatory-sage.au-syd.mybluemix.net',
   client_id: '',
-  tenantId: 'TNT:OLX-gz2tq8fy'
+  tenantId: 'TNT:OLX-gz2tq8fy',
 }
 
 export const environmentTodo = {
-  api_url: 'http://php-todo.labs.nbos.io'
+  api_url: 'http://php-todo.labs.nbos.io',
 }

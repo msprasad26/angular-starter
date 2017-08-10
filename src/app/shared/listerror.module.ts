@@ -10,8 +10,8 @@ import { ListErrorsComponent } from './list-errors.component';
     ListErrorsComponent,
   ],
   exports: [
-    ListErrorsComponent
-  ]
+    ListErrorsComponent,
+  ],
 })
 export class ListerrorModule {
 }

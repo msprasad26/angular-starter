@@ -45,7 +45,8 @@ export const routes: Routes = [
       { path: 'usersManagement', loadChildren: './userManagement/users.module#UsersModule' },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' },
-      { path: 'advertisement', loadChildren: './advertisement/adv.module#AdvModule' }
+      { path: 'advertisement', loadChildren: './advertisement/adv.module#AdvModule' },
+      { path: 'calander', loadChildren: './calander/calander.module#CalanderModule' }
     ]
   }
 ];

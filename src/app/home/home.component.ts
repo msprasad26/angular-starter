@@ -18,7 +18,6 @@ import { JwtService } from '../shared/services/jwt.service';
 
 export class HomeComponent implements OnInit{
 
-  // errors: Errors = new Errors();
 
 
   public form: FormGroup;
@@ -27,6 +26,7 @@ export class HomeComponent implements OnInit{
   public submitted: boolean = false;
   public shouldshow: boolean= false;
   public buttonshow: boolean= false;
+
   constructor(private _state: GlobalState,
               fb: FormBuilder,
               private userService: UserService,
@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit{
     this.password = this.form.controls['password'];
 
   }
+
   /* public onSubmit(values: Object) {
      this.submitted = true;
      if (this.form.valid) {
@@ -56,16 +57,19 @@ export class HomeComponent implements OnInit{
      }
    }*/
 
-  ngOnInit() {
-    if (this.jwtservice.getUserToken()) {
-      this.buttonshow = true;
-    }
-  }
+
+ ngOnInit() {
+   if (this.jwtservice.getUserToken()) {
+     this.buttonshow = true;
+   }
+ }
+
   public onSubmit(values: Object) {
     this.submitted = true;
     if (this.form.valid) {
       this.userService.login(values).subscribe(
         response => {
+
 
           $('#closeModal').click();
           this.form.reset();
@@ -80,6 +84,8 @@ export class HomeComponent implements OnInit{
                   userRole = 'admin';
                   this.userService.setRole(userRole);
                   this.router.navigateByUrl('pages');
+
+
                 }
               }else {
                 /* alert(userRole);*/
@@ -93,6 +99,7 @@ export class HomeComponent implements OnInit{
           this.errors = err;
           console.log(err);
           /* $('#over').modal('show');
+
 
            setTimeout(function() {
              $('#over').modal('hide');

@@ -37,9 +37,9 @@ export class PieChart {
           jQuery(this.el).find('.percent').text(Math.round(percent));
         },
         barColor: jQuery(this).attr('data-rel'),
-        trackColor: 'rgba(0,0,0,0)',
-        size: 84,
-        scaleLength: 0,
+        trackColor: 'rgba(0,0,0,0)',  //rgba(0,0,0,0)
+        size: 84,    //84
+        scaleLength: 0,       //0
         animation: 2000,
         lineWidth: 9,
         lineCap: 'round',

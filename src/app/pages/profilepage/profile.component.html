@@ -7,6 +7,7 @@
       <div class="row">
         <div class="col-md-6" >
           <ba-card   cardTitle="Profile" baCardClass="with-scroll">
+
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
       <div class="form-group row" [ngClass]="{'has-error': (!firstName.valid && firstName.touched), 'has-success': (firstName.valid && firstName.touched)}">
         <label for="inputName3" >First Name</label>
@@ -35,7 +36,9 @@
       <div class="form-group row">
         <div class="offset-sm-2 col-sm-10">
           <div *ngIf="shouldshow"><p class="textcolor">Updated successfully</p></div>
+
           <button  type="submit"  class="btn btn-primary">Submit</button>
+
         </div>
       </div>
     </form>

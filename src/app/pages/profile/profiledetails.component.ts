@@ -13,6 +13,7 @@ import * as _ from 'lodash';
   templateUrl: './profiledetails.component.html',
   styleUrls: ['./profiledetails.component.scss']
 })
+
 export class ProfileDetails {
 
   public form: FormGroup;

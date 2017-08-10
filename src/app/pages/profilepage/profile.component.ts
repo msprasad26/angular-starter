@@ -60,6 +60,7 @@ tostr =JSON.stringify;
     this.description = this.form.controls['description'];
     this.socialAccounts = this.form.controls['socialAccounts'];
   }
+
   ngOnInit() {
 
     this.menuService.updateMenuByRoutes(<Routes>USER_PAGES_MENU);
@@ -87,10 +88,6 @@ tostr =JSON.stringify;
     this.submitted = true;
     this.userService.update(values).subscribe(
       data => {
-       /* $('#over').modal('show');
-        setTimeout(function() {
-          $('#over').modal('hide');
-        }, 1500);*/
 
         this.shouldshow = true;
       });
