@@ -2,6 +2,9 @@
 .getUser {
   cursor: pointer;
 }
+.modal-title {
+  color:#000 !important;
+}
 :host /deep/ .widgets {
     .data-table-container {
         width: 100%;

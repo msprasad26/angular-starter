@@ -8,6 +8,7 @@ import { PAGES_MENU } from '../pages.menu';
 import { BaMenuService } from '../../theme';
 import { JwtService } from '../../shared/services/jwt.service';
 import * as _ from 'lodash';
+import * as $ from 'jquery';
 import { environment } from './../../../environments/environment';
 @Component({
   selector: 'usersManagement',
@@ -55,8 +56,7 @@ export class UsersComponent implements OnInit {
           _.each(roles, function (value) {
             that.selectedItems.push({ 'id' : value, 'itemName': value });
           });
-          document.getElementById('openModalButton').click();
-
+          $('#openModalButton').click();
         });
       }
     }

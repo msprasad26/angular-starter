@@ -13,7 +13,7 @@
         <input type="checkbox" [(ngModel)]="item.isChecked">
         <span class="cut-with-dots">{{ item.description }}</span>
       </label>
-      <i class="remove-todo ion-ios-close-empty" (click)="item.deleted = true"></i>
+      <i class="remove-todo ion-ios-close-empty" (click)="deletedTodo(item.id)"></i>
     </li>
   </ul>
 </div>

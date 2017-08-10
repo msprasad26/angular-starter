@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdvService } from './../adv.service';
 import { FeedService } from './userFeed.service';
-
+import { JwtService } from '../../../shared/services/jwt.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'advertisement',
   templateUrl: './advertisement.html',
@@ -12,7 +13,9 @@ export class AdvertisementComponent implements OnInit {
   public feed: Array<Object>;
 
   constructor(private feedService: FeedService,
-              private advService: AdvService ) {
+              private advService: AdvService,
+              private jwtService: JwtService,
+              private router: Router) {
   }
   ngOnInit() {
     this._loadFeed();
@@ -29,9 +32,14 @@ export class AdvertisementComponent implements OnInit {
     });
   }
   deleteAdv(id) {
-    this.advService.deleteAdvertisement(id).subscribe((data) => {
-      this._loadFeed();
-    });
+    if (!this.jwtService.getUserToken()) {
+      this.router.navigateByUrl('login');
+    }else {
+      this.advService.deleteAdvertisement(id).subscribe((data) => {
+        this._loadFeed();
+      });
+    }
+
   }
   /*updateAdd(id) {
   //  this.advService.updateAdd(id).subscribe((data) => {

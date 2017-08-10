@@ -16,16 +16,26 @@ export class TodoService  {
               private http: Http,
               private apiAdvServices: ApiAdvServices
   ) {}
-
-
   getAllTodos() {
     const params: URLSearchParams = new URLSearchParams();
-    return this.apiAdvServices.get('/api/todo/v0/todos', params,'')
+    return this.apiAdvServices.get('/api/todo/v0/todos', params,'' )
       .map(data => {
         console.log(data);
         return data;
       });
   }
-
+addToDo(todo) {
+let body = new URLSearchParams();
+body.set('title', todo);
+body.set('description', todo);
+  return this.apiAdvServices.post('/api/todo/v0/todos', body, 'xform')
+    .map( data => {
+      return data;
+    });
+  }
+  delTodo(id) {
+    return this.apiAdvServices.delete('/api/todo/v0/todos/'+ id ).map((data) => {
+    })
+  }
 
 }

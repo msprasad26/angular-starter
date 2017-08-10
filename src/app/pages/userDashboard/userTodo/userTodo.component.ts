@@ -9,17 +9,14 @@ import { TodoServiceStatic } from './userTodo.service';
   styleUrls: ['./userTodo.scss']
 })
 export class UserTodo implements OnInit {
-
+add = {};
   public dashboardColors = this._baConfig.get().colors.dashboard;
-
   public todoList: Array<any>;
   public newTodoText: string = '';
-
   constructor(private _baConfig: BaThemeConfigProvider,
               private _todoService: TodoService,
               private todo: TodoServiceStatic) {
     // this.todoList = this.todo.getTodoList();
-
     this._todoService.getAllTodos().subscribe((data) => {
       this.todoList = data;
       console.log(this.todoList);
@@ -35,14 +32,18 @@ export class UserTodo implements OnInit {
   }*/
   addToDoItem($event) {
     if (($event.which === 1 || $event.which === 13) && this.newTodoText.trim() != '') {
-
       this.todoList.unshift({
         description: this.newTodoText,
         color: this._getRandomColor(),
       });
+      this._todoService.addToDo(this.newTodoText).subscribe((data) => {
+      });
       this.newTodoText = '';
     }
-
+  }
+  deletedTodo(id) {
+    this._todoService.delTodo(id).subscribe((data) => {
+    });
   }
   private _getRandomColor() {
     let colors = Object.keys(this.dashboardColors).map(key => this.dashboardColors[key]);

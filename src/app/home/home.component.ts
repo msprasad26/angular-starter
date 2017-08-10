@@ -63,19 +63,18 @@ export class HomeComponent implements OnInit{
     if (this.form.valid) {
       this.userService.login(values).subscribe(
         response => {
+          $('#closeModal').click();
+          this.form.reset();
           this.userService.getUserRole(response.member.id).subscribe(
             data => {
               console.log(data);
               let userRole = 'guest';
               if (data.length > 0 ) {
-
                 const roles = _.map(data, 'uRoleName');
                 if ( _.map(roles, 'role:app.tenant.admin') ) {
                   userRole = 'admin';
                   this.userService.setRole(userRole);
                   this.router.navigateByUrl('pages');
-
-
                 }
               }else {
                 /* alert(userRole);*/
