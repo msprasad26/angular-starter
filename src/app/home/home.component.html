@@ -39,7 +39,8 @@
           <a class="" routerLink="/register">New to user? Sign up!</a>
 
           <list-errors class="text-danger"  [errors]="errors"></list-errors>
-
+          <h5> For Admin login: admin/admin</h5>
+          <h5> For User login: user/user</h5>
           <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal " role="form">
             <div class="form-group">
 

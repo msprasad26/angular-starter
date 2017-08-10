@@ -16,9 +16,10 @@ export class TodoService  {
               private http: Http,
               private apiAdvServices: ApiAdvServices
   ) {}
+
   getAllTodos() {
     const params: URLSearchParams = new URLSearchParams();
-    return this.apiAdvServices.get('/api/todo/v0/todos', params,'' )
+    return this.apiAdvServices.get('/api/todo/v0/todos', params,'')
       .map(data => {
         console.log(data);
         return data;
@@ -37,5 +38,4 @@ body.set('description', todo);
     return this.apiAdvServices.delete('/api/todo/v0/todos/'+ id ).map((data) => {
     })
   }
-
 }

@@ -6,7 +6,6 @@
   <ul class="todo-list">
     <li *ngFor="let item of todoList" [ngClass]="{checked: item.isChecked, active: item.isActive}"
         (mouseenter)="item.isActive=true" (mouseleave)="item.isActive=false">
-
       <div class="blur-container"><div class="blur-box"></div></div>
       <i class="mark" [ngStyle]="{ 'background-color': item.color }"></i>
       <label class="todo-checkbox custom-checkbox custom-input-success">

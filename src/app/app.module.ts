@@ -30,7 +30,6 @@ const APP_PROVIDERS = [
   AppState,
   GlobalState
 ];
-
 export type StoreType = {
   state: InternalStateType,
   restoreInputValues: () => void,

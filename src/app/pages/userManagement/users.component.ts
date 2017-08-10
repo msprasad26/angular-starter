@@ -10,6 +10,7 @@ import { JwtService } from '../../shared/services/jwt.service';
 import * as _ from 'lodash';
 import * as $ from 'jquery';
 import { environment } from './../../../environments/environment';
+
 @Component({
   selector: 'usersManagement',
   templateUrl: './users.component.html',
@@ -24,6 +25,7 @@ export class UsersComponent implements OnInit {
   dropdownSettings = {};
   userRoles = {};
   params = {};
+
     filterQuery = '';
     rowsOnPage = 10;
     sortBy = 'email';
@@ -75,6 +77,7 @@ export class UsersComponent implements OnInit {
     if (!this.jwtservice.getUserToken()) {
       this.router.navigateByUrl('login');
     }
+
     this.userService.getTenantRoles(environment.tenant_id).subscribe( (data) => {
       let that = this;
       const allRoles = _.map(data, 'uRoleName');
@@ -89,6 +92,7 @@ export class UsersComponent implements OnInit {
      // unSelectAllText:'UnSelect All',
      //  enableSearchFilter: true
     };
+
   }
 }
 

@@ -31,7 +31,8 @@ export class FeedService {
       header: 'Added new image',
       text: '"My little kitten"',
       preview: 'app/userFeed/my-little-kitten.png',
-      link:'http://api.ning.com/files/DtcI2O2Ry7A7VhVxeiWfGU9WkHcMy4WSTWZ79oxJq*h0iXvVGndfD7CIYy-Ax-UAFCBCdqXI4GCBw3FOLKTTjQc*2cmpdOXJ/1082127884.jpeg',
+
+      link: 'http://api.ning.com/files/DtcI2O2Ry7A7VhVxeiWfGU9WkHcMy4WSTWZ79oxJq*h0iXvVGndfD7CIYy-Ax-UAFCBCdqXI4GCBw3FOLKTTjQc*2cmpdOXJ/1082127884.jpeg',
       time: 'Today 2:20 pm',
       ago: '10 hrs ago',
       expanded: false,

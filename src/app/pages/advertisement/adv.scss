@@ -88,10 +88,9 @@ input[type=text]:not(.browser-default){
   max-height: 500px;
 
 }
-
-/*.modal-open {
+.modal-open {
   margin-right: 0 !important;
-}*/
+}
 html {
   overflow-y: scroll !important;
 }
@@ -102,10 +101,9 @@ html {
 .modal-content {
   border:none;
 }
-/*.modal .modal-content {
+.modal .modal-content {
   padding: 0px;
-}*/
-
+}
 .modal-body h1 {
   color: #000 !important;
 }

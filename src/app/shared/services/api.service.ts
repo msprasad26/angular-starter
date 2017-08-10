@@ -4,15 +4,14 @@ import { Headers, Http, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
- import { JwtService } from './jwt.service';
-// import { RequestOptionsArgs } from '@angular/http';
+import { JwtService } from './jwt.service';
 
 @Injectable()
 export class ApiService {
   constructor(
     private http: Http,
-    private jwtService: JwtService,
-   // private requestOptions: RequestOptionsArgs
+    private jwtService: JwtService
+
   ) {}
 
   private setHeaders(contentType, useClientToken = false): Headers {
@@ -76,9 +75,7 @@ export class ApiService {
   }
   deleteRole(path: string, body: Object = {}, type: string, useToken: Boolean = false): Observable<any> {
   /* const options = new RequestOptions({
-
    });*/
-
     return/* this.http.delete(
       `${environment.api_url}${path}`,{body}
       { headers: this.setHeaders(type) }

@@ -1,14 +1,11 @@
-// @import '../../theme/sass/conf/conf';
-// @import '../../theme/sass/auth';
-
 
 .form-horizontal label {
   line-height:10px;
 }
-/*
-.form-group label {
-  color: red !important;
-}
-*/
 
+@import '../../theme/sass/conf/conf';
+@import '../../theme/sass/auth';
+.form-horizontal label{
+  line-height:10px;
+}
 

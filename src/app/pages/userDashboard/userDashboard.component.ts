@@ -4,7 +4,7 @@ import { UserService } from '../../shared/services/user.service';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { USER_PAGES_MENU } from './../pages.menu';
 import { BaMenuService } from '../../theme';
-import { JwtService } from './../../shared/services/jwt.service'
+import { JwtService } from './../../shared/services/jwt.service';
 
 import * as _ from 'lodash';
 @Component({

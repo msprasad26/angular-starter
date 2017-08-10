@@ -8,6 +8,7 @@ import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { JwtService } from '../../shared/services/jwt.service';
 import { BaMenuService } from './../../theme';
 import { USER_PAGES_MENU } from './../pages.menu';
+
 @Component({
   selector: 'profilepage',
   templateUrl: './profile.component.html',
@@ -28,7 +29,6 @@ tostr =JSON.stringify;
 
   public submitted:boolean = false;
   public shouldshow:boolean=false;
-
   constructor(fb: FormBuilder,
               private userService: UserService,
               private route: ActivatedRoute,
@@ -61,7 +61,9 @@ tostr =JSON.stringify;
     this.socialAccounts = this.form.controls['socialAccounts'];
   }
   ngOnInit() {
+
     this.menuService.updateMenuByRoutes(<Routes>USER_PAGES_MENU);
+
    var user = this.jwtservice.getUser()
     console.log(user);
     this.firstName = user.member.firstName;
@@ -89,6 +91,7 @@ tostr =JSON.stringify;
         setTimeout(function() {
           $('#over').modal('hide');
         }, 1500);*/
+
         this.shouldshow = true;
       });
   }

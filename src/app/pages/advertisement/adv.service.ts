@@ -6,17 +6,12 @@ import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-// import { environment, environmentAdv } from '../../../environments/environment';
 import { ApiAdvServices } from './api.adv.service';
-
-
 @Injectable()
-
 export class AdvService {
   constructor(private apiAdvServices: ApiAdvServices,
               private http: Http,
               ) { }
-
  public getAllAdds() {
     const params: URLSearchParams = new URLSearchParams();
     return this.apiAdvServices.get( '/advertisement/all', params , '' )
@@ -24,8 +19,6 @@ export class AdvService {
          return data;
       });
   }
-
-
   addAdvertisement(params) {
     return this.apiAdvServices.post('/advertisement', JSON.stringify(params), 'raw')
       .map(data => {
@@ -36,7 +29,4 @@ export class AdvService {
       .map(data => {
       });
   }
-  /*updateAdd(id) {
-   // return this.apiAdvServices.put()
-  }*/
 }

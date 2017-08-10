@@ -5,6 +5,7 @@ import { Errors } from './models/errors.model';
 @Component({
   selector: 'list-errors',
   templateUrl: './list-errors.component.html',
+  styleUrls: ['./list-errors.component.scss']
 })
 export class ListErrorsComponent {
   formattedErrors: Array<string> = [];
@@ -20,6 +21,7 @@ export class ListErrorsComponent {
       }
     }
   }
+
 
   get errorList() { return this.formattedErrors; }
 

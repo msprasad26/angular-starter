@@ -23,7 +23,6 @@ export class AdvertisementComponent implements OnInit {
   expandMessage (message) {
     message.expanded = !message.expanded;
   }
-
   private _loadFeed() {
     // this.feed = this.feedService.getData();
     this.advService.getAllAdds().subscribe((feed) => {
@@ -46,4 +45,5 @@ export class AdvertisementComponent implements OnInit {
 
     });*/
   // }
+
 }

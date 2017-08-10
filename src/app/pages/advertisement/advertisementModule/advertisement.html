@@ -15,6 +15,7 @@
         <span *ngIf="message.preview">{{ message.description }} </span>{{ message.description }}
       </div>
       <div class="preview" [ngClass]="{'hidden': !message.expanded}" *ngIf="message.preview" >
+
         <a href="{{ message.link }}" target="_blank">
           <img src="{{ ( message.preview | baAppPicture )}}">
         </a>

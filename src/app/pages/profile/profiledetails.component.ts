@@ -14,6 +14,7 @@ import * as _ from 'lodash';
   styleUrls: ['./profiledetails.component.scss']
 })
 export class ProfileDetails {
+
   public form: FormGroup;
   public firstName: AbstractControl;
   public lastName: AbstractControl;
@@ -34,9 +35,8 @@ export class ProfileDetails {
                private route: ActivatedRoute,
                private router: Router,
                private jwtservice: JwtService,
-               private menuService: BaMenuService,
-              // private environment:
-  ) {
+               private menuService: BaMenuService) {
+
 
     this.form = fb.group({
       'firstName': ['', Validators.compose([Validators.required])],
@@ -55,75 +55,38 @@ export class ProfileDetails {
     this.phone = this.form.controls['phone'];
     // this.password = this.form.controls['password'];
     // this.uid = this.form.controls['uid'];
+
+    //
+
     this.description = this.form.controls['description'];
     this.socialAccounts = this.form.controls['socialAccounts'];
   }
   ngOnInit() {
 
     this.menuService.updateMenuByRoutes(<Routes>USER_PAGES_MENU);
-    var user = this.jwtservice.getUser();
-    // console.log(user);
-    const role = this.jwtservice.getMemberRole();
-    if (role === 'admin') {
-      this.userRole = true;
-    }
+
+    var user=this.jwtservice.getUser()
+    console.log(user);
+
+
 
     this.firstName = user.member.firstName;
     // this.username= user.member.username;
     this.uid = user.member.id;
     this.email = user.member.email;
-    this.lastName = user.member.lastName;
-    this.phone = user.member.phone;
-    this.description = user.member.description;
-    this.socialAccounts = user.member.socialAccounts;
 
-    this.form.patchValue({ firstName: this.firstName });
-    this.form.patchValue({ uid: this.uid });
-    this.form.patchValue({ email: this.email });
-    this.form.patchValue({ lastName: this.lastName });
-    this.form.patchValue({ phone: this.phone });
-    this.form.patchValue({ description: this.description });
-    this.form.patchValue({ socialAccounts: this.socialAccounts });
+    this.lastName= user.member.lastName;
+    this.phone= user.member.phone;
+    this.description= user.member.description;
+    this.socialAccounts= user.member.socialAccounts;
 
-
-
-    /*this.userService.getTenantRoles(environment.tenant_id).subscribe( (data) => {
-        console.log(data);
-        let that = this;
-        const allRoles = _.map(data, 'uRoleName');
-        _.each(allRoles, function(role) {
-          that.dropdownList.push({ 'id': role, 'itemName': role } );
-        });
-    });
-
-    this.userService.getUserRole(this.uid).subscribe((data) => {
-      const roles = _.map(data , 'uRoleName');
-      let that = this;
-      _.each(roles, function (value) {
-       that.selectedItems.push({ 'id' : value, 'itemName': value });
-     });
-    });*/
-
-
-    /*  = [
-     // {"id":'System admin',"itemName":'System admin'},
-      { 'id' : value,'itemName': value}
-    ];*/
-    /*this.dropdownSettings = {
-      singleSelection: false,
-     // text:"Select Countries",
-      // selectAllText: 'UnSelect All',
-     // unSelectAllText:'UnSelect All',
-     // enableSearchFilter: true
-    };*/
+    this.form.patchValue({firstName:this.firstName});
+    this.form.patchValue({uid:this.uid});
+    this.form.patchValue({email:this.email});
+    this.form.patchValue({lastName:this.lastName});
+    this.form.patchValue({phone:this.phone});
+    this.form.patchValue({description:this.description});
+    this.form.patchValue({socialAccounts:this.socialAccounts});
   }
-  /*onItemSelect(item) {
-    this.params['uRoleName'] = item.itemName;
-    this.userService.updateUserRole(this.params, this.uid).subscribe( (data) => {
-    })
-  }
-  OnItemDeSelect(item) {
-    this.params['uRoleName'] = item.itemName;
-    this.userService.removeRole(this.params, this.uid).subscribe( (data) => {})
-  }*/
+
 }
