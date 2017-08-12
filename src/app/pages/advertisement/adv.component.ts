@@ -10,7 +10,7 @@ import { JwtService } from './../../shared/services/jwt.service';
 import * as jQuery from 'jquery';
 import { ViewChild } from '@angular/core';
 import { AdvertisementComponent } from './advertisementModule/advertisement.component';
-@Component({
+@Component({ /*<adv></adv>*/
   selector: 'adv',
   templateUrl: './adv.component.html',
   styleUrls: ['./adv.scss']
