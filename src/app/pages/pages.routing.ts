@@ -51,7 +51,8 @@ export const routes: Routes = [
       { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' },
       { path: 'advertisement', loadChildren: './advertisement/adv.module#AdvModule' },
       { path: 'calander', loadChildren: './calander/calander.module#CalanderModule' },
-      { path: 'blueMixServices', loadChildren: './blueMixServices/blueMix.module#BlueMixModule' }
+      { path: 'visualRecognition', loadChildren: './blueMixServices/VisualRecognitionModule/VisualRecognition.module#VisualRecognitionModule'},
+      { path: 'translation', loadChildren: './blueMixServices/languageTranslatorModule/languageTranslator.module#LanguageTranslatorModule' }
     ]
   }
 ];

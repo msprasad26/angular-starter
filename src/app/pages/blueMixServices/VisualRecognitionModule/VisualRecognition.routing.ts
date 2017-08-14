@@ -1,14 +1,14 @@
 
 import { Routes, RouterModule } from '@angular/router';
 
-import { BlueMixComponent } from './blueMix.component';
+import { VisualRecognitionComponent } from './VisualRecognition.component';
 import { ModuleWithProviders } from '@angular/core';
 
 // noinspection TypeScriptValidateTypes
 export const routes: Routes = [
   {
     path: '',
-    component: BlueMixComponent,
+    component: VisualRecognitionComponent,
   }
 ];
 

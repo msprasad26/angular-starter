@@ -82,16 +82,36 @@ export const PAGES_MENU = [
         }
       },
       {
-        path: 'blueMixServices',
+        path: '',
         data: {
           menu: {
             title: 'BlueMix Services',
-            icon: 'ion-android-home',
+            icon: 'ion-android-playstore',
             selected: false,
             expanded: false,
             order: 0
           }
-        }
+        },
+        children: [
+          {
+            path: 'translation',
+            data: {
+              menu: {
+                title: 'Language Translation',
+                icon: 'ion-ios-paper'
+              }
+            }
+          },
+          {
+            path: 'visualRecognition',
+            data: {
+              menu: {
+                title: 'Visual Recognition',
+                icon: 'ion-image'
+              }
+            }
+          }
+        ]
       },
 
       {
