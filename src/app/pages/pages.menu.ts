@@ -94,6 +94,15 @@ export const PAGES_MENU = [
         },
         children: [
           {
+            path: 'conversation',
+            data: {
+              menu: {
+                title: 'conversation',
+                icon: 'ion-image'
+              }
+            }
+          },
+          {
             path: 'translation',
             data: {
               menu: {
@@ -110,7 +119,8 @@ export const PAGES_MENU = [
                 icon: 'ion-image'
               }
             }
-          }
+          },
+
         ]
       },
 
