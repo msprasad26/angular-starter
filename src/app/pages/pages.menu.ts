@@ -110,6 +110,15 @@ export const PAGES_MENU = [
                 icon: 'ion-image'
               }
             }
+          },
+          {
+            path: 'fileConverter',
+            data: {
+              menu: {
+                title: 'File Converter',
+                icon: 'ion-ios-copy'
+              }
+            }
           }
         ]
       },

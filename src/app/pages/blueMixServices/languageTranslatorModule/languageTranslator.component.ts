@@ -23,7 +23,7 @@ export class LanguageTranslatorComponent {
   }
 
   onSubmit(values) {
-    this.http.get('http://10.9.9.34:5214/translate?text=' + values.text )
+    this.http.get('http://10.9.8.196:5214/translate?text=' + values.text )
       .map((res: Response) => res.text())
       .subscribe( (data) => { this.data = data; console.log(this.data); })
   }

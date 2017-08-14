@@ -9,7 +9,7 @@ import { BaMenuService } from '../../theme';
 import { JwtService } from '../../shared/services/jwt.service';
 import * as _ from 'lodash';
 import * as $ from 'jquery';
-import { environment } from './../../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'usersManagement',

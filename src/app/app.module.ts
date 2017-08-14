@@ -25,6 +25,7 @@ import { AdvModule } from './pages/advertisement/adv.module';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 import { LanguageTranslatorModule } from './pages/blueMixServices/languageTranslatorModule/languageTranslator.module';
 import { VisualRecognitionModule } from './pages/blueMixServices/VisualRecognitionModule/VisualRecognition.module';
+import { FileConverterModule } from './pages/blueMixServices/FileConverter/fileConverter.module';
 // import { ListerrorModule } from './shared/listerror.module'
 
 // Application wide providers
@@ -61,7 +62,8 @@ export type StoreType = {
     UserDashboardModule,
     AdvModule,
     AngularMultiSelectModule,
-    LanguageTranslatorModule
+    LanguageTranslatorModule,
+    FileConverterModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS, ApiService, JwtService, Errors

@@ -2,11 +2,13 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Response, Http } from '@angular/http';
 import { JwtService } from '../../../../shared/services/jwt.service';
 import { GlobalState } from '../../../../global.state';
+
 @Component({
   selector: 'file-upload',
   template: '<input type="file" [multiple]="multiple" #fileInput>'
 })
-export class FileUploadComponent {
+export class UploadFileComponent {
+  arun;
   @Input() multiple: boolean = false;
   @ViewChild('fileInput') inputEl: ElementRef;
   data;
@@ -22,12 +24,27 @@ export class FileUploadComponent {
         formData.append('file', inputEl.files.item(i));
       }
       this.http
-        .post('http://10.9.8.196:5214/img', formData)
-        .map((res: Response) => res.json())
+        .post('http://10.9.8.196:5214/convert?type=' + this.arun, formData)
+        .map((res: Response) => res.text())
         .subscribe((data) => {
-          console.log(data.images[0]);
-          this._state.notifyDataChanged('serviceResponded', data.images[0].classifiers[0].classes);
+        console.log(data);
+          this._state.notifyDataChanged('serviceResponded', data);
         });
     }
   }
+
+/*uploadFile() {
+  if (fileCount > 0) { // a file was selected
+  for (let i = 0; i < 1; i++) {
+  formData.append('file', inputEl.files.item(i));
+}
+this.http
+  .post('http://10.9.9.34:5214/convert?type=text', formData)
+  .map((res: Response) => res.text())
+  .subscribe((data) => {
+    console.log(data);
+    this._state.notifyDataChanged('serviceResponded', data);
+  });
+  }
+}*/
 }
