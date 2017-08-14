@@ -81,6 +81,18 @@ export const PAGES_MENU = [
           }
         }
       },
+      {
+        path: 'blueMixServices',
+        data: {
+          menu: {
+            title: 'BlueMix Services',
+            icon: 'ion-android-home',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
 
       {
         path: '',

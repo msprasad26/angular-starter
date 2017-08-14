@@ -1,5 +1,5 @@
-import { NgModule }      from '@angular/core';
-import { CommonModule }  from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AppTranslationModule } from '../../app.translation.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
@@ -7,7 +7,7 @@ import { NgaModule } from '../../theme/nga.module';
 import { Login } from './login.component';
 import { routing }       from './login.routing';
  //import { ListErrorsComponent } from '../../shared/list-errors.component';
-import {  ListerrorModule  } from '../../shared/listerror.module';
+import { ListerrorModule } from '../../shared/listerror.module';
 
 @NgModule({
   imports: [
