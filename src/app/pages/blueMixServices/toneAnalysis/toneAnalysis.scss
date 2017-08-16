@@ -1,0 +1,25 @@
+@import '../../../theme/sass/conf/conf';
+.result {
+  margin: 0 15px;
+}
+.convertBtn {
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .form {
+    margin-top: 80px;
+  }
+  .btnCovert {
+    margin-top: 38%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .btnCovert {
+    margin-bottom: 15px;
+  }
+}
+.translate {
+  min-height: 120px;
+  overflow: scroll;
+}

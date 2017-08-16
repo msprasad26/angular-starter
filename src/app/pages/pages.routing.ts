@@ -54,7 +54,8 @@ export const routes: Routes = [
       { path: 'visualRecognition', loadChildren: './blueMixServices/VisualRecognitionModule/VisualRecognition.module#VisualRecognitionModule'},
       { path: 'translation', loadChildren: './blueMixServices/languageTranslatorModule/languageTranslator.module#LanguageTranslatorModule' },
       { path: 'fileConverter', loadChildren: './blueMixServices/FileConverter/fileConverter.module#FileConverterModule' },
-      { path: 'conversation', loadChildren: './blueMixServices/ConversationModule/conversation.module#ConversationModule'}
+      { path: 'conversation', loadChildren: './blueMixServices/ConversationModule/conversation.module#ConversationModule' },
+      { path: 'toneAnalysis', loadChildren: './blueMixServices/toneAnalysis/toneAnalysis.module#ToneAnalysisModule' }
     ]
   }
 ];

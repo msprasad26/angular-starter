@@ -37,7 +37,7 @@ export const PAGES_MENU = [
         path: '',
         data: {
           menu: {
-            title: 'general.menu.dashboard',
+            title: 'Dashboard',
             icon: 'ion-android-home',
             selected: false,
             expanded: false,
@@ -81,6 +81,8 @@ export const PAGES_MENU = [
           }
         }
       },
+      /* ---------------- Blue Mix ------------*/
+
       {
         path: '',
         data: {
@@ -125,6 +127,15 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'File Converter',
+                icon: 'ion-ios-paper'
+              }
+            }
+          },
+          {
+            path: 'toneAnalysis',
+            data: {
+              menu: {
+                title: 'Tone Analysis',
                 icon: 'ion-ios-paper'
               }
             }
