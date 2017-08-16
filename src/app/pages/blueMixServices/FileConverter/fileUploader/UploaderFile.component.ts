@@ -24,7 +24,7 @@ export class UploadFileComponent {
         formData.append('file', inputEl.files.item(i));
       }
       this.http
-        .post('http://10.9.8.196:5214/convert?type=' + this.arun, formData)
+        .post('http://10.9.8.196:5214/convert?type=text', formData)
         .map((res: Response) => res.text())
         .subscribe((data) => {
         console.log(data);
