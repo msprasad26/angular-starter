@@ -1,19 +1,35 @@
 <div class="row shift-up">
-  <ba-card class="col-xlg-12 col-lg-12 col-md-12 col-sm-12 col-12 " cardTitle="conversation"
+  <ba-card class="col-xlg-6 col-lg-6 col-md-6 col-sm-6 col-6 " cardTitle="Tone Analysis"
            baCardClass="animated fadeIn card traffic-panel medium-card with-scroll">
     <form class="form" [formGroup]="form" (ngSubmit)="onSubmit(form.value)" >
       <div class="row">
-        <div class="form-group col-sm-5" >
-          <label for="textarea01"><h4>Write your questions about Hackathon</h4></label>
+        <div class="form-group col-lg-12" >
+          <label for="textarea01"><h4>Write your text to Analysis</h4></label>
           <textarea [formControl]="text" placeholder="write something..." class="form-control translate" id="textarea01"></textarea>
         </div>
-        <div class="col-sm-2 convertBtn" ><button type="submit" class="btn btn-primary btnCovert">Submit</button> </div>
-        <div class="form-group col-sm-5" >
+        <div class="col-sm-2 convertBtn" ><button type="submit" class="btn btn-primary btnCovert">Test</button> </div>
+        <!--<div class="form-group col-sm-5" >
           <label for="textarea01"><h4>Response</h4></label>
-          <div  placeholder="write something..." class="form-control translate" id="textarea01" >{{data}}</div>
-        </div>
+          <div class="form-control translate" id="textarea01" >{{data}}</div>
+        </div>-->
       </div>
     </form>
+  </ba-card>
+  <ba-card class="col-xlg-6 col-lg-6 col-md-6 col-sm-6 col-6 " cardTitle="Tone Analysis Result"
+    baCardClass="animated fadeIn card traffic-panel medium-card with-scroll">
+<div *ngFor="let item of data">
+  <h4>{{item.category_name}}</h4>
+  <div *ngFor="let tone of item.tones" class="row">
+  <div class="form-group col-sm-6" >
+    <label  >{{tone.tone_name}}</label>
+  </div>
+  <div class="form-group col-sm-6" >
+    <label  >{{tone.score * 100}} % </label>
+  </div>
+  </div>
+
+</div>
+
   </ba-card>
 </div>
 

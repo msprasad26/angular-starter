@@ -16,19 +16,13 @@ export class VisualRecognitionComponent implements OnInit {
               private router: Router,
               private _state: GlobalState
   ) {
-
-
     this._state.subscribe('uploadImg', (img) => {
       this.img = img;
       console.log(this.img);
     });
-
     this._state.subscribe('serviceResponded', (data) => {
       this.data = data;
     });
-
   }
-
   ngOnInit() {}
 }
-

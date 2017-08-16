@@ -136,7 +136,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'Tone Analysis',
-                icon: 'ion-ios-paper'
+                icon: 'ion-chatbox-working'
               }
             }
           }

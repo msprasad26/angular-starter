@@ -31,4 +31,4 @@ Open the dev url in browser: http://localhost:4200
 
 
 ![alt text](src/assets/img/dashboardImg.png)
-![alt text](http://wavelabs.in/wp-content/uploads/2017/05/Wavelabs-logo.png)
+

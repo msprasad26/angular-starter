@@ -22,8 +22,8 @@ export class ToneAnalysisComponent {
     this.text = this.form.controls['text'];
   }
   onSubmit(values) {
-    this.http.get('http://10.9.9.34:5214/chatbot/' + values.text )
+    this.http.get('http://10.9.9.34:5214/toneanalysis?tone=' + values.text )
       .map((res: Response) => res.json())
-      .subscribe( (data) => { this.data = data.output.text; console.log(this.data); })
+      .subscribe( (data) => { this.data = data.document_tone.tone_categories; console.log(this.data); })
   }
 }
