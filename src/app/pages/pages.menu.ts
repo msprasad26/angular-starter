@@ -94,11 +94,20 @@ export const PAGES_MENU = [
         },
         children: [
           {
+            path: 'conversation',
+            data: {
+              menu: {
+                title: 'Conversation',
+                icon: 'ion-chatboxes'
+              }
+            }
+          },
+          {
             path: 'translation',
             data: {
               menu: {
                 title: 'Language Translation',
-                icon: 'ion-ios-paper'
+                icon: 'ion-arrow-swap'
               }
             }
           },
@@ -116,7 +125,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'File Converter',
-                icon: 'ion-ios-copy'
+                icon: 'ion-ios-paper'
               }
             }
           }

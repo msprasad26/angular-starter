@@ -24,6 +24,8 @@ import { UserDashboardModule } from './pages/userDashboard/userDashboard.module'
 import { AdvModule } from './pages/advertisement/adv.module';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 import { LanguageTranslatorModule } from './pages/blueMixServices/languageTranslatorModule/languageTranslator.module';
+import { ConversationModule } from './pages/blueMixServices/ConversationModule/conversation.module';
+
 import { VisualRecognitionModule } from './pages/blueMixServices/VisualRecognitionModule/VisualRecognition.module';
 import { FileConverterModule } from './pages/blueMixServices/FileConverter/fileConverter.module';
 // import { ListerrorModule } from './shared/listerror.module'
@@ -63,7 +65,8 @@ export type StoreType = {
     AdvModule,
     AngularMultiSelectModule,
     LanguageTranslatorModule,
-    FileConverterModule
+    FileConverterModule,
+    ConversationModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS, ApiService, JwtService, Errors

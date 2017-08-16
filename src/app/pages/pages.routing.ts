@@ -53,7 +53,8 @@ export const routes: Routes = [
       { path: 'calander', loadChildren: './calander/calander.module#CalanderModule' },
       { path: 'visualRecognition', loadChildren: './blueMixServices/VisualRecognitionModule/VisualRecognition.module#VisualRecognitionModule'},
       { path: 'translation', loadChildren: './blueMixServices/languageTranslatorModule/languageTranslator.module#LanguageTranslatorModule' },
-      { path: 'fileConverter', loadChildren: './blueMixServices/FileConverter/fileConverter.module#FileConverterModule' }
+      { path: 'fileConverter', loadChildren: './blueMixServices/FileConverter/fileConverter.module#FileConverterModule' },
+      { path: 'conversation', loadChildren: './blueMixServices/ConversationModule/conversation.module#ConversationModule'}
     ]
   }
 ];

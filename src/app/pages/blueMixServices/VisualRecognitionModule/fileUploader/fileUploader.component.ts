@@ -20,9 +20,11 @@ export class FileUploadComponent {
     if (fileCount > 0) { // a file was selected
       for (let i = 0; i < 1; i++) {
         formData.append('file', inputEl.files.item(i));
+        console.log(inputEl.files.item(i).name);
+        this._state.notifyDataChanged('uploadImg', inputEl.files.item(i).name);
       }
       this.http
-        .post('http://10.9.8.196:5214/img', formData)
+        .post('http://10.9.9.34:5214/img', formData)
         .map((res: Response) => res.json())
         .subscribe((data) => {
           console.log(data.images[0]);
