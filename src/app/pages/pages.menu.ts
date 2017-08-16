@@ -81,6 +81,58 @@ export const PAGES_MENU = [
           }
         }
       },
+
+      {
+        path: '',
+        data: {
+          menu: {
+            title: 'BlueMix Services',
+            icon: 'ion-android-playstore',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        },
+        children: [
+          {
+            path: 'conversation',
+            data: {
+              menu: {
+                title: 'Conversation',
+                icon: 'ion-chatboxes'
+              }
+            }
+          },
+          {
+            path: 'translation',
+            data: {
+              menu: {
+                title: 'Language Translation',
+                icon: 'ion-arrow-swap'
+              }
+            }
+          },
+          {
+            path: 'visualRecognition',
+            data: {
+              menu: {
+                title: 'Visual Recognition',
+                icon: 'ion-image'
+              }
+            }
+          },
+          {
+            path: 'fileConverter',
+            data: {
+              menu: {
+                title: 'File Converter',
+                icon: 'ion-ios-paper'
+              }
+            }
+          }
+        ]
+      },
+      
       {
         path: '',
         data: {

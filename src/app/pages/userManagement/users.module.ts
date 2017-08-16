@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DataFilterPipe } from './data-filter.pipe';
 import { DataTableModule } from 'angular2-datatable';
-
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 import { routing } from './users.routing';
 import { NgaModule } from '../../theme/nga.module';

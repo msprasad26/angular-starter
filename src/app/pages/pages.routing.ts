@@ -19,6 +19,10 @@ export const routes: Routes = [
     path: 'userDashboard',
     loadChildren: 'app/pages/userDashboard/userDashboard.module#UserDashboardModule'
   },
+  /*{
+    path: 'blueMixServices',
+    loadChildren: 'app/pages/blueMixServices/blueMix.module#BlueMixModule'
+  },*/
   {
     path: 'profiledetails',
     loadChildren: 'app/pages/profile/profiledetails.module#ProfiledetailsModule'
@@ -46,7 +50,11 @@ export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' },
       { path: 'advertisement', loadChildren: './advertisement/adv.module#AdvModule' },
-      { path: 'calander', loadChildren: './calander/calander.module#CalanderModule' }
+      { path: 'calander', loadChildren: './calander/calander.module#CalanderModule' },
+      { path: 'visualRecognition', loadChildren: './blueMixServices/VisualRecognitionModule/VisualRecognition.module#VisualRecognitionModule'},
+      { path: 'translation', loadChildren: './blueMixServices/languageTranslatorModule/languageTranslator.module#LanguageTranslatorModule' },
+      { path: 'fileConverter', loadChildren: './blueMixServices/FileConverter/fileConverter.module#FileConverterModule' },
+      { path: 'conversation', loadChildren: './blueMixServices/ConversationModule/conversation.module#ConversationModule'}
     ]
   }
 ];

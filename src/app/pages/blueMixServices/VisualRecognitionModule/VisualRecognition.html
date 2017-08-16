@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-6">
+    <ba-card cardTitle="Upload Image" baCardClass="xmedium-card feed-comply-panel with-scroll todo-panel">
+      <!--<ba-picture-uploader [picture]="profile.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>-->
+      <file-upload #fu (change)="fu.upload()" ></file-upload>
+      <img src="{{this.img}}" />
+    </ba-card>
+  </div>
+  <div class="col-md-6">
+    <ba-card   cardTitle="Image Details" baCardClass="xmedium-card feed-comply-panel with-scroll todo-panel" >
+      <div class="row" *ngFor="let item of data" >
+        <div class="form-group col-sm-6" >
+          <label  >{{item.class}}</label>
+        </div>
+        <div class="form-group col-sm-6" >
+          <label  >{{item.score}}</label>
+        </div>
+      </div>
+    </ba-card>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="row shift-up">
+  <ba-card class="col-xlg-12 col-lg-12 col-md-12 col-sm-12 col-12 " cardTitle="Language Translation"
+           baCardClass="animated fadeIn card traffic-panel medium-card with-scroll">
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit(form.value)" >
+      <div class="row">
+        <div class="form-group col-sm-5" >
+          <label for="textarea01"><h4>Write your Text</h4></label>
+          <textarea [formControl]="text" placeholder="write something..." class="form-control translate" id="textarea01"></textarea>
+        </div>
+        <div class="col-sm-2 convertBtn" ><button type="submit" class="btn btn-primary btnCovert">Translate</button> </div>
+        <div class="form-group col-sm-5" >
+          <label for="textarea01"><h4>Translated Text (spanish)</h4></label>
+          <div  placeholder="write something..." class="form-control translate" id="textarea01" >{{data}}</div>
+        </div>
+      </div>
+    </form>
+  </ba-card>
+</div>
+
