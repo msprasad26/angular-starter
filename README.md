@@ -29,6 +29,12 @@ ng serve
 
 Open the dev url in browser: http://localhost:4200
 
+Demo
+-----
+[Demo](http://angular2.app.nbos.io/#/home)
 
 ![alt text](src/assets/img/dashboardImg.png)
 
+How to add Module
+-----------------
+[Add New module](https://docs.google.com/document/d/1Wu7IxqINP3S_Lqt5Q_Vlu3Mr2rw2ti1LP9YHsVY4CDo/edit)

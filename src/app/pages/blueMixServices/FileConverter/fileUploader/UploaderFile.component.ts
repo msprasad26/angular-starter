@@ -24,7 +24,7 @@ export class UploadFileComponent {
         formData.append('file', inputEl.files.item(i));
       }
       this.http
-        .post('http://10.9.8.196:5214/convert?type=text', formData)
+        .post('http://langtest-pusillanimous-notum.au-syd.mybluemix.net/convert?type=text', formData)
         .map((res: Response) => res.text())
         .subscribe((data) => {
         console.log(data);
@@ -32,19 +32,4 @@ export class UploadFileComponent {
         });
     }
   }
-
-/*uploadFile() {
-  if (fileCount > 0) { // a file was selected
-  for (let i = 0; i < 1; i++) {
-  formData.append('file', inputEl.files.item(i));
-}
-this.http
-  .post('http://10.9.9.34:5214/convert?type=text', formData)
-  .map((res: Response) => res.text())
-  .subscribe((data) => {
-    console.log(data);
-    this._state.notifyDataChanged('serviceResponded', data);
-  });
-  }
-}*/
 }

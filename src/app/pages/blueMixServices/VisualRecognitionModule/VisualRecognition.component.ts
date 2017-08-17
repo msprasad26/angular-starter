@@ -11,14 +11,15 @@ import * as _ from 'lodash';
 })
 export class VisualRecognitionComponent implements OnInit {
   data;
-  img;
+  picture;
+  public defaultPicture = 'assets/img/theme/no-photo.png';
   constructor(
               private router: Router,
               private _state: GlobalState
   ) {
     this._state.subscribe('uploadImg', (img) => {
-      this.img = img;
-      console.log(this.img);
+      this.picture = img;
+      console.log(this.picture);
     });
     this._state.subscribe('serviceResponded', (data) => {
       this.data = data;

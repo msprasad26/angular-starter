@@ -22,7 +22,7 @@ export class conversationComponent {
     this.text = this.form.controls['text'];
   }
   onSubmit(values) {
-    this.http.get('http://10.9.9.34:5214/chatbot/' + values.text )
+    this.http.get('http://langtest-pusillanimous-notum.au-syd.mybluemix.net/chatbot/' + values.text )
       .map((res: Response) => res.json())
       .subscribe( (data) => { this.data = data.output.text; console.log(this.data); })
   }
