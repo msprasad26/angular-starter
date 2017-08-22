@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class AdvertisementComponent implements OnInit {
    data;
   public feed: Array<Object>;
+  public buttonshow: boolean= true;
 
   constructor(private feedService: FeedService,
               private advService: AdvService,
@@ -18,16 +19,18 @@ export class AdvertisementComponent implements OnInit {
               private router: Router) {
   }
   ngOnInit() {
+    this.buttonshow = false;
     this._loadFeed();
   }
   expandMessage (message) {
     message.expanded = !message.expanded;
   }
   private _loadFeed() {
-    // this.feed = this.feedService.getData();
+    this.buttonshow = true;
+    $('#loader').show();
     this.advService.getAllAdds().subscribe((feed) => {
       this.feed = feed;
-      console.log(this.feed);
+      $('#loader').hide();
     });
   }
   deleteAdv(id) {
