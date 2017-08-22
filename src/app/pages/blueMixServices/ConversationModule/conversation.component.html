@@ -9,8 +9,21 @@
         </div>
         <div class="col-sm-2 convertBtn" ><button type="submit" class="btn btn-primary btnCovert">Submit</button> </div>
         <div class="form-group col-sm-5" >
+          <div *ngIf="buttonshow" id="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="lading"></div>
+          </div>
           <label for="textarea01"><h4>Response</h4></label>
-          <div  placeholder="write something..." class="form-control translate" id="textarea01" >{{data}}</div>
+          <div  placeholder="write something..." class="form-control translate" id="textarea01" >
+            {{data}}
+          </div>
         </div>
       </div>
     </form>

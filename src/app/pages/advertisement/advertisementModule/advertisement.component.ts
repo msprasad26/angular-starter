@@ -11,21 +11,26 @@ import { Router } from '@angular/router';
 export class AdvertisementComponent implements OnInit {
    data;
   public feed: Array<Object>;
-
+  public buttonshow: boolean= true;
   constructor(private feedService: FeedService,
               private advService: AdvService,
               private jwtService: JwtService,
               private router: Router) {
   }
   ngOnInit() {
+    this.buttonshow = false;
     this._loadFeed();
   }
   expandMessage (message) {
     message.expanded = !message.expanded;
   }
   private _loadFeed() {
+    this.buttonshow = true;
+    $('#loader').show();
+
     // this.feed = this.feedService.getData();
     this.advService.getAllAdds().subscribe((feed) => {
+      $('#loader').hide();
       this.feed = feed;
       console.log(this.feed);
     });

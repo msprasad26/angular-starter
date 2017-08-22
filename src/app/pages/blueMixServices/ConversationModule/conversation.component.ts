@@ -8,10 +8,11 @@ import { FormGroup, AbstractControl, FormBuilder, Validators, FormGroupDirective
   templateUrl: './conversation.component.html',
   styleUrls: ['./conversation.scss']
 })
-export class conversationComponent {
+export class conversationComponent implements OnInit{
   data;
   public form: FormGroup;
   public text: AbstractControl;
+  public buttonshow: boolean= true;
   constructor(private _baConfig: BaThemeConfigProvider,
               public fb: FormBuilder,
               private http: Http) {
@@ -21,9 +22,18 @@ export class conversationComponent {
     });
     this.text = this.form.controls['text'];
   }
+  ngOnInit() {
+  this.buttonshow = false;
+}
   onSubmit(values) {
+    this.buttonshow = true;
+    $('#loader').show();
     this.http.get('http://langtest-pusillanimous-notum.au-syd.mybluemix.net/chatbot/' + values.text )
       .map((res: Response) => res.json())
-      .subscribe( (data) => { this.data = data.output.text; console.log(this.data); })
+      .subscribe( (data) => {
+        $('#loader').hide();
+        this.data = data.output.text;
+        console.log(this.data);
+      })
   }
 }

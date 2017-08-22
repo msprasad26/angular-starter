@@ -17,6 +17,19 @@
   </ba-card>
   <ba-card class="col-xlg-6 col-lg-6 col-md-6 col-sm-6 col-6 " cardTitle="Tone Analysis Result"
     baCardClass="animated fadeIn card traffic-panel medium-card with-scroll">
+
+    <div *ngIf="buttonshow" id="loader">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="lading"></div>
+    </div>
+
 <div *ngFor="let item of data">
   <h4>{{item.category_name}}</h4>
   <div *ngFor="let tone of item.tones" class="row">

@@ -1,4 +1,17 @@
 <div class="feed-messages-container">
+
+  <div *ngIf="buttonshow" id="loader">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="lading"></div>
+  </div>
+
   <div class="feed-message" *ngFor="let message of feed"  >
     <div class="message-icon" *ngIf="message.image">
       <img class="photo-icon" src="{{ ( message.image  ) }}">

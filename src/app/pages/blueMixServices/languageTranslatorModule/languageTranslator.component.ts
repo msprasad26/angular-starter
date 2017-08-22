@@ -8,10 +8,11 @@ import { FormGroup, AbstractControl, FormBuilder, Validators, FormGroupDirective
   templateUrl: './languageTranslator.component.html',
   styleUrls: ['./languageTranslator.scss']
 })
-export class LanguageTranslatorComponent {
+export class LanguageTranslatorComponent implements OnInit{
   data;
   public form: FormGroup;
   public text: AbstractControl;
+  public buttonshow: boolean= true;
   constructor(private _baConfig: BaThemeConfigProvider,
               public fb: FormBuilder,
               private http: Http) {
@@ -21,10 +22,17 @@ export class LanguageTranslatorComponent {
     });
     this.text = this.form.controls['text'];
   }
-
+  ngOnInit(){
+    this.buttonshow = false;
+  }
   onSubmit(values) {
+    this.buttonshow = true;
+    $('#loader').show();
     this.http.get('http://langtest-pusillanimous-notum.au-syd.mybluemix.net/translate?text=' + values.text )
       .map((res: Response) => res.text())
-      .subscribe( (data) => { this.data = data; console.log(this.data); })
+      .subscribe( (data) => {
+        $('#loader').hide();
+        this.data = data;
+      console.log(this.data); });
   }
 }

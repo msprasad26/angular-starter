@@ -8,10 +8,11 @@ import { FormGroup, AbstractControl, FormBuilder, Validators, FormGroupDirective
   templateUrl: './toneAnalysis.component.html',
   styleUrls: ['./toneAnalysis.scss']
 })
-export class ToneAnalysisComponent {
+export class ToneAnalysisComponent implements OnInit{
   data;
   public form: FormGroup;
   public text: AbstractControl;
+  public buttonshow: boolean= true;
   constructor(private _baConfig: BaThemeConfigProvider,
               public fb: FormBuilder,
               private http: Http) {
@@ -21,9 +22,19 @@ export class ToneAnalysisComponent {
     });
     this.text = this.form.controls['text'];
   }
+  ngOnInit(){
+    this.buttonshow = false;
+    $('#loader').hide();
+  }
   onSubmit(values) {
+    this.buttonshow = true;
+    $('#loader').show();
     this.http.get('http://langtest-pusillanimous-notum.au-syd.mybluemix.net/toneanalysis?tone=' + values.text )
       .map((res: Response) => res.json())
-      .subscribe( (data) => { this.data = data.document_tone.tone_categories; console.log(this.data); })
+      .subscribe( (data) => {
+        $('#loader').hide();
+        this.data = data.document_tone.tone_categories;
+        console.log(this.data);
+      })
   }
 }
