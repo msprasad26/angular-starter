@@ -28,11 +28,10 @@ export class AdvertisementComponent implements OnInit {
     this.buttonshow = true;
     $('#loader').show();
 
-    // this.feed = this.feedService.getData();
     this.advService.getAllAdds().subscribe((feed) => {
       $('#loader').hide();
       this.feed = feed;
-      console.log(this.feed);
+      $('#loader').hide();
     });
   }
   deleteAdv(id) {
