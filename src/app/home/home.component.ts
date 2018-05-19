@@ -93,7 +93,7 @@ export class HomeComponent implements OnInit{
                 this.router.navigateByUrl('userDashboard');
               }
             });
-        } ,
+        },
 
         err => {
           this.errors = err;

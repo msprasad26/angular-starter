@@ -18,7 +18,7 @@ export class UserService {
   token() {
     let params = 'client_id=' + `${environment.client_id}` + '&client_secret=' + `${environment.client_secret}`;
     params += '&grant_type=client_credentials';
-    this.apiService.post('/oauth/token', params, 'xform')
+    this.apiService.token('/oauth/token', params, 'xform')
       .subscribe(data => {
         this.jwtService.saveClientToken(data.access_token);
       });
