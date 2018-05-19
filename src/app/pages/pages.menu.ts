@@ -81,7 +81,9 @@ export const PAGES_MENU = [
           }
         }
       },
+
       /* ---------------- Blue Mix ------------*/
+
 
       {
         path: '',
@@ -142,7 +144,7 @@ export const PAGES_MENU = [
           }
         ]
       },
-
+      
       {
         path: '',
         data: {

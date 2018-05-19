@@ -7,11 +7,12 @@
 
 export const environment = {
   production: false,
-  api_url : 'http://api.qa1.nbos.in',
-  client_id: '13261c94-c778-4976-95f3-774b81591352',
-  client_secret: 'web-app-secret',
+  token:'https://api.nbos.io/oauth/token',
+  api_url : 'https://api.nbos.io',
+  client_id: '7dc955a1-3d62-4d7a-9504-843a014d0d42',
+  client_secret: 'test',
   grant_type: 'client_credentials',
-  tenant_id: 'TNT:STA-quvnya91',
+  tenant_id: 'TNT:ANG-twcv3zaw',
   theme: 'mint',        // mint dark blur
 };
 

@@ -64,7 +64,14 @@ export class ApiService {
       .catch(this.formatErrors)
       .map((res: Response) => res.json());
   }
-
+  token(path: string, body: Object = {}, type: string, useToken: Boolean = false): Observable<any> {
+    return this.http.post(
+      `${environment.token}`, body,
+      { headers: this.setHeaders(type) }
+    )
+      .catch(this.formatErrors)
+      .map((res: Response) => res.json());
+  }
   delete(path): Observable<any> {
     return this.http.delete(
       `${environment.api_url}${path}`,
