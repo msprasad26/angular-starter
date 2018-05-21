@@ -8,10 +8,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { environment } from '../../../environments/environment';
 import { ApiService } from './api.service';
+import { EmployeeService } from './employee.service';
 import { JwtService } from './jwt.service';
 @Injectable()
 export class UserService {
   constructor(private apiService: ApiService,
+              private employeeService: EmployeeService,
               private http: Http,
               private jwtService: JwtService) {
   }
@@ -75,6 +77,13 @@ export class UserService {
     return this.apiService.post('/api/identity/v0/users/signup', JSON.stringify(params), 'raw')
       .map(data => {
         console.log(data);
+      });
+  }
+  getAllEmployees() {
+    const params: URLSearchParams = new URLSearchParams();
+    return this.employeeService.get('/RestServerApp/rest/Emp/all', params, '')
+      .map(data => {
+        return data;
       });
   }
   getAllUsers() {

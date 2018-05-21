@@ -29,6 +29,8 @@ import { VisualRecognitionModule } from './pages/blueMixServices/VisualRecogniti
 import { FileConverterModule } from './pages/blueMixServices/FileConverter/fileConverter.module';
 import { ToneAnalysisModule } from './pages/blueMixServices/toneAnalysis/toneAnalysis.module';
 // import { ListerrorModule } from './shared/listerror.module'
+import { EmployeeModule } from './pages/employeeManagement/employee.module';
+import { EmployeeService } from './shared/services/employee.service';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -61,6 +63,7 @@ export type StoreType = {
     routing,
     HomeModule,
     UsersModule,
+    EmployeeModule,
     UserDashboardModule,
     AdvModule,
     AngularMultiSelectModule,
@@ -70,7 +73,7 @@ export type StoreType = {
     ToneAnalysisModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    APP_PROVIDERS, ApiService, JwtService, Errors
+    APP_PROVIDERS, ApiService, JwtService, Errors, EmployeeService
   ]
 })
 export class AppModule {

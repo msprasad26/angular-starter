@@ -23,6 +23,9 @@ export const environmentAdv = {
   client_id: '',
   tenantId: 'TNT:OLX-gz2tq8fy',
 };
+export const environmentEmployee = {
+  api_url: 'http://localhost:8088',
+};
 
 export const environmentTodo = {
   api_url: 'http://php-todo.labs.nbos.io',

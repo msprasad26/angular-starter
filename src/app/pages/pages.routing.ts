@@ -47,6 +47,7 @@ export const routes: Routes = [
       { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
       { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
       { path: 'usersManagement', loadChildren: './userManagement/users.module#UsersModule' },
+      { path: 'employeeManagement', loadChildren: './employeeManagement/employee.module#EmployeeModule' },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'settings', loadChildren: './settings/settings.module#SettingsModule' },
       { path: 'advertisement', loadChildren: './advertisement/adv.module#AdvModule' },

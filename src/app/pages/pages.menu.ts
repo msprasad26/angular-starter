@@ -58,6 +58,18 @@ export const PAGES_MENU = [
         }
       },
       {
+        path: 'employeeManagement',
+        data: {
+          menu: {
+            title: 'Employee Management',
+            icon: 'ion-person-stalker',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
+      {
         path: 'advertisement',
         data: {
           menu: {

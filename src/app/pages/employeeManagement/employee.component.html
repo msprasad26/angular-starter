@@ -1,0 +1,113 @@
+
+<div class="usersManagement">
+
+    <div class="row">
+        <ba-card title="Basic Example" baCardClass="with-scroll" class="data-table-container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label class="label-control">Rows on page</label>
+                    <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
+                    <option [ngValue]="5">5</option>
+                    <option [ngValue]="10">10</option>
+                    <option [ngValue]="15">15</option>
+                </select>
+                </div>
+                <div class="col-sm-4">
+                        <label class="col-sm-12 label-control">Sort by</label>
+                    <div class="row">
+                        <div class="offset-sm-1 col-sm-5">
+                            <div class="row">
+                                <select class="form-control input-sm" [(ngModel)]="sortBy">
+                            <option ngValue="firstName">First Name</option>
+                            <option ngValue="lastName">Last Name</option>
+                            <option ngValue="email">Email</option>
+                                  <option ngValue="phone">Phone</option>
+                           &lt;!&ndash; <option [ngValue]="sortByWordLength">City</option>&ndash;&gt;
+                        </select>
+                            </div>
+                        </div>
+                        <div class="offset-sm-1 col-sm-5">
+                            <div class="row">
+                                <select class="form-control input-sm" [(ngModel)]="sortOrder">
+                            <option ngValue="asc">Ascending</option>
+                            <option ngValue="desc">Descending</option>
+                            <option ngValue="badValue">Bad value</option>
+                        </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+              <div class="offset-sm-1 col-sm-5">
+                <label>
+                  Filter by First Name: </label>
+                  <input class="form-control" [(ngModel)]="filterQuery" />
+
+              </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">User information</div>
+                <table class="table table-striped" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%">
+                                <mfDefaultSorter by="firstName">Employee ID</mfDefaultSorter>
+                            </th>
+                            <th style="width: 30%">
+                                <mfDefaultSorter by="lastName">Employee Name</mfDefaultSorter>
+                            </th>
+                            <th style="width: 40%">
+                                <mfDefaultSorter by="email">Salary</mfDefaultSorter>
+                            </th>
+                          <th style="width: 20%">
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of mf.data">
+                            <td class="getUser" (click)="getUserDetails(item.id)">{{item.firstName}}</td>
+
+                            <td>{{item.lastName}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.phone}}</td>
+                            <td class="text-right">{{item.age}}</td>
+                            <td>{{item.city | uppercase}}</td>
+                          <!--<td>
+                            <button (click)="remove(item)" class="btn btn-danger">x</button>
+                          </td>-->
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </ba-card>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Change Role</h4>
+      </div>
+      <div class="modal-body">
+        <p><angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"></angular2-multiselect>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#myModal">Open Modal</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
